@@ -261,3 +261,10 @@ Read the section(s) matching the client. Each lists the **real outcome** to opti
 ### SaaS / free trial
 - LTV = ARPU × gross margin ÷ monthly churn; LTV:CAC ceiling 3:1. Optimise activated trial where volume allows. Annual-plan paywall test, "no card needed", segment landing pages, signup friction audit; payer lookalikes/retargeting as the Meta role.
 - Cross-domain tracking (marketing site → app) and Stripe offline import are launch gates.
+
+## v0.6.1 additions (Round 4 fixes)
+- **Scale/kill thresholds:** tie them to LTV minus any acquisition discount (allowable CAC), not to historic CAC; state the number.
+- **Define "enquiry":** qualified = reachable (valid phone/WhatsApp) and in-area; fix unreachable-lead leaks (verify numbers, OTP, WhatsApp-first forms) before judging cost per enquiry. Reply targets: 5 minutes for high-ticket leads, 15 minutes otherwise.
+- **Space/subscription operators:** add LinkedIn ABM and plan-type keyword themes (private office, dedicated desk) beside retargeting; do not list them only under "other".
+- **Marketplaces:** exclude markets with no supply (e.g. sanctioned or unsupported languages); read cost by language and market, with kill thresholds set from per-market allowable CPA; add buyer lookalikes and referral loops.
+- **Weddings/seasonal services with fixed inventory:** offer weekday and smaller packages and early-bird dates; record the lead split by service line; weight budget toward the city with more open dates.

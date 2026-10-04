@@ -42,7 +42,7 @@ Platform rules change monthly. The plugin checks policy and platform changes liv
 The look lives in `references/html/plan-template.html`. Edit the design tokens at the top of its `<style>` block (font, `--brand` colour, `--flow-base-h` flow height, card widths) or the layout itself. Plans keep working as long as the `/*__PLAN_DATA__*/` placeholder stays. The data format is in `references/html-output.md`.
 
 ## Continuation plan (for a cloud session)
-Status at v0.6.0 (4 Oct 2026): plugin built and rules updated after Round 3.
+Status at v0.6.1 (4 Oct 2026): plugin built and rules updated after Round 4.
 
 | Test | Version | Score |
 |---|---|---|
@@ -56,8 +56,9 @@ Status at v0.6.0 (4 Oct 2026): plugin built and rules updated after Round 3.
 | Set B re-run (Round 2b) | v0.5.3 | 48/56 = 85.7% |
 | Set B re-run (Round 2c) | v0.5.4 | 49.5/56 = 88.4% |
 | Fresh Set C (Round 3) | v0.5.5 | 47.5/59 = 80.5% |
+| Fresh Set D (Round 4) | v0.6.0 | 54.0/59 = 91.5% (all traps passed) |
 
-**Round 1 is complete and graded** (`dev/evals/grade_r1_S.md`, `grade_r1_A.md`; runs in `dev/evals/runs/r1_*.md`). v0.5.2 applies its fixes. **Round 2 (Set B on v0.5.2) is complete and graded at 82.1%** (`dev/evals/grade_r2_B.md`; runs in `dev/evals/runs/r2_*.md`). v0.5.3 applies its fixes. Re-runs of Set B scored 85.7% (v0.5.3) and 88.4% (v0.5.4). **Round 3 (fresh Set C on v0.5.5) scored 80.5%** (`dev/evals/grade_r3_C.md`); v0.6.0 applies its fixes. **Next: a fresh Set D to test v0.6.0 (Set B is now tuned-to; run-to-run noise is about ±1.5 points). The 92% target has not yet been met on a fresh set since v0.5.1 Set A.**
+**Round 1 is complete and graded** (`dev/evals/grade_r1_S.md`, `grade_r1_A.md`; runs in `dev/evals/runs/r1_*.md`). v0.5.2 applies its fixes. **Round 2 (Set B on v0.5.2) is complete and graded at 82.1%** (`dev/evals/grade_r2_B.md`; runs in `dev/evals/runs/r2_*.md`). v0.5.3 applies its fixes. Re-runs of Set B scored 85.7% (v0.5.3) and 88.4% (v0.5.4). **Round 3 (fresh Set C on v0.5.5) scored 80.5%** (`dev/evals/grade_r3_C.md`); v0.6.0 applies its fixes. **Round 4 (fresh Set D on v0.6.0) scored 91.5%** (`dev/evals/grade_r4_D.md`), 0.3 points under the 92% target; v0.6.1 applies its small fixes (untested). **Next: a fresh Set E to test v0.6.1 (earlier note: a fresh Set D to test v0.6.0 (Set B is now tuned-to; run-to-run noise is about ±1.5 points). The 92% target has not yet been met on a fresh set since v0.5.1 Set A.**
 
 **Hard rules (do not change):** never add or push anything to the Iugale Workspace unless Deepak says so; plugin stays independent of other Iugale skills; no ad-account connections (aggregate numbers only, no lead PII); push only to this repo's `main` when asked.
 
@@ -87,6 +88,8 @@ Estimated time in a cloud session: about 55–60 minutes.
 - Runner agents must not open files with "key" in the name or any `grade_*` file.
 
 ## Changelog
+**0.6.1 (4 Oct 2026)**: Round 4 fixes (fresh Set D 91.5%): LTV-based scale thresholds, qualified-enquiry definition and reply targets, space-operator, marketplace and fixed-inventory service rules.
+
 **0.6.0 (4 Oct 2026)**: Round 3 fixes (fresh Set C 80.5%): playbooks for hotels, multi-outlet restaurants, financial advisory, healthcare/fertility, B2B export and SaaS; new `references/claims-and-compliance.md`; staged-start, 3:1 LTV:CAC verdict, capacity weighting and a final minimum-budget ladder; booking-widget and offline-sales tracking; more derived benchmarks and intake questions. Not yet re-tested on a fresh set.
 
 **0.5.5 (4 Oct 2026)**: Round 2c fixes (Set B 88.4%): Arabic fund-vs-park conflict resolved, GBP gate, email Custom Audience, event keywords, NGO seasonality and funded retargeting, soft-metro weighting, minimum-budget ladder, no-pixel status, WhatsApp lead marking, special-category consistency, launch creative spec.
