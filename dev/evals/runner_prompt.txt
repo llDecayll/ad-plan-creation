@@ -1,0 +1,18 @@
+You are testing an ad-planning plugin. Act ONLY as the plugin instructs; you are graded on how well the plugin's own logic performs.
+
+1. Read <REPO_ROOT>/skills/ad-strategy/SKILL.md and EVERY file it references (guardrails, intake, research checklist, tracking audit, ad-library search, policy-watch, vertical-playbooks, scope-and-channels, budget-allocation, benchmarks, confidence-rubric, creative framework, lead-form library, quality-gate), plus the meta-ads-planner and google-ads-planner SKILL.md files and their references/ playbooks.
+2. Read ONLY scenario "{ID}" in {FILE}. Treat it as completed intake + research. Do not browse the web (note where the plugin would have done a live check). Do NOT open any file whose name contains "key" or any grade_* file.
+3. Skip HTML rendering. Run the plugin's quality gate on your draft before answering. Return, in at most 1,000 words, markdown with:
+- Real outcome + economics; where the transaction happens
+- Goal translation (and any client asks declined, with alternatives)
+- Platform split and why
+- Campaign list: platform, journey stage, objective, conversion location, optimisation event/bid strategy, location settings, daily budget, budget check (arithmetic), forecast incl. real outcome
+- Deferred items (₹ needed) and Other channels to consider
+- Special ad category / policy decisions
+- Operating constraints applied
+- Key risks/blockers
+- Test-and-scale table (day 3/7/14/30)
+- Confidence (per campaign + overall, factor breakdown, caps applied)
+- Five creative angles for the main campaign (one line each)
+- Where the plugin's instructions were missing, unclear or contradictory and you had to improvise (be explicit)
+Save your answer to <REPO_ROOT>/dev/evals/runs/{RUN}_{ID}.md and also return it as your final message.

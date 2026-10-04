@@ -41,6 +41,38 @@ Platform rules change monthly. The plugin checks policy and platform changes liv
 ## Changing the design
 The look lives in `references/html/plan-template.html`. Edit the design tokens at the top of its `<style>` block (font, `--brand` colour, `--flow-base-h` flow height, card widths) or the layout itself. Plans keep working as long as the `/*__PLAN_DATA__*/` placeholder stays. The data format is in `references/html-output.md`.
 
+## Continuation plan (for a cloud session)
+Status at v0.5.1 (4 Oct 2026): plugin built, rules in. Blind-test scores so far: original regression set 89.8% (v0.4), fresh Set A 89.8% (v0.4). Round-1 runs on v0.5.1 (S1–S5, A1–A6) are done and saved in `dev/evals/runs/r1_*.md` but **not yet graded**. Set B (B1–B3) ran on v0.5 (`v05_B*.md`), ungraded; B4–B6 not run.
+
+**Hard rules (do not change):** never add or push anything to the Iugale Workspace unless Deepak says so; plugin stays independent of other Iugale skills; no ad-account connections (aggregate numbers only, no lead PII); push only to this repo's `main` when asked.
+
+### Steps
+1. **Grade Round 1.** Two independent grader agents: one for S1–S5 against `dev/evals/setS_key.md`, one for A1–A6 against `setA_key.md`. Save to `dev/evals/grade_r1_S.md` and `grade_r1_A.md`. Target ≥ 92%.
+2. **Fix round 1.** Apply the gaps reported (see "Known open gaps"), bump to 0.5.2, validate (`claude plugin validate .`).
+3. **Round 2: Set B.** Run B1–B6 blind with `dev/evals/runner_prompt.txt` (replace `<REPO_ROOT>`; ID, FILE, RUN set per run). Run 3–4 agents at a time. Grade against `setB_key.md`, fix, bump to 0.5.3.
+4. **Round 3: fresh Set C.** Have an independent agent write 6 new scenarios and a key (different goals/industries: e.g. SaaS free-trial, restaurant chain, legal/financial advisory, tourism/hospitality, B2B manufacturing export, healthcare multi-clinic). Run blind, grade, fix, bump to 0.6.0. Stop when two consecutive rounds gain < 1 point.
+5. **Final.** Update the changelog, regenerate the example plan with `scripts/render_plan.py`, run `claude plugin validate .`, zip (exclude `dev/`), push to `main`, attach `.plugin` and `.zip`.
+
+Estimated time in a cloud session: about 55–60 minutes.
+
+### Known open gaps (from graded runs)
+- D2C: break-even rule applied inconsistently (playbook subtracts shipping/RTO; v0.5 says base margin only); Standard Shopping vs PMax overlap; retargeting vs existing-customer cap when pool size unknown; brand Search without data.
+- Test cap vs 3× CPR minimum (which wins, what counts as the "total"); learning-limited tier for Google.
+- "Capped score widens band" is ambiguous (use one step: ±35% → ±50%).
+- Lending/credit: always state the declaration vs "not required, do not opt in" wording; no lending benchmarks; take-up rate anchor; Google suspension process.
+- Apps: no Google App campaign section; "events exist, not linked" has no score mapping; iOS SKAN rules; unspent buffer and 7-day trial lag in day-14 gates.
+- Diaspora/NRI: scope-and-channels says "living in", policy-watch says interest-based; reconcile to one rule.
+- Hard boundary with several pins vs "prefer one radius"; US special categories override hard boundary (15-mile minimum).
+- Quality gate: "five creatives per funded campaign" cannot fit a 1,000-word answer cap (the HTML board has no such cap; keep, but let test answers give one line each).
+- Recruitment: no lead-form library section (knock-out questions); no US RN benchmark; no ATS-on-external-domain tracking path.
+- Multi-state, multi-language splitting (education); minor-protection settings; capacity sizing.
+- Awareness campaigns: tracking score and per-campaign real-outcome forecast (partly fixed in 0.5.1).
+
+### Repo layout
+- Plugin: `.claude-plugin/`, `skills/`, `references/`, `scripts/`, `examples/`.
+- Dev only (exclude from the packaged plugin): `dev/evals/` (scenarios, answer keys, runner prompt, grades, run outputs).
+- Runner agents must not open files with "key" in the name or any `grade_*` file.
+
 ## Changelog
 **0.5.1 (4 Oct 2026)**: added UAE/KSA/UK/US/AU/NZ planning anchors, reach and funnel benchmarks, FMCG/beverage, third-party-ticketing events and Gulf-language playbooks, awareness tracking scoring, caffeine/alcohol and UAE/KSA policy notes.
 
