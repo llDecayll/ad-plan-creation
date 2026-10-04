@@ -1,0 +1,677 @@
+{
+ "meta": {
+  "client": "Agrovest",
+  "title": "Paid Ads Plan: Landowner Listings",
+  "date": "4 Oct 2026",
+  "overallConfidence": 58,
+  "headline": "Spend ₹500/day on one Meta click-to-WhatsApp campaign for Karnataka landowners. Google Search waits as Phase 2 until budget grows and owners can list without an account.",
+  "chips": [
+   [
+    "Goal",
+    "Landowner listings"
+   ],
+   [
+    "Budget",
+    "₹500/day"
+   ],
+   [
+    "Location",
+    "Karnataka · hard"
+   ],
+   [
+    "Platforms",
+    "Meta now · Google Phase 2"
+   ]
+  ],
+  "footer": "Prepared by Iugale Services Pvt Ltd with the Ad Creation plugin v0.3.0. Benchmarks are planning estimates, not facts."
+ },
+ "stages": [
+  "Awareness",
+  "Consideration",
+  "Conversion",
+  "Retention"
+ ],
+ "flows": [
+  {
+   "id": "meta-wa",
+   "platform": "meta",
+   "channel": "WhatsApp",
+   "stage": "Conversion",
+   "objective": "Leads",
+   "goal": "Landowners start a WhatsApp chat to list their farmland.",
+   "budget": "₹500/day",
+   "confidence": 58,
+   "status": "launch",
+   "forecast": [
+    [
+     "Cost per conversation",
+     "₹50-150",
+     "Benchmark; no Agrovest data",
+     50
+    ],
+    [
+     "Conversations / month",
+     "100-300",
+     "₹15,000 ÷ cost range",
+     50
+    ],
+    [
+     "Qualified owners / month",
+     "20-75",
+     "≈20-25% of conversations",
+     40
+    ],
+    [
+     "Listings created",
+     "10-40",
+     "Depends on follow-up speed",
+     40
+    ]
+   ],
+   "campaign": {
+    "name": "AGV | Meta | Leads | WhatsApp | KA Landowners",
+    "headline": "Leads → WhatsApp",
+    "optimise": "Maximise conversations",
+    "sub": "Manual Leads · CBO · Highest volume",
+    "settings": [
+     [
+      "Objective",
+      "Leads",
+      "Optimise for owners who message, not reach",
+      85
+     ],
+     [
+      "Setup",
+      "Manual Leads campaign",
+      "One conversion location; tight control on a small budget",
+      70
+     ],
+     [
+      "Special ad category",
+      "None",
+      "Housing is required only for US/Canada/Europe audiences; farmland sourcing isn't a home listing",
+      85
+     ],
+     [
+      "Securities declaration",
+      "No",
+      "Ads don't offer securities; keep return language out",
+      75
+     ],
+     [
+      "Budget",
+      "Advantage campaign budget ₹500/day",
+      "",
+      80
+     ],
+     [
+      "Bid strategy",
+      "Highest volume",
+      "No cost data yet",
+      85
+     ]
+    ],
+    "raise": [
+     "WhatsApp number live and answered within 5 minutes (+6)",
+     "Site claims fixed (+3)",
+     "2 weeks of own cost data (+8)"
+    ],
+    "notes": [
+     "Blocker 1: no WhatsApp number on the site; replies promised within 24h.",
+     "Blocker 2: '500+ listings / 10K+ users' vs ~44 listings shown.",
+     "Blocker 3: confirm whether verification is free."
+    ]
+   },
+   "adsets": [
+    {
+     "name": "Karnataka landowners · broad",
+     "confidence": 66,
+     "facts": [
+      [
+       "💬",
+       "WhatsApp · conversations"
+      ],
+      [
+       "📍",
+       "Karnataka · living in"
+      ],
+      [
+       "👥",
+       "Advantage+ · 30-65"
+      ]
+     ],
+     "settings": [
+      [
+       "Conversion location",
+       "WhatsApp (Agrovest Business number)",
+       "Login wall + English-only site",
+       70
+      ],
+      [
+       "Performance goal",
+       "Maximise number of conversations",
+       "Switch in a duplicate after 50+ if quality is poor",
+       80
+      ],
+      [
+       "Location",
+       "Karnataka · People living in · expansion OFF",
+       "Hard boundary",
+       66
+      ],
+      [
+       "Audience",
+       "Advantage+ on; age suggestion 30-65",
+       "",
+       70
+      ],
+      [
+       "Detailed targeting",
+       "None / light suggestions",
+       "Narrow interests removed in 2025-26",
+       70
+      ],
+      [
+       "Placements",
+       "Advantage+; exclude Audience Network, Messenger inbox",
+       "",
+       70
+      ],
+      [
+       "Schedule",
+       "Always on",
+       "",
+       75
+      ]
+     ],
+     "scriptTitle": "WhatsApp greeting + first reply",
+     "script": "Greeting: Hi Agrovest, I want to list my farmland for sale. [AGV-KA1]\nQuick replies: Below 2 acres · 2-10 acres · 10+ acres · Just want a price estimate\n\nFirst reply (within 5 min):\n1. Greet in Kannada/English; confirm free listing, zero brokerage.\n2. Village, taluk, district; acres; crop and water.\n3. Land in your name / joint family / inherited?\n4. 3-5 photos + RTC/Pahani photo (optional).\n5. Expected price, or offer the AI estimate; timeline.\n6. Agree next step: field visit or assisted listing.",
+     "ads": [
+      {
+       "name": "Broker commission pain",
+       "format": "video",
+       "ratio": "9:16",
+       "angle": "Pain / problem",
+       "color": "linear-gradient(140deg,#E0465B,#7C3AED)",
+       "why": "Movement and a human face stop the scroll; the broker problem is felt, not read.",
+       "prompt": "Vertical 9:16 photoreal video, handheld phone feel, natural daylight. 0-2s: close-up of a 55-year-old Kannadiga farmer in a cotton shirt at the edge of his red-soil coconut farm, phone buzzing repeatedly. 2-7s: quick cuts of a dusty village road, a broker on a scooter pointing at the land, the farmer shaking his head. 7-10s: farmer sits on a stone bench and sends a WhatsApp message; his face relaxes. 10-12s: end card on forest green with a small Agrovest logo and a WhatsApp icon. Warm documentary tone, soft acoustic music. Avoid fake currency, other brands' logos, distorted hands.",
+       "onscreen": "0-2s: ಬ್ರೋಕರ್ ಕಮಿಷನ್ 2-3%? (Broker commission 2-3%?)\n7s: ಜೀರೋ ಬ್ರೋಕರೇಜ್ (Zero brokerage)\nEnd card: Agrovest-ನಲ್ಲಿ ಉಚಿತವಾಗಿ ಲಿಸ್ಟ್ ಮಾಡಿ (List free on Agrovest)",
+       "primaryText": "ನಿಮ್ಮ ಜಮೀನು ಮಾರಾಟಕ್ಕೆ ಬ್ರೋಕರ್ ಬೇಡ. Agrovest-ನಲ್ಲಿ ಉಚಿತವಾಗಿ ಲಿಸ್ಟ್ ಮಾಡಿ, 100% ಹಣ ನಿಮ್ಮದೇ. 👉 WhatsApp ಮಾಡಿ.\n(No broker needed to sell your land. List free on Agrovest; 100% of the money is yours.)",
+       "headline": "Sell Your Farmland. Zero Brokerage.",
+       "cta": "Send WhatsApp message",
+       "outcome": "Highest hook rate and volume; may attract curious owners. Judge on cost per conversation and qualified %.",
+       "policy": "No return or guaranteed-price claims; no unverified buyer counts."
+      },
+      {
+       "name": "3-step verified process",
+       "format": "video",
+       "ratio": "9:16",
+       "angle": "Process / authority",
+       "why": "Shows exactly what happens after the message, removing the 'is this a scam' fear.",
+       "prompt": "Vertical 9:16 video, clean and bright. 0-2s: phone screen showing a WhatsApp chat opening with 'Hi Agrovest, I want to list my land'. 2-6s: an Agrovest field officer in a green polo walking a mango orchard with a tablet, photographing a borewell and boundary stone. 6-10s: officer checks a land record printout with the owner at a village house. 10-13s: animated listing card with 'Agrovest Score' and a verified tick. 13-15s: end card. Captions on every beat. Real Karnataka village, red soil, coconut and mango trees. No readable document numbers or names.",
+       "onscreen": "1. WhatsApp ಮಾಡಿ (WhatsApp us)\n2. ಫೀಲ್ಡ್ ವೆರಿಫಿಕೇಶನ್ (Field verification)\n3. 48 ಗಂಟೆಯಲ್ಲಿ ಲೈವ್ (Live in 48 hours)",
+       "primaryText": "3 ಸರಳ ಹಂತ: WhatsApp ಮಾಡಿ → ನಮ್ಮ ತಂಡ ನಿಮ್ಮ ಜಮೀನನ್ನು ಪರಿಶೀಲಿಸುತ್ತದೆ → ಖರೀದಿದಾರರಿಗೆ ಲಿಸ್ಟಿಂಗ್ ಲೈವ್.\n(3 simple steps: WhatsApp us → our team verifies your land → listing goes live to buyers.)",
+       "headline": "We Verify. You Sell. No Broker.",
+       "cta": "Send WhatsApp message",
+       "outcome": "Fewer but warmer conversations; best for qualified %.",
+       "policy": "Only claim free verification once confirmed."
+      },
+      {
+       "name": "Free listing offer",
+       "format": "image",
+       "ratio": "4:5",
+       "angle": "Offer",
+       "color": "linear-gradient(140deg,#0E9F6E,#0866FF)",
+       "why": "A clear offer card tests the core proposition in isolation and is fast to produce.",
+       "prompt": "Photoreal 4:5 image: wide golden-hour shot of a green arecanut and coconut farm in Karnataka with red-soil paths; top third clear sky for text. Lower third: soft forest-green gradient band. Editorial, aspirational, not stock-looking. Small Agrovest logo bottom-left. Export a 9:16 version with text inside the central safe zone.",
+       "onscreen": "ಜಮೀನು ಮಾರಾಟ? ಉಚಿತ ಲಿಸ್ಟಿಂಗ್ (Selling land? Free listing)\n₹0 ಬ್ರೋಕರೇಜ್ · ಫೀಲ್ಡ್ ವೆರಿಫಿಕೇಶನ್ · AI ಬೆಲೆ ಅಂದಾಜು",
+       "primaryText": "ಕೃಷಿ ಜಮೀನು ಮಾರಾಟ ಮಾಡಬೇಕೇ? Agrovest-ನಲ್ಲಿ ಉಚಿತ ಲಿಸ್ಟಿಂಗ್ + AI ಬೆಲೆ ಅಂದಾಜು. WhatsApp-ನಲ್ಲಿ ವಿವರ ಕಳುಹಿಸಿ.",
+       "headline": "Free Farmland Listing + Price Estimate",
+       "cta": "Send WhatsApp message",
+       "outcome": "Baseline performer; cleanest read on whether the offer works.",
+       "policy": "Confirm 'free' scope before launch."
+      },
+      {
+       "name": "Inherited village land",
+       "format": "image",
+       "ratio": "4:5",
+       "angle": "Identity",
+       "color": "linear-gradient(140deg,#F59E0B,#E0465B)",
+       "why": "Speaks to Bangalore professionals holding inherited village land.",
+       "prompt": "Photoreal 4:5 image: a 40-year-old Indian professional on a Bangalore apartment balcony at dusk, laptop open, looking at a phone photo of his family's ancestral farmland (paddy field, tiled-roof farmhouse). City lights behind. Warm, reflective mood. Top 25% clear for text. No brand logos on devices.",
+       "onscreen": "Own ancestral farmland back home?\nSell it without weekend trips to the village.",
+       "primaryText": "Inherited farmland in your native village? List it free on Agrovest. Our field team visits, verifies and photographs it, so you don't have to travel. Zero brokerage. WhatsApp us your land's location.",
+       "headline": "Your Village Land, Sold Without the Travel",
+       "cta": "Send WhatsApp message",
+       "outcome": "Higher-value owners, better reply rates; smaller audience.",
+       "policy": "—"
+      },
+      {
+       "name": "Documents objection",
+       "format": "carousel",
+       "ratio": "4:5",
+       "angle": "Objection-killer",
+       "color": "linear-gradient(140deg,#0F766E,#155E75)",
+       "why": "Documents are the #1 reason owners delay; a swipe sequence answers it step by step.",
+       "prompt": "Four 4:5 cards, flat-lay photo style on a wooden table. 1: stack of generic land papers (no readable text) with reading glasses. 2: phone sending a WhatsApp photo. 3: field officer's hand with a checklist. 4: green 'Listing Live' badge over a farm photo. Forest-green accents; one short line per card.",
+       "onscreen": "C1 ಡಾಕ್ಯುಮೆಂಟ್ ಪೂರ್ಣವಾಗಿಲ್ಲವೇ? (Documents not complete?)\nC2 RTC/ಪಹಣಿ ಫೋಟೋ ಕಳುಹಿಸಿ (Send an RTC/Pahani photo)\nC3 ಏನು ಬೇಕು ಎಂದು ನಾವು ಹೇಳುತ್ತೇವೆ (We tell you what's needed)\nC4 ನಂತರ ಉಚಿತ ಲಿಸ್ಟಿಂಗ್ (Then a free listing)",
+       "primaryText": "ಜಮೀನಿನ ದಾಖಲೆಗಳ ಬಗ್ಗೆ ಗೊಂದಲವೇ? RTC/ಪಹಣಿ ಫೋಟೋ WhatsApp ಮಾಡಿ, ಯಾವ ದಾಖಲೆ ಬೇಕು ಎಂದು ನಮ್ಮ ತಂಡ ತಿಳಿಸುತ್ತದೆ.",
+       "headline": "Not Sure About Your Papers? Ask Us.",
+       "cta": "Send WhatsApp message",
+       "outcome": "Unlocks hesitant owners; slower to convert. Judge on conversations with documents shared.",
+       "policy": "No legal opinions in chat."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "google-search",
+   "platform": "google",
+   "channel": "Search",
+   "stage": "Conversion",
+   "objective": "Leads",
+   "goal": "Catch owners already searching to sell agricultural land.",
+   "budget": "₹500-700/day",
+   "confidence": 55,
+   "status": "planned",
+   "statusLabel": "Phase 2",
+   "forecast": [
+    [
+     "CPC",
+     "₹15-60",
+     "Benchmark",
+     45
+    ],
+    [
+     "Conversion rate",
+     "4-10%",
+     "Needs a no-login form",
+     40
+    ],
+    [
+     "Cost per lead",
+     "₹150-1,500",
+     "CPC ÷ conversion rate",
+     40
+    ]
+   ],
+   "campaign": {
+    "name": "AGV | Google | Search | Sell Farmland",
+    "headline": "Search → Lead form",
+    "optimise": "Maximise conversions",
+    "sub": "Search only · AI Max off at launch",
+    "settings": [
+     [
+      "Trigger",
+      "Extra ₹500-700/day + no-login form + Google Ads conversion firing",
+      "",
+      null
+     ],
+     [
+      "Networks",
+      "Search only; partners off",
+      "",
+      70
+     ],
+     [
+      "Location",
+      "Karnataka · Presence",
+      "Hard boundary",
+      70
+     ],
+     [
+      "Bidding",
+      "Maximise conversions → tCPA after ~30 conv/month",
+      "",
+      70
+     ],
+     [
+      "Assets",
+      "Lead form, call (business hours), 4 sitelinks, callouts",
+      "",
+      70
+     ]
+    ],
+    "notes": [
+     "Starter negatives: buy, purchase, for sale near me, loan, rules, tax, stamp duty, registration, conversion, lease, rent, jobs, course, pdf, subsidy."
+    ]
+   },
+   "adsets": [
+    {
+     "name": "Sell farmland online",
+     "confidence": 55,
+     "facts": [
+      [
+       "⌕",
+       "Phrase + exact"
+      ],
+      [
+       "📝",
+       "Lead form asset"
+      ],
+      [
+       "📍",
+       "Karnataka · presence"
+      ]
+     ],
+     "settings": [
+      [
+       "Keywords",
+       "\"sell agricultural land online\", \"sell my agricultural land\", \"sell farm land online\", [sell my farmland]"
+      ]
+     ],
+     "ads": [
+      {
+       "name": "RSA · zero brokerage",
+       "format": "search",
+       "ratio": "RSA",
+       "angle": "Offer",
+       "prompt": "Headlines: List Your Farmland Free | Sell Farmland Without Brokers | Zero Brokerage. Keep 100% | Get an AI Price Estimate | Reach Serious Farmland Buyers | Live in 48 Hours | Check Your Land Documents | No Commission on Your Sale | Sell Your Land on Agrovest\nDescriptions: List your agricultural land free. Zero brokerage, you keep 100% of the sale. / Our field team verifies your land and documents so buyers trust your listing.",
+       "outcome": "Captures active sellers; low volume."
+      }
+     ]
+    },
+    {
+     "name": "Sell land Karnataka",
+     "confidence": 55,
+     "facts": [
+      [
+       "⌕",
+       "Phrase + exact"
+      ],
+      [
+       "📍",
+       "Bangalore, Mysore"
+      ]
+     ],
+     "settings": [
+      [
+       "Keywords",
+       "\"sell agricultural land in karnataka\", \"sell farm land bangalore\", \"sell land near bangalore\", \"sell agricultural land mysore\""
+      ]
+     ],
+     "ads": [
+      {
+       "name": "RSA · local",
+       "format": "search",
+       "ratio": "RSA",
+       "angle": "Local proof",
+       "prompt": "Headlines: Karnataka Farmland Sellers | Sell Land Near Bangalore | Free Field Verification* | Agrovest Score Builds Trust …",
+       "outcome": "Higher intent, higher CPC."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "meta-rt",
+   "platform": "meta",
+   "channel": "Retargeting",
+   "stage": "Consideration",
+   "objective": "Engagement → Leads",
+   "goal": "Re-reach owners who watched the videos or engaged but didn't message.",
+   "budget": "From ₹300/day",
+   "confidence": 45,
+   "status": "planned",
+   "statusLabel": "Later",
+   "campaign": {
+    "name": "AGV | Meta | Retarget | Engaged owners",
+    "headline": "Retarget → WhatsApp",
+    "optimise": "Maximise conversations",
+    "sub": "Needs 3,000+ engaged people",
+    "settings": [
+     [
+      "Trigger",
+      "3,000+ video viewers/engagers in 30 days and budget ≥ ₹800/day total",
+      "",
+      null
+     ],
+     [
+      "Audience",
+      "Original audience options (Advantage+ off): 50% video viewers + profile engagers, exclude people who messaged",
+      "True retargeting needs Advantage+ audience off",
+      60
+     ]
+    ]
+   },
+   "adsets": []
+  }
+ ],
+ "sections": [
+  {
+   "title": "Summary",
+   "blocks": [
+    {
+     "type": "list",
+     "title": "Top 3 blockers",
+     "items": [
+      "WhatsApp number live and answered within minutes, in Kannada and English.",
+      "Fix site claims: '500+ verified listings / 10K+ users' vs ~44 listings and many 'Verification Pending'.",
+      "Confirm what's free (verification, Agrovest Score) before ads promise it."
+     ]
+    },
+    {
+     "type": "list",
+     "title": "Assumptions",
+     "items": [
+      "Placements left to the planner.",
+      "No offer beyond what the site states.",
+      "No past ad data (no Agrovest ads in Meta Ad Library)."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Confidence",
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      "Item",
+      "Score",
+      "Main reason",
+      "What would raise it"
+     ],
+     "scoreCol": 1,
+     "rows": [
+      [
+       "Overall plan",
+       "58",
+       "Tiny budget, no own data, WhatsApp not set up, claims mismatch",
+       "→ ~75 with WhatsApp staffed, claims fixed, 2 weeks of data"
+      ],
+      [
+       "Meta only (no Google now)",
+       "78",
+       "₹500/day can't fund two learning units",
+       "→ 85 with Keyword Planner volumes"
+      ],
+      [
+       "Conversion location: WhatsApp",
+       "70",
+       "Login wall, English-only site",
+       "→ 82 when the number is live"
+      ],
+      [
+       "Location: Karnataka first",
+       "66",
+       "Verification capacity and office",
+       "→ 78 when districts are confirmed"
+      ],
+      [
+       "Budget sufficiency",
+       "55",
+       "3-10 conversations/day",
+       "→ 70 at ₹700-800/day"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Research",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Tracking audit",
+     "headers": [
+      "Tool",
+      "Status",
+      "How checked"
+     ],
+     "rows": [
+      [
+       "GTM-WLSLFZWC",
+       "Configured",
+       "Page source + container read"
+      ],
+      [
+       "GA4 G-33P6WE239D",
+       "Configured, firing unverified",
+       "Found in GTM container; ad blocker active in audit browser"
+      ],
+      [
+       "Meta Pixel",
+       "Not found",
+       "Page source + GTM container"
+      ],
+      [
+       "Google Ads tag",
+       "Not found",
+       "Page source + GTM container"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Competitors (relevant ads only)",
+     "headers": [
+      "Who",
+      "Approach",
+      "Takeaway"
+     ],
+     "rows": [
+      [
+       "Bangalore land brokers/developers",
+       "Meta, WhatsApp/call, '1-100 acres near Bangalore'",
+       "Same owner pool; Agrovest wins on zero brokerage"
+      ],
+      [
+       "Regional brokers (Telugu, Hindi/Urdu)",
+       "Instant forms, local language",
+       "Local language + WhatsApp is the norm"
+      ],
+      [
+       "1acre.in",
+       "Google Ads; free listing",
+       "Closest platform rival"
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "title": "Market",
+     "items": [
+      "Kharif harvest Oct-Nov; Diwali 8 Nov 2026.",
+      "Urban owners of inherited village land are a reachable, digital segment."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Tracking & URLs",
+   "blocks": [
+    {
+     "type": "code",
+     "title": "Meta URL parameters (future website ads)",
+     "text": "utm_source=meta&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_term={{adset.name}}&placement={{placement}}"
+    },
+    {
+     "type": "code",
+     "title": "Google final URL suffix (Phase 2)",
+     "text": "utm_source=google&utm_medium=cpc&utm_campaign={_campaign}&utm_term={keyword}&utm_content={creative}&matchtype={matchtype}&device={device}&campaignid={campaignid}"
+    },
+    {
+     "type": "list",
+     "items": [
+      "WhatsApp attribution: campaign code per ad (AGV-KA1…KA5) in the greeting.",
+      "Add Meta Pixel via GTM; confirm GA4 firing in GTM Preview."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Policy",
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      "Item",
+      "Decision",
+      "Checked"
+     ],
+     "rows": [
+      [
+       "Meta housing category",
+       "Not required (US/Canada/Europe only); don't opt in",
+       "Meta Marketing API docs, 4 Oct 2026"
+      ],
+      [
+       "Securities declaration",
+       "Answer No; no return claims",
+       "Plugin baseline"
+      ],
+      [
+       "Claims",
+       "No buyer/listing counts until substantiated",
+       "Live site"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Launch",
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      "When",
+      "What"
+     ],
+     "rows": [
+      [
+       "Day 0",
+       "Blockers cleared; launch Mon-Wed"
+      ],
+      [
+       "Days 1-3",
+       "Hands off; check replies < 5 min"
+      ],
+      [
+       "Day 7",
+       "First read; pause clear losers"
+      ],
+      [
+       "Week 2",
+       "1-2 new angles; test 'conversations with replies' if qualified < 15%"
+      ],
+      [
+       "Weeks 3-4",
+       "Scale budget, add a state, or start Phase 2"
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "title": "Send on day 7",
+     "items": [
+      "Ad-level CSV export (spend, impressions, reach, frequency, CPM, CTR, conversations, cost per conversation).",
+      "Counts by ad code: conversations, qualified, listings. No names or numbers."
+     ]
+    }
+   ]
+  }
+ ]
+}

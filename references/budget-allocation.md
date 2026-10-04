@@ -1,0 +1,31 @@
+# Budget allocation and learning thresholds
+
+One rulebook for how much each campaign needs, how to split money across platforms, and how to roll scores up. When rules elsewhere seem to conflict, this file wins.
+
+## 1. Minimum daily budget per learning unit
+A "learning unit" is a Meta ad set (or Advantage+ campaign) or a Google campaign using smart bidding. CPR = expected cost per optimisation result (the event the platform bids on).
+
+| Platform / bidding | Minimum daily budget | Comfortable | Why |
+|---|---|---|---|
+| Meta, any conversion goal | **≥ 7 × CPR** (50 events ÷ 7 days ≈ 7.1 per day) | 10 × CPR | ~50 events in 7 days exits learning |
+| Meta, "learning-limited test" | ≥ 3 × CPR | — | Allowed only as an explicitly labelled test with a 14-day read, never for the core campaign when budget allows more |
+| Google Search, Max conversions / tCPA | ≥ 1 × CPA (≈30 conv/month) AND ≥ 15 clicks/day at expected CPC | 2 × CPA | Smart bidding needs ~30 conv/30 days; Search needs click volume |
+| Google PMax / Demand Gen | ≥ 1.5 × CPA and ≥ 30 conv/month in account | 3 × CPA | Multi-channel exploration needs more data |
+| Google Max clicks (no tracking, temporary) | ≥ 15 clicks/day × CPC | — | Only until tracking is fixed |
+| Awareness / reach (Meta, YouTube) | Enough for target reach × frequency: daily = (reach ÷ days) × frequency × CPM ÷ 1,000 | — | Optimises impressions, not events |
+
+The old "3-5 × CPR" shorthand is retired; use this table. Show the arithmetic for every campaign.
+
+## 2. Platform and campaign split (in this order)
+1. **Fund the must-haves first.** Brand-defence search if competitors bid on the brand (usually small), and any campaign the business literally depends on (e.g. the only trackable channel).
+2. **Allocate by cost per real outcome** (qualified lead, site visit, show-up, sale net of returns, deposit, install-to-paying), not cost per platform result.
+   - With history: rank channels by cost per real outcome; give the best channel as much as it can absorb (until its marginal cost rises — impression share lost to budget near 0 on Search, frequency > 3/week or CPM climbing on Meta), then move to the next.
+   - Without history, use intent order: (a) Search where there is real search demand for the service, (b) Meta/WhatsApp/forms for demand creation, (c) upper funnel only when the lower funnel is funded. Typical starting points: local high-intent services with search demand 55-70% Search; impulse/visual D2C 60-75% Meta; B2B with job-title targeting needs → LinkedIn first (flag), then Search.
+3. **Never contradict your own reasoning.** If the plan says channel X is more efficient, X gets the larger share unless a stated constraint (absorption limit, minimum for the other channel's learning unit, test budget) explains otherwise — state it.
+4. **Cap tests** at 10-20% of total budget.
+5. **Retargeting** only when the pool can support it (Meta: ~1,000+ people in the window reachable per day of budget; practical floor a few thousand in 30 days) and it isn't already covered by Advantage+ sales (existing-customer budget cap is the modern alternative).
+6. **If the budget cannot fund everything the brief asks for,** fund in the order above and list the rest under "Deferred / needs budget" with the ₹ needed and what the client must decide (see scope-and-channels.md).
+
+## 3. Overall confidence roll-up
+- Overall = spend-weighted average of funded campaigns' scores, then apply plan-level caps from confidence-rubric.md.
+- Deferred campaigns are scored but excluded from the average.
