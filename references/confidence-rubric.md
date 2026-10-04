@@ -40,3 +40,8 @@ Format: `62/100 → ~78 if: Meta Pixel confirmed firing on form success (+8); la
 - For "launch with fixes", show both scores: now (capped) and after fixes (uncapped), and headline the capped one.
 - A capped score widens the forecast band by one step (±35% → ±50%). Forecast confidence never exceeds the band edge.
 - Overall score weights funded campaigns by budget; planned/deferred campaigns are listed but do not count. With one funded campaign, overall = that campaign.
+
+## v0.5.1 additions
+- **Awareness campaigns:** the Tracking factor measures whether the intended read exists (platform reach/frequency verified = 6 of 10; plus brand lift or matched-market lift set up = 8-10; nothing planned = 3). The "offer" factor measures message clarity and distribution readiness for offline products.
+- **Unknown tracking** scores 5 of 10 and is stated as "Unknown", never as Not found.
+- **Real-outcome forecast for awareness:** a plan-wide hypothesis range is acceptable; the per-campaign requirement applies to performance campaigns only.

@@ -88,3 +88,8 @@ When a client asks for something that breaks platform policy, law or basic ethic
 - **Special-category radius minimums** (US housing/credit/employment: ≥15 miles) override a hard boundary smaller than that; say so and note the trade-off.
 - **US housing restrictions:** no age, gender or postcode targeting, ≥15-mile radius, no lookalikes. List them whenever a US audience is planned or deferred.
 - **Diaspora/NRI:** use interest-or-recent-location targeting in a separate campaign per market so a hard boundary does not exclude people abroad.
+
+## v0.5.1 additions
+- **Energy drinks / caffeine, alcohol:** 18+ minimum (21+ where local law requires), no performance, health or consumption-volume claims, no "unlimited" drinking offers, adult-only creative, Audience Network off; live-check FSSAI/ASCI (India) or local regulators.
+- **UAE:** some services/promotions need a trade licence or advertising permit; check live. **KSA:** advertising a service without local registration is a legal risk; defer.
+- **Cleaning/AC/home services** are not Housing special-category by default; state "not required, do not opt in" unless the audience is in a required region and the offer is housing-related.

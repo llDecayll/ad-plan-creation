@@ -82,3 +82,20 @@ These are rough planning multipliers, not benchmarks; score cost evidence ≤3 w
 
 ## Budget rule
 Use references/budget-allocation.md §1 (Meta ≥ 7 × CPR per ad set; Google ≥ 1 × CPA and ≥ 15 clicks/day).
+
+## v0.5.1 additions: other-market planning anchors (confirm live; label "derived", cost evidence ≤3)
+| Market | Search CPC (local services) | Meta CPM | Meta CPR (message/lead) | Notes |
+|---|---|---|---|---|
+| UAE | AED 6-14 | AED 25-60 | AED 8-50 | Arabic/English; Ramadan; ad-permit rules for some categories |
+| KSA | SAR 5-15 | SAR 20-50 | SAR 8-45 | Licence/registration needed to advertise services |
+| UK | £1.5-5 | £6-14 | £3-15 | Consent Mode v2; Q4 peak |
+| US | $2-8 | $10-25 | $8-40 | Special categories; state privacy laws |
+| Australia | A$2-6 | A$10-22 | A$8-35 | ACCC claim rules |
+| New Zealand | NZ$1.5-4 | NZ$10-20 | NZ$6-30 | Small pools: regional tests need soft boundaries |
+Client history always overrides. Do not multiply India CPC for small markets without a sanity check (it can give implausible NZ$10 CPCs).
+
+### Reach and awareness (India, Meta/YouTube, 2026 baseline, ±50%)
+Meta reach CPM ₹150-300; YouTube bumper/skippable CPM ₹120-250; CPV ₹0.5-2. Target weekly frequency 2-4. Reach ≈ budget / CPM x 1,000 / frequency. Festive weeks (Diwali, IPL) add 20-40% to CPM.
+
+### Funnel conversion anchors (use only when the client has none; label "assumed")
+Conversation → qualified lead 25-40%; lead → booked visit/appointment 30-50%; booked → attended 50-70%; conversation → paid order (food/D2C via WhatsApp) 10-25%; ticket page visit → purchase 2-6%.

@@ -119,3 +119,21 @@ Read the section(s) matching the client. Each lists the **real outcome** to opti
 - Food/bakery: transaction usually via WhatsApp or aggregator; real outcome = paid orders; optimise for conversations then orders; local radius with "living in or recently in"; aggregators (Swiggy/Zomato) are a deferred/other channel, not a Meta destination.
 - Vanity goals (followers, likes): decline as the goal, translate to the business outcome, and offer a capped (≤10-15%) engagement campaign as a support, with the ₹ stated.
 - No website: Google Search first only if people search the intent; otherwise Meta + WhatsApp, with a Google Business Profile as the free "other channel".
+
+## v0.5.1 additions
+
+### FMCG / beverages / offline products
+- Real outcome = incremental units sold through (rate of sale, repeat), not clicks. Platforms can't see it: set up matched-city sell-out lift, brand lift, and brand-search trend as the read, and state it plainly.
+- Awareness (reach and frequency) is the right objective for distribution-led launches; locator clicks are a diagnostic, capped at ~5% of spend.
+- Run ads only where stock is live; pause by city on stock-out. Quick-commerce in-app ads are an "other channel" to price.
+- Age-restricted (energy drinks, alcohol): 18+ only, Audience Network off, adult cast, verify creator audience age; caffeine and health-claim rules live-checked.
+- Tracking for awareness is scored on whether the lift read is set up, not on pixel events (see confidence-rubric v0.5.1).
+
+### Events with third-party ticketing
+- If tickets sell on Eventfinda/BookMyShow/etc.: send ads straight to the ticket URL, use per-channel promo codes and UTMs, import GA4 purchase to Google only if the platform allows tags; otherwise reconcile weekly from the sales export.
+- Hard-dated: back-load spend to match the sales curve (last 3 weeks often 50-65% of sales), keep a reserve of 5-10% for the final push, and phase budget changes ≤20% every 3-4 days.
+- Reconcile pace-implied and bottom-up forecasts; if they differ, say which one the plan is built on and price the gap under Deferred.
+- Hard + soft locations (city core vs regional) need separate ad sets.
+
+### Services in the Gulf with local-language demand
+- If a meaningful share of enquiries is Arabic but the team can't reply in Arabic, park Arabic ads until cover exists (budget parked, not rerouted) and list the trigger.
