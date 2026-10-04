@@ -42,7 +42,7 @@ Platform rules change monthly. The plugin checks policy and platform changes liv
 The look lives in `references/html/plan-template.html`. Edit the design tokens at the top of its `<style>` block (font, `--brand` colour, `--flow-base-h` flow height, card widths) or the layout itself. Plans keep working as long as the `/*__PLAN_DATA__*/` placeholder stays. The data format is in `references/html-output.md`.
 
 ## Continuation plan (for a cloud session)
-Status at v0.5.5 (4 Oct 2026): plugin built and rules updated after Round 2c.
+Status at v0.6.0 (4 Oct 2026): plugin built and rules updated after Round 3.
 
 | Test | Version | Score |
 |---|---|---|
@@ -55,16 +55,17 @@ Status at v0.5.5 (4 Oct 2026): plugin built and rules updated after Round 2c.
 | Set B (Round 2, B1–B6) | v0.5.2 | 46/56 = 82.1% |
 | Set B re-run (Round 2b) | v0.5.3 | 48/56 = 85.7% |
 | Set B re-run (Round 2c) | v0.5.4 | 49.5/56 = 88.4% |
+| Fresh Set C (Round 3) | v0.5.5 | 47.5/59 = 80.5% |
 
-**Round 1 is complete and graded** (`dev/evals/grade_r1_S.md`, `grade_r1_A.md`; runs in `dev/evals/runs/r1_*.md`). v0.5.2 applies its fixes. **Round 2 (Set B on v0.5.2) is complete and graded at 82.1%** (`dev/evals/grade_r2_B.md`; runs in `dev/evals/runs/r2_*.md`). v0.5.3 applies its fixes. **Next: re-run Set B on v0.5.3 (target ≥ 92%), then Round 3 (fresh Set C).**
+**Round 1 is complete and graded** (`dev/evals/grade_r1_S.md`, `grade_r1_A.md`; runs in `dev/evals/runs/r1_*.md`). v0.5.2 applies its fixes. **Round 2 (Set B on v0.5.2) is complete and graded at 82.1%** (`dev/evals/grade_r2_B.md`; runs in `dev/evals/runs/r2_*.md`). v0.5.3 applies its fixes. Re-runs of Set B scored 85.7% (v0.5.3) and 88.4% (v0.5.4). **Round 3 (fresh Set C on v0.5.5) scored 80.5%** (`dev/evals/grade_r3_C.md`); v0.6.0 applies its fixes. **Next: a fresh Set D to test v0.6.0 (Set B is now tuned-to; run-to-run noise is about ±1.5 points). The 92% target has not yet been met on a fresh set since v0.5.1 Set A.**
 
 **Hard rules (do not change):** never add or push anything to the Iugale Workspace unless Deepak says so; plugin stays independent of other Iugale skills; no ad-account connections (aggregate numbers only, no lead PII); push only to this repo's `main` when asked.
 
 ### Steps
 1. ~~**Grade Round 1.**~~ DONE (88.6% / 92.6%). Two independent grader agents: one for S1–S5 against `dev/evals/setS_key.md`, one for A1–A6 against `setA_key.md`. Save to `dev/evals/grade_r1_S.md` and `grade_r1_A.md`. Target ≥ 92%.
 2. ~~**Fix round 1.**~~ DONE in v0.5.2. Apply the gaps reported (see "Known open gaps"), bump to 0.5.2, validate (`claude plugin validate .`).
-3. ~~**Round 2: Set B.**~~ DONE (82.1%, fixes in v0.5.3). Run B1–B6 blind with `dev/evals/runner_prompt.txt` (replace `<REPO_ROOT>`; ID, FILE, RUN set per run). Run 3–4 agents at a time. Grade against `setB_key.md`, fix, bump to 0.5.3.
-4. **Round 3: fresh Set C.** Have an independent agent write 6 new scenarios and a key (different goals/industries: e.g. SaaS free-trial, restaurant chain, legal/financial advisory, tourism/hospitality, B2B manufacturing export, healthcare multi-clinic). Run blind, grade, fix, bump to 0.6.0. Stop when two consecutive rounds gain < 1 point.
+3. ~~**Round 2: Set B.**~~ DONE (82.1% → 85.7% → 88.4%, fixes in v0.5.3-0.5.5). Run B1–B6 blind with `dev/evals/runner_prompt.txt` (replace `<REPO_ROOT>`; ID, FILE, RUN set per run). Run 3–4 agents at a time. Grade against `setB_key.md`, fix, bump to 0.5.3.
+4. ~~**Round 3: fresh Set C.**~~ DONE (80.5%, fixes in v0.6.0). Have an independent agent write 6 new scenarios and a key (different goals/industries: e.g. SaaS free-trial, restaurant chain, legal/financial advisory, tourism/hospitality, B2B manufacturing export, healthcare multi-clinic). Run blind, grade, fix, bump to 0.6.0. Stop when two consecutive rounds gain < 1 point.
 5. **Final.** Update the changelog, regenerate the example plan with `scripts/render_plan.py`, run `claude plugin validate .`, zip (exclude `dev/`), push to `main`, attach `.plugin` and `.zip`.
 
 Estimated time in a cloud session: about 55–60 minutes.
@@ -86,6 +87,8 @@ Estimated time in a cloud session: about 55–60 minutes.
 - Runner agents must not open files with "key" in the name or any `grade_*` file.
 
 ## Changelog
+**0.6.0 (4 Oct 2026)**: Round 3 fixes (fresh Set C 80.5%): playbooks for hotels, multi-outlet restaurants, financial advisory, healthcare/fertility, B2B export and SaaS; new `references/claims-and-compliance.md`; staged-start, 3:1 LTV:CAC verdict, capacity weighting and a final minimum-budget ladder; booking-widget and offline-sales tracking; more derived benchmarks and intake questions. Not yet re-tested on a fresh set.
+
 **0.5.5 (4 Oct 2026)**: Round 2c fixes (Set B 88.4%): Arabic fund-vs-park conflict resolved, GBP gate, email Custom Audience, event keywords, NGO seasonality and funded retargeting, soft-metro weighting, minimum-budget ladder, no-pixel status, WhatsApp lead marking, special-category consistency, launch creative spec.
 
 **0.5.4 (4 Oct 2026)**: Round 2b fixes (Set B 85.7%): franchise pilot/weighting/creative kit/lead form, Gulf home-services Arabic/seasonality/AMC LTV, event keyword and ticket maths, launch lift KPIs, NGO nurture, resolved conflicts (brand share, reserve, 7x CPR vs budget, peak shift, Grants roll-up).

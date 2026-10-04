@@ -231,3 +231,33 @@ Read the section(s) matching the client. Each lists the **real outcome** to opti
 - **NGO seasonality:** Daan Utsav (early Oct), Diwali, Giving Tuesday, year-end, Jan-Mar 80G push. Retargeting plus monthly-giving nurture is a funded minimum (≥10% of budget) once a pixel and an audience ≥3,000 exist; before that it is a sequenced step with a trigger.
 - **Trek/travel and other counsellor-led sales:** use Click-to-WhatsApp as an option beside the form; add WhatsApp automation and lead scoring; when focus metros are "soft" inside a hard country, weight budget with per-metro ad sets or location bid adjustments instead of only monitoring.
 - **Launch creative spec:** 6s bumper + 15/30s hero film + 9:16 Reels; brand and product in the first 2 seconds; partnership/BrandConnect ads; claims limited to what is on pack (FSSAI).
+
+## v0.6.0 additions (Round 3 fixes; fresh-set verticals)
+
+### Hotels, resorts and stays (direct vs OTA)
+- Value of a direct booking = commission saved (typically 15-20%) on shifted bookings + margin on genuinely incremental ones. Allowable cost per incremental booking = that value; do not use blended ROAS. Define the unit (bookings vs room-nights vs net revenue after cancellations) and restate the goal in net revenue.
+- Exact-match brand Search plus a "book direct" extension (perks: breakfast, late checkout, flexibility); Hotel Ads/metasearch via the booking vendor feed; PMax/Demand Gen travel only with a feed.
+- Seasonality: off-season offers (long-stay, golf, wellness, packages); early-bird for next peak from the reserve once purchase tracking is verified.
+- Booking-engine vendors: tag the confirmation, cross-domain, pass value; until verified, prior spend is unmeasurable.
+
+### Multi-outlet restaurants
+- Real outcome is a seated party (dine-in) or own-site order net of delivery commission and discount; aggregator orders are invisible, so reconcile by hub counts vs a matched control.
+- Weight budget by outlet capacity and midweek gap, not outlet count; run a 4-5 outlet pilot before scaling; delivery ads off when kitchens are full.
+- Offers funded from low-margin dishes; group-booking pushes for peak periods; lunch/office dayparting; review-request step.
+- Hygiene or rating claims only per outlet where true.
+
+### Professional / financial advisory (long cycle)
+- Never treat AUM or assets advised as revenue; revenue = fee × assets (and retention). Qualification-first form (investable bracket + phone verification), a lead magnet for the long cycle, dedicated WhatsApp number, offline upload of qualified meetings.
+- LinkedIn 10-15% test for professional audiences; partner-profile and GBP review policy; regulator rules (SEBI/ICAI/FCA) on testimonials, returns and ad forms: get written compliance sign-off first.
+
+### Healthcare / fertility chains
+- If economics are break-even or loss at planned CPLs, recommend a staged start (40-50% of budget) on a 2-3 clinic pilot; weight by clinic capacity and pause clinics without near-term slots.
+- Speed-to-lead ≤ 5-15 minutes with WhatsApp automation; click-to-WhatsApp; consent line (DPDP/GDPR). Success-rate claims only with definition and year; never in remarketing built from health pages.
+
+### B2B export / manufacturing
+- LinkedIn job-title account-based test even at small budgets; capability pages by process; sample/RFQ download; marketplace leads (IndiaMART, Thomasnet) tracked separately.
+- Qualified RFQ is the unit; cycles 6-9 months: day-14 uses qualified-share proxy, day 90-180 deal check; set a stop-loss.
+
+### SaaS / free trial
+- LTV = ARPU × gross margin ÷ monthly churn; LTV:CAC ceiling 3:1. Optimise activated trial where volume allows. Annual-plan paywall test, "no card needed", segment landing pages, signup friction audit; payer lookalikes/retargeting as the Meta role.
+- Cross-domain tracking (marketing site → app) and Stripe offline import are launch gates.

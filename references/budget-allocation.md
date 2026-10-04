@@ -74,3 +74,11 @@ The old "3-5 × CPR" shorthand is retired; use this table. Show the arithmetic f
 - **Soft metros in a hard country:** give focus metros 50-60% of the budget via separate ad sets (or bid adjustments on Google), keep the rest India-wide; report by metro.
 - **Minimum-budget ladder (single reference):** ≥7× CPR = standard; 3-7× CPR = labelled learning-limited test; <3× = move to a nearer-funnel event or defer. Retargeting follows the same ladder using CPR of its event.
 - **Arabic/local-language tests:** see vertical-playbooks.md v0.5.5 (fund once handler and templates exist).
+
+## 9. v0.6.0 additions
+- **Staged start:** when planned CAC/CPL is at or above break-even for every channel, the recommended plan is a staged test (about 40-50% of budget, a pilot subset of outlets/clinics/markets) with kill rules; the rest is parked with a trigger.
+- **LTV:CAC:** always state the 3:1 allowable CAC next to break-even and a verdict: profitable / break-even / loss at the planned CAC.
+- **Capacity weighting:** weight multi-location budgets by capacity and gap (empty slots, conversion), not by location count.
+- **Single minimum ladder (final):** ≥7× CPR standard; 3-7× labelled learning-limited test; <3× nearer-funnel event or defer. The 10-20% test cap does not bind when the whole plan is a staged test. Search needs ≥15 clicks/day; when ≥1× CPA cannot be met, run Max clicks with a CPC cap as a labelled test.
+- **History vs default:** when history is tiny (<20 outcomes), split near the default and re-weight at day 14.
+- **Retargeting vs health/sensitive categories:** if remarketing is restricted, use CRM nurture instead; the funded-minimum retargeting rule does not apply.

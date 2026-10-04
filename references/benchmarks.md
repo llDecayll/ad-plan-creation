@@ -108,3 +108,12 @@ Conversation → qualified lead 25-40%; lead → booked visit/appointment 30-50%
 - **Energy/FMCG awareness (India):** Meta reach CPM ₹150-300; YouTube bumper CPM ₹120-250; quick-commerce in-app ads are the only attributable sales channel.
 - **UAE home services:** Search CPC AED 6-14 (aggregator-heavy), Meta click-to-WhatsApp conversation AED 15-35; lead-to-job 20-30% on Search, 8-15% on Meta.
 - **Currency:** convert INR anchors via the multiplier table; never reuse ₹ thresholds in other currencies.
+
+## v0.6.0 additions: derived anchors for fresh verticals (label "derived", cost evidence ≤3, ±50%)
+- **Hotels (EU):** Search non-brand CPC €1.5-3, brand €0.4-1; direct booking CPA €100-180; Meta winter-sun initiate-checkout €8-15.
+- **UK restaurants:** Meta click-to-book €/£6-12 per click-through to widget, seated party £15-40; Search call/book CPA £20-45.
+- **Wealth/advisory (India):** Meta CPL ₹800-1,500, qualified 8-20%; Search CPC ₹100-200.
+- **IVF/fertility (India):** Search CPC ₹150-300, Meta CPL ₹600-1,400; lead→attended consult 12-22%.
+- **B2B export:** Search CPC $4-9; enquiry→qualified RFQ 15-30%; RFQ→order 8-15%.
+- **SaaS (US/CA):** Search trial CPA $50-120; Meta trial CPA $25-70; trial→paid 5-10%.
+- Convert amounts via multiples; never reuse ₹ for other currencies.

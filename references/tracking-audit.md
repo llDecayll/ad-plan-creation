@@ -90,3 +90,7 @@ Tracking status feeds the "Tracking" factor in confidence-rubric.md. "Configured
 ## v0.5.5 additions
 - **"No pixel" / no tag at all:** status "Not found (verified in source and GTM)" or "Unknown (blocker suspected)"; for scoring treat as an untracked event: tracking score ≤3 and campaign cap 40 until installed.
 - **WhatsApp lead marking:** mark a conversation as a lead/qualified lead via CAPI for business messaging (or a manual weekly upload) so Meta optimises beyond conversation starts.
+
+## v0.6.0 additions
+- **Booking widgets / vendor engines:** tag the confirmation page, cross-domain linker, pass value, server-side/enhanced conversions; until verified, treat prior spend as unmeasurable.
+- **Phone-heavy or offline sales:** call tracking per location, a dedicated WhatsApp number, and CRM-stage offline upload as a launch step, not only a "raise" item.

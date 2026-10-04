@@ -85,3 +85,8 @@ Hand off to `${CLAUDE_PLUGIN_ROOT}/skills/ad-results-review/SKILL.md`.
 
 ## v0.5.5 reminders
 - Fund retargeting/nurture as a minimum once a pixel and audience exist; read vertical-playbooks v0.5.5 and budget-allocation §8.
+
+## v0.6.0 reminders
+- Read references/claims-and-compliance.md with policy-watch.md.
+- Output the 3:1 allowable CAC and a profitable/break-even/loss verdict; if break-even or loss, recommend a staged start on a pilot subset.
+- Include a pilot subset (outlets/clinics/markets) in the test plan for multi-location clients.

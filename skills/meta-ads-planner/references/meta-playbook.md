@@ -143,3 +143,6 @@ Common mistakes: wrong objective, budget too low, over-narrow targeting, daily t
 ## v0.5.5 additions
 - Event/donation plans: upload the owned email/donor list as a Custom Audience (exclude buyers from prospecting).
 - High-consideration sales: Click-to-WhatsApp option with CAPI lead marking.
+
+## v0.6.0 additions
+- Lookalike and retargeting of payers (where allowed) as the Meta role in SaaS/B2B; click-to-WhatsApp for call/WhatsApp-heavy sales.

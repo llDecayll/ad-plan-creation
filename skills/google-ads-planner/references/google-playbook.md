@@ -102,3 +102,6 @@ Routine: Week 1 search terms + negatives; Week 2 ad copy pruning; Weeks 3-4 bidd
 ## v0.5.5 additions
 - Location assets require the GBP link (location group verified first).
 - Event Search: add event-intent keywords and negatives (see vertical-playbooks.md).
+
+## v0.6.0 additions
+- PMax/Demand Gen travel-feed option for hotels; near-me and location assets only after the GBP location-group check; exact/phrase themes sized to the actual keyword volume.

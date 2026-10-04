@@ -39,3 +39,6 @@ Ask early (or assume with a label): gross margin or contribution per sale; unit 
 
 ## v0.5.4 additions
 Also ask: AMC/recurring attach and renewal rate; email-list share of historical sales for events; Arabic/local-language handler availability.
+
+## v0.6.0 additions
+Also ask: cancellation rate, labour/fixed-cost share, repeat rate, seats per account and churn (SaaS), clinics/outlets per city and call-centre hours, regulator sign-off contact.
