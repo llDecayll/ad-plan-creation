@@ -139,3 +139,7 @@ Common mistakes: wrong objective, budget too low, over-narrow targeting, daily t
 - Deposit/donation/booking events under 50/week: prefer Purchase (or Donate) with CAPI feedback at the learning-limited tier over defaulting to Lead or InitiateCheckout; use the proxy only as a labelled fallback.
 - Partnership (creator) ads for awareness and franchise/branch networks; head-office page lends ads to local units.
 - Click-to-WhatsApp: first-message campaign code, away message, automation when volume exceeds capacity.
+
+## v0.5.5 additions
+- Event/donation plans: upload the owned email/donor list as a Custom Audience (exclude buyers from prospecting).
+- High-consideration sales: Click-to-WhatsApp option with CAPI lead marking.

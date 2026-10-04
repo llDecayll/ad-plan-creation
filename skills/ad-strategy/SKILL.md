@@ -82,3 +82,6 @@ Hand off to `${CLAUDE_PLUGIN_ROOT}/skills/ad-results-review/SKILL.md`.
 - Multi-unit launches: pilot cluster of 8-10 units with a 30/60/90 plan.
 - Donation plans: sequence retargeting and monthly-giving nurture with a trigger.
 - Read the v0.5.4 sections in vertical-playbooks and budget-allocation; budget-allocation §7 wins on conflicts.
+
+## v0.5.5 reminders
+- Fund retargeting/nurture as a minimum once a pixel and audience exist; read vertical-playbooks v0.5.5 and budget-allocation §8.

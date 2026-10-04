@@ -69,3 +69,8 @@ The old "3-5 × CPR" shorthand is retired; use this table. Show the arithmetic f
 - **Peak shift:** applies to any off-peak months, not only Jan-Sep.
 - **Ad Grants vs Search default:** where Grants run, treat Grants as the Search channel for the intent-order default; paid Google Search only when the budget can meet its minimum.
 - **Ticket maths:** see vertical-playbooks.md Events (extra rules).
+
+## 8. v0.5.5 additions
+- **Soft metros in a hard country:** give focus metros 50-60% of the budget via separate ad sets (or bid adjustments on Google), keep the rest India-wide; report by metro.
+- **Minimum-budget ladder (single reference):** ≥7× CPR = standard; 3-7× CPR = labelled learning-limited test; <3× = move to a nearer-funnel event or defer. Retargeting follows the same ladder using CPR of its event.
+- **Arabic/local-language tests:** see vertical-playbooks.md v0.5.5 (fund once handler and templates exist).

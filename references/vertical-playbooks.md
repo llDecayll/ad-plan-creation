@@ -222,3 +222,12 @@ Read the section(s) matching the client. Each lists the **real outcome** to opti
 
 ### NGO (extra rules)
 - Fund Meta donor retargeting (≥3,000 pool) or monthly-giving nurture as a sequenced step with a trigger, not only under Other channels; nurture to past donors by email/WhatsApp.
+
+## v0.5.5 additions (Round 2c fixes; wins over older text on conflict)
+- **Gulf Arabic demand:** launch a small funded Arabic test (ad set + Arabic RSA, ≤10% of budget) once an Arabic WhatsApp template and a named handler exist. Park it (with trigger) only while neither exists. This replaces "park the budget" in the v0.5.1 note.
+- **Gulf home-services seasonality row:** April-May AC ramp; pre-Ramadan deep-clean push (3-4 weeks before); Ramadan evening ad timing; off-season AMC pre-sale; location asset tied to the GBP.
+- **Franchise / multi-location gate:** GBP fix and location-group link come before any location-asset, PMax or local campaign; a small funded NRI/foreign test (≤5%) is allowed with legal clearance recorded as a sign-off flag, not a deferral.
+- **Events:** upload the email list as a Custom Audience (exclude buyers from prospecting; use for countdown retargeting and a lookalike). Search keyword examples: "[festival] tickets", "[festival] 2026", "[venue] food and wine festival"; negatives: jobs, volunteer, vendor, stall, exhibitor, free.
+- **NGO seasonality:** Daan Utsav (early Oct), Diwali, Giving Tuesday, year-end, Jan-Mar 80G push. Retargeting plus monthly-giving nurture is a funded minimum (≥10% of budget) once a pixel and an audience ≥3,000 exist; before that it is a sequenced step with a trigger.
+- **Trek/travel and other counsellor-led sales:** use Click-to-WhatsApp as an option beside the form; add WhatsApp automation and lead scoring; when focus metros are "soft" inside a hard country, weight budget with per-metro ad sets or location bid adjustments instead of only monitoring.
+- **Launch creative spec:** 6s bumper + 15/30s hero film + 9:16 Reels; brand and product in the first 2 seconds; partnership/BrandConnect ads; claims limited to what is on pack (FSSAI).

@@ -104,3 +104,6 @@ For credit, lending, employment and housing advertisers in any country, always w
 
 ## v0.5.4 addition
 - **Franchise ads:** require qualification questions on the form; monitor franchisee brand bids with Auction Insights; keep head office as owner of brand terms.
+
+## v0.5.5 addition
+- **Special-category consistency:** outside US/CA/EU, state the declaration for housing/employment/credit-adjacent advertisers and "verify live". Home-services (AC, cleaning, repairs) are not Housing; say "not Housing: service, not property" and do not opt in. Charity advocacy copy: check Meta social-issue authorisation live.

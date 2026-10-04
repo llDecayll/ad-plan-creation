@@ -86,3 +86,7 @@ Tracking status feeds the "Tracking" factor in confidence-rubric.md. "Configured
 ## v0.5.4 additions
 - WhatsApp click/conversation counts as a secondary conversion; first-message campaign codes; CAPI for business messaging when available.
 - Third-party ticket platforms: cross-domain check that UTMs, gclid and fbclid survive to checkout; day-0 test purchase.
+
+## v0.5.5 additions
+- **"No pixel" / no tag at all:** status "Not found (verified in source and GTM)" or "Unknown (blocker suspected)"; for scoring treat as an untracked event: tracking score ≤3 and campaign cap 40 until installed.
+- **WhatsApp lead marking:** mark a conversation as a lead/qualified lead via CAPI for business messaging (or a manual weekly upload) so Meta optimises beyond conversation starts.

@@ -98,3 +98,7 @@ Routine: Week 1 search terms + negatives; Week 2 ad copy pruning; Weeks 3-4 bidd
 - Link all business locations in one GBP location group before adding location assets.
 - Add negatives for event and job terms (jobs, volunteer, vendor, free, stall) on event/consumer Search.
 - Message/WhatsApp assets for local services.
+
+## v0.5.5 additions
+- Location assets require the GBP link (location group verified first).
+- Event Search: add event-intent keywords and negatives (see vertical-playbooks.md).

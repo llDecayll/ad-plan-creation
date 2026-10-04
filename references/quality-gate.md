@@ -63,3 +63,6 @@ Adapt thresholds to the client's economics and state them in ₹.
 - Units checked: "trial-to-member", "deposit", "lead", "booking" are defined (per person or per group; attended vs signed up; margin before or after ad spend).
 - Currency: no ₹ in non-INR plans.
 - Launch/hard-date plans show phasing (burst/sustain or ramp) and any reserve.
+
+## L. v0.5.5 clarification
+- Money amounts in plans use the client's currency; the "₹ needed" phrases in rulebooks mean "amount needed in the client's currency".
