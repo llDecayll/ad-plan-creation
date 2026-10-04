@@ -42,31 +42,40 @@ Platform rules change monthly. The plugin checks policy and platform changes liv
 The look lives in `references/html/plan-template.html`. Edit the design tokens at the top of its `<style>` block (font, `--brand` colour, `--flow-base-h` flow height, card widths) or the layout itself. Plans keep working as long as the `/*__PLAN_DATA__*/` placeholder stays. The data format is in `references/html-output.md`.
 
 ## Continuation plan (for a cloud session)
-Status at v0.5.1 (4 Oct 2026): plugin built, rules in. Blind-test scores so far: original regression set 89.8% (v0.4), fresh Set A 89.8% (v0.4). Round-1 runs on v0.5.1 (S1–S5, A1–A6) are done and saved in `dev/evals/runs/r1_*.md` but **not yet graded**. Set B (B1–B3) ran on v0.5 (`v05_B*.md`), ungraded; B4–B6 not run.
+Status at v0.5.2 (4 Oct 2026): plugin built and rules updated after Round 1.
+
+| Test | Version | Score |
+|---|---|---|
+| Regression set S1–S5 | v0.3 | 87.5% |
+| Regression set S1–S5 | v0.4 | 39.5/44 = 89.8% |
+| Fresh Set A (A1–A6) | v0.4 | 48.5/54 = 89.8% |
+| Regression S1–S5 (Round 1) | v0.5.1 | 39/44 = 88.6% |
+| Fresh Set A (Round 1) | v0.5.1 | 50/54 = 92.6% |
+| Set B (B1–B3 run only, ungraded) | v0.5 | n/a |
+
+**Round 1 is complete and graded** (`dev/evals/grade_r1_S.md`, `grade_r1_A.md`; runs in `dev/evals/runs/r1_*.md`). v0.5.2 applies its fixes. **Next: Round 2 (Set B on v0.5.2).** Set B B4–B6 have never been run.
 
 **Hard rules (do not change):** never add or push anything to the Iugale Workspace unless Deepak says so; plugin stays independent of other Iugale skills; no ad-account connections (aggregate numbers only, no lead PII); push only to this repo's `main` when asked.
 
 ### Steps
-1. **Grade Round 1.** Two independent grader agents: one for S1–S5 against `dev/evals/setS_key.md`, one for A1–A6 against `setA_key.md`. Save to `dev/evals/grade_r1_S.md` and `grade_r1_A.md`. Target ≥ 92%.
-2. **Fix round 1.** Apply the gaps reported (see "Known open gaps"), bump to 0.5.2, validate (`claude plugin validate .`).
+1. ~~**Grade Round 1.**~~ DONE (88.6% / 92.6%). Two independent grader agents: one for S1–S5 against `dev/evals/setS_key.md`, one for A1–A6 against `setA_key.md`. Save to `dev/evals/grade_r1_S.md` and `grade_r1_A.md`. Target ≥ 92%.
+2. ~~**Fix round 1.**~~ DONE in v0.5.2. Apply the gaps reported (see "Known open gaps"), bump to 0.5.2, validate (`claude plugin validate .`).
 3. **Round 2: Set B.** Run B1–B6 blind with `dev/evals/runner_prompt.txt` (replace `<REPO_ROOT>`; ID, FILE, RUN set per run). Run 3–4 agents at a time. Grade against `setB_key.md`, fix, bump to 0.5.3.
 4. **Round 3: fresh Set C.** Have an independent agent write 6 new scenarios and a key (different goals/industries: e.g. SaaS free-trial, restaurant chain, legal/financial advisory, tourism/hospitality, B2B manufacturing export, healthcare multi-clinic). Run blind, grade, fix, bump to 0.6.0. Stop when two consecutive rounds gain < 1 point.
 5. **Final.** Update the changelog, regenerate the example plan with `scripts/render_plan.py`, run `claude plugin validate .`, zip (exclude `dev/`), push to `main`, attach `.plugin` and `.zip`.
 
 Estimated time in a cloud session: about 55–60 minutes.
 
-### Known open gaps (from graded runs)
-- D2C: break-even rule applied inconsistently (playbook subtracts shipping/RTO; v0.5 says base margin only); Standard Shopping vs PMax overlap; retargeting vs existing-customer cap when pool size unknown; brand Search without data.
-- Test cap vs 3× CPR minimum (which wins, what counts as the "total"); learning-limited tier for Google.
-- "Capped score widens band" is ambiguous (use one step: ±35% → ±50%).
-- Lending/credit: always state the declaration vs "not required, do not opt in" wording; no lending benchmarks; take-up rate anchor; Google suspension process.
-- Apps: no Google App campaign section; "events exist, not linked" has no score mapping; iOS SKAN rules; unspent buffer and 7-day trial lag in day-14 gates.
-- Diaspora/NRI: scope-and-channels says "living in", policy-watch says interest-based; reconcile to one rule.
-- Hard boundary with several pins vs "prefer one radius"; US special categories override hard boundary (15-mile minimum).
-- Quality gate: "five creatives per funded campaign" cannot fit a 1,000-word answer cap (the HTML board has no such cap; keep, but let test answers give one line each).
-- Recruitment: no lead-form library section (knock-out questions); no US RN benchmark; no ATS-on-external-domain tracking path.
-- Multi-state, multi-language splitting (education); minor-protection settings; capacity sizing.
-- Awareness campaigns: tracking score and per-campaign real-outcome forecast (partly fixed in 0.5.1).
+### Known open gaps (after v0.5.2; check these first in Round 2)
+- Round 1 regression S5 (tiny-budget bakery) dropped to 6/8; v0.5.2 adds the tiny-budget rule but it is untested.
+- A1: health-data limit on lower-funnel events as a confidence reducer (rule added, untested); UK diaspora test sizing.
+- A5: lending: web Conversions API, take-up/credit-risk benchmarks, state-exclusion list under "living in".
+- Apps: Google App campaign section in the playbook, SKAN/AEM details, Meta app-campaign minimum.
+- Recruitment: lead-form library section (knock-out questions), US RN benchmark, ATS-on-external-domain tracking path.
+- Multi-state, multi-language splits (education); capacity sizing rules.
+- FMCG/awareness: reach CPM benchmarks exist (v0.5.1); per-campaign real-outcome forecast for awareness is plan-wide only.
+- The "five creatives per campaign" gate vs the 1,000-word test cap: tests accept one line each for the lead campaign.
+- Benchmarks: all non-India rows are derived ranges; replace with client or live data when available.
 
 ### Repo layout
 - Plugin: `.claude-plugin/`, `skills/`, `references/`, `scripts/`, `examples/`.
@@ -74,6 +83,8 @@ Estimated time in a cloud session: about 55–60 minutes.
 - Runner agents must not open files with "key" in the name or any `grade_*` file.
 
 ## Changelog
+**0.5.2 (4 Oct 2026)**: Round 1 fixes (regression 88.6%, Set A 92.6%): cap clarifications (manual tally, declined asks, per-campaign, band widening), tiny-budget and joint-pool rules, split shift, seasonality front-loading, Search keyword/negative requirement, D2C creative volume, brand Search default, suspended-account and minors rules, unified diaspora rule, always-state declarations for credit/employment/housing, extra tracking statuses, margin intake question.
+
 **0.5.1 (4 Oct 2026)**: added UAE/KSA/UK/US/AU/NZ planning anchors, reach and funnel benchmarks, FMCG/beverage, third-party-ticketing events and Gulf-language playbooks, awareness tracking scoring, caffeine/alcohol and UAE/KSA policy notes.
 
 **0.5.0 (4 Oct 2026)**: from graded blind tests (regression 89.8%, fresh set A 89.8%): D2C break-even and existing-audience rules, health/lending/app/recruitment/food playbooks, consent-gated and WhatsApp tracking statuses, policy-cap scoping and forecast widening, budget cost-point and test-cap rules, hard-boundary wording unified.

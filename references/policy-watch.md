@@ -87,9 +87,12 @@ When a client asks for something that breaks platform policy, law or basic ethic
 - **Solar / energy** can fall under Housing in some contexts (home-improvement for owners); decide by audience country with the 4-step rule and verify live.
 - **Special-category radius minimums** (US housing/credit/employment: ≥15 miles) override a hard boundary smaller than that; say so and note the trade-off.
 - **US housing restrictions:** no age, gender or postcode targeting, ≥15-mile radius, no lookalikes. List them whenever a US audience is planned or deferred.
-- **Diaspora/NRI:** use interest-or-recent-location targeting in a separate campaign per market so a hard boundary does not exclude people abroad.
+- **Diaspora/NRI (single rule, matches scope-and-channels §4):** Meta = one campaign per country where they live, "living in" that country; Google = either a separate overseas-country campaign with Presence plus geo-intent keywords, or the home-city campaign with Presence-or-interest. Never apply the home-city hard boundary to the NRI campaign.
 
 ## v0.5.1 additions
 - **Energy drinks / caffeine, alcohol:** 18+ minimum (21+ where local law requires), no performance, health or consumption-volume claims, no "unlimited" drinking offers, adult-only creative, Audience Network off; live-check FSSAI/ASCI (India) or local regulators.
 - **UAE:** some services/promotions need a trade licence or advertising permit; check live. **KSA:** advertising a service without local registration is a legal risk; defer.
 - **Cleaning/AC/home services** are not Housing special-category by default; state "not required, do not opt in" unless the audience is in a required region and the offer is housing-related.
+
+## v0.5.2 addition
+For credit, lending, employment and housing advertisers in any country, always write the declaration/category answer and its targeting limits in the plan and mark "verify live". The phrase "not required, do not opt in" is reserved for non-credit/employment/housing verticals.

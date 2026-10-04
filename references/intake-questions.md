@@ -16,7 +16,8 @@ Ask once, in one round. Skip anything already answered. Keep wording plain.
 ## Ask as a preference, not a requirement
 6. **Placements.** "Any surfaces you want to avoid (e.g. Audience Network, Display partners, YouTube)?" Default recommendation is automatic placements with justified exclusions.
 7. **Who handles enquiries, and how fast?** (Phone, WhatsApp, CRM, hours.) This decides the conversion location.
-8. **Offer.** Any discount, free consultation, free site visit, limited-time deal? If none, the plan will suggest one.
+8. **Margin / unit economics.** Gross margin or contribution per sale, AOV or deal value, close rate, if known.
+8b. **Offer.** Any discount, free consultation, free site visit, limited-time deal? If none, the plan will suggest one.
 9. **Past results (optional).** A campaign-level export (CSV or screenshots) and outcome counts by campaign: leads, qualified, appointments/visits, closed. No individual lead details.
 10. **Learnings ledger (optional).** If they have the ad-learnings ledger file from previous runs, attach it.
 

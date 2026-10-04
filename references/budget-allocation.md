@@ -40,3 +40,12 @@ The old "3-5 × CPR" shorthand is retired; use this table. Show the arithmetic f
 - **Multi-month cycles (admissions, B2B, property):** use phases (nurture, peak, result-day or deadline bursts). Day-30 checks use leading proxies (qualified enquiries, visit bookings), not the final outcome.
 - **Unspent budget** when a platform is blocked (policy, tracking, account suspension): park it, do not re-route silently; list it under Deferred.
 - **Brand and impression-share campaigns:** a small brand-Search campaign is allowed when competitors bid on the brand name; budget ≈ 5-10% of Search and it is reported separately.
+
+## 5. v0.5.2 additions
+- **Tiny budgets (< ~₹500/day or equivalent):** run ONE campaign only. No vanity or engagement spend (organic only). Say it is a learning-limited test with a 14-day read. For hyperlocal radii, state the audience size (Meta estimate) and watch frequency; if reach < ~20,000 or frequency > 3/week, widen the radius.
+- **Joint pool by default:** if the client gives one budget, treat it as joint across Meta + Google; ask only if the brief is genuinely ambiguous.
+- **Split shift:** the 55-70% Search starting default may move up to 15 points toward Meta (or the reverse) when derived cost per outcome clearly favours the other platform; state the reason and the numbers.
+- **Learning-limited tier** (3× CPR) also applies to B2B and test budgets on Google (≥1× CPA minimum, flagged as a test).
+- **Low-volume offline outcomes (< 50/month):** still send the offline event (site visit, qualified lead) as a secondary conversion or via CAPI; optimise on the qualified-lead proxy and say so.
+- **Fixed monthly budget with a peak season:** shift 20-30% of the Jan-Sep budget into the peak months instead of only deferring the uplift; show the cost to off-peak.
+- **Test bounded in a secondary market:** a 15-25% test is allowed when the secondary market has better unit economics; otherwise defer.

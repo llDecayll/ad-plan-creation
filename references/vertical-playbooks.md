@@ -137,3 +137,14 @@ Read the section(s) matching the client. Each lists the **real outcome** to opti
 
 ### Services in the Gulf with local-language demand
 - If a meaningful share of enquiries is Arabic but the team can't reply in Arabic, park Arabic ads until cover exists (budget parked, not rerouted) and list the trigger.
+
+## v0.5.2 additions
+- **Search plans (every funded or deferred Search campaign):** list 5-10 keyword themes in phrase/exact intent sets plus a vertical negatives list (solar: DIY, rebate application, jobs, renters; recruitment: CNA/LPN/student; education: free/scholarship/govt exam). Negatives belong in the setup, not only under Risks. When CPCs are known and employment/education Search is cheaper per qualified outcome, weight Search up.
+- **D2C creative volume:** at ₹1,500+/day plan ≥8 active concepts and refresh 2-3 every 2-3 weeks or when frequency > 3; this is exempt from the five-prompts-per-answer word cap (launch-time brief).
+- **Brand Search:** when Shopping/PMax is live and brand search demand exists, include brand Search at 3-5% of Search spend by default; defer only if no brand demand.
+- **Hyperlocal (single-neighbourhood) businesses:** state audience size and frequency risk; widen radius if too small.
+- **Minors as the end-user (education, kids):** target parents; 18+ minimum on Meta; YouTube 25+; no minor-centric creative.
+- **Suspended or restricted ad account:** appeal with evidence; never open a new account to bypass; parked budget stays parked (not rerouted) until the client approves a plan.
+- **Local awareness asks (billboard-style reach):** cap at 10-15% as a supported campaign, or decline as the goal; never the lead objective.
+- **Health vertical confidence:** apply about -5 on the tracking factor when only restricted lower-funnel events can be sent to the platform.
+- **Credit / lending / employment / housing:** always state the special-ad-category or financial-products declaration and its targeting limits, then "verify live"; "not required, do not opt in" is only for other verticals.

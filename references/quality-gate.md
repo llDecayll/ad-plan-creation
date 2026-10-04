@@ -50,3 +50,8 @@ Adapt thresholds to the client's economics and state them in ₹.
 - **Creative sets:** five prompts for every funded campaign; planned/deferred campaigns get two. Under a word cap, give one line each for the main campaign and list the rest as "to be written at launch".
 - **Stakeholder conflict:** cap the secondary goal at 15-25% of budget and name who signs off.
 - **Day-14 for long cycles:** use the leading proxy, and state the real-outcome check date.
+
+## J. v0.5.2 additions
+- Five creative angles are required for the lead funded campaign in a written answer; other funded campaigns get a launch-time brief. In the HTML board, every funded campaign still carries ≥5 creatives.
+- Ask for gross margin (or contribution) at intake; if missing, show a labelled 50% assumption and cap cost evidence at 50.
+- Long cycles (45-90 days): day-14 uses the qualified proxy (qualified demo, visit booked); put a day 60-90 won-deal check in the table.

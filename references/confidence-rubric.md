@@ -45,3 +45,8 @@ Format: `62/100 → ~78 if: Meta Pixel confirmed firing on form success (+8); la
 - **Awareness campaigns:** the Tracking factor measures whether the intended read exists (platform reach/frequency verified = 6 of 10; plus brand lift or matched-market lift set up = 8-10; nothing planned = 3). The "offer" factor measures message clarity and distribution readiness for offline products.
 - **Unknown tracking** scores 5 of 10 and is stated as "Unknown", never as Not found.
 - **Real-outcome forecast for awareness:** a plan-wide hypothesis range is acceptable; the per-campaign requirement applies to performance campaigns only.
+
+## v0.5.2 cap clarifications
+- **"Real outcome not trackable" (cap 60):** applies only when there is no downstream count at all. A manual tally by campaign code (reception, order sheet, CRM export) is trackable, so this cap does NOT apply; the tracking factor is scored 5-7 instead. Never cap below 65 when events are verified and the client has history or volume.
+- **Open policy blocker (cap 55):** applies only to an unresolved item inside the plan (e.g. a claim on the client's own site that stays live). A client ask that the plan declines is not a blocker. Always headline both scores: "now" (capped) and "after the fix" (uncapped), and say the cap is per campaign.
+- **Capped score widens the forecast band by one step** (±35% → ±50%); a second cap does not widen it further.

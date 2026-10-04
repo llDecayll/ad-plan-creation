@@ -69,5 +69,9 @@ Tracking status feeds the "Tracking" factor in confidence-rubric.md. "Configured
 ## v0.5 additions
 - Extra statuses: **Events exist, not linked** (events fire but are not connected to the ad account/campaign goal) and **Consent-gated** (fires only after consent; unverified until the CMP is checked).
 - Score tracking twice when it is a fixable blocker: **now** and **after the fix**. Headline the post-fix score only as "if the blocker is fixed before launch".
-- WhatsApp-native with manual tally: the native conversation count is valid for optimisation (counts as "Configured"), but outcome tracking is manual; cap the tracking factor at 65 until orders are logged against campaign codes.
+- WhatsApp-native with manual tally: the native conversation count is valid for optimisation (counts as "Configured"), but outcome tracking is manual; score the tracking factor 5-7 (no separate cap) once orders are logged against campaign codes; if no tally exists, the "not trackable" cap of 60 applies.
 - If the ATS or checkout cannot be tagged: use offline conversion import (Google) / Conversions API (Meta) from the CRM, or a cross-domain GTM fix; state which.
+
+## v0.5.2 additions
+- Extra statuses: **Thank-you-only pixel on an external domain** (the pixel sees only the final page; upstream steps are invisible) and **Wrong trigger / duplicate primary** (counts inflate; treat as broken, fix before scaling).
+- Tracking factor definitions: click-to-WhatsApp with native conversation count = "Configured" (see v0.5 WhatsApp rule); no website + manual tally = 5-6 of 10; "event verified, CRM unlinked" = 8 of 10 for the event and the real-outcome part scored 5-7.
