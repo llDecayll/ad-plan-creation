@@ -42,7 +42,7 @@ Platform rules change monthly. The plugin checks policy and platform changes liv
 The look lives in `references/html/plan-template.html`. Edit the design tokens at the top of its `<style>` block (font, `--brand` colour, `--flow-base-h` flow height, card widths) or the layout itself. Plans keep working as long as the `/*__PLAN_DATA__*/` placeholder stays. The data format is in `references/html-output.md`.
 
 ## Continuation plan (for a cloud session)
-Status at v0.5.3 (4 Oct 2026): plugin built and rules updated after Round 2.
+Status at v0.5.4 (4 Oct 2026): plugin built and rules updated after Round 2b.
 
 | Test | Version | Score |
 |---|---|---|
@@ -53,6 +53,7 @@ Status at v0.5.3 (4 Oct 2026): plugin built and rules updated after Round 2.
 | Fresh Set A (Round 1) | v0.5.1 | 50/54 = 92.6% |
 | Set B (B1–B3 run only, ungraded) | v0.5 | n/a |
 | Set B (Round 2, B1–B6) | v0.5.2 | 46/56 = 82.1% |
+| Set B re-run (Round 2b) | v0.5.3 | 48/56 = 85.7% |
 
 **Round 1 is complete and graded** (`dev/evals/grade_r1_S.md`, `grade_r1_A.md`; runs in `dev/evals/runs/r1_*.md`). v0.5.2 applies its fixes. **Round 2 (Set B on v0.5.2) is complete and graded at 82.1%** (`dev/evals/grade_r2_B.md`; runs in `dev/evals/runs/r2_*.md`). v0.5.3 applies its fixes. **Next: re-run Set B on v0.5.3 (target ≥ 92%), then Round 3 (fresh Set C).**
 
@@ -84,6 +85,8 @@ Estimated time in a cloud session: about 55–60 minutes.
 - Runner agents must not open files with "key" in the name or any `grade_*` file.
 
 ## Changelog
+**0.5.4 (4 Oct 2026)**: Round 2b fixes (Set B 85.7%): franchise pilot/weighting/creative kit/lead form, Gulf home-services Arabic/seasonality/AMC LTV, event keyword and ticket maths, launch lift KPIs, NGO nurture, resolved conflicts (brand share, reserve, 7x CPR vs budget, peak shift, Grants roll-up).
+
 **0.5.3 (4 Oct 2026)**: Round 2 fixes (Set B 82.1%): new playbooks (regulated consumables/launch phasing, franchise networks, nonprofits/Ad Grants, travel, UAE home services, hard-date events), history-beats-default and brand-share rules, ramp vs step cap, reserve, currency rule, five-creative gate clarified for written answers, margin/unit/sign-off gates, third-party ticketing and not-linked tracking rules, more benchmark rows, competitor-without-scan scoring, age/claims/cultural guardrails.
 
 **0.5.2 (4 Oct 2026)**: Round 1 fixes (regression 88.6%, Set A 92.6%): cap clarifications (manual tally, declined asks, per-campaign, band widening), tiny-budget and joint-pool rules, split shift, seasonality front-loading, Search keyword/negative requirement, D2C creative volume, brand Search default, suspended-account and minors rules, unified diaspora rule, always-state declarations for credit/employment/housing, extra tracking statuses, margin intake question.

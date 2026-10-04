@@ -77,3 +77,8 @@ Hand off to `${CLAUDE_PLUGIN_ROOT}/skills/ad-results-review/SKILL.md`.
 - Franchise or multi-site clients: propose a 30/60/90 pilot cluster of 8-10 units.
 - Declined or contradicted asks name the sign-off person and offer a test; frame a new manager's hypothesis as a test.
 - Read the v0.5.3 sections in vertical-playbooks, budget-allocation, quality-gate and tracking-audit.
+
+## v0.5.4 reminders
+- Multi-unit launches: pilot cluster of 8-10 units with a 30/60/90 plan.
+- Donation plans: sequence retargeting and monthly-giving nurture with a trigger.
+- Read the v0.5.4 sections in vertical-playbooks and budget-allocation; budget-allocation §7 wins on conflicts.

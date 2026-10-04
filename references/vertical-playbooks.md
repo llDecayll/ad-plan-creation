@@ -193,3 +193,32 @@ Read the section(s) matching the client. Each lists the **real outcome** to opti
 ### Events with a hard date (extra)
 - Derive paid share: tickets still needed − expected email/organic/partner tickets (use last year's share). Allowable CPA = price × margin; if margin unknown, use a labelled 50% and say so.
 - Countdown and genuine-scarcity copy only (real early-bird dates, capacity); ramp spend in the last 3 weeks in steps ≤20% per 3 days or state the exception.
+
+## v0.5.4 additions (Round 2b fixes)
+
+### Franchise / multi-unit (extra rules)
+- **Goal split:** consumer/member goal ≈ 80-85% and franchise-investor goal ≈ 15-20% of the pool, each with its own campaigns, budget and metric; name who approves the split.
+- **Pilot:** start with 8-10 units (best, average, worst) with a 30/60/90 plan: day 30 tracking/gym_id + cost per attended trial; day 60 fix low closers, scale winners; day 90 roll out to all units and read franchise pipeline. Fund all units only if budget per cluster meets the minimum.
+- **Weighting:** weight budget by unit capacity and conversion, not equal splits; a low-closing unit gets an ops fix (reply speed, trial follow-up) and spend follows closers.
+- **Creative kit:** head-office approved templates, one consistent offer, Partnership Ads from the head-office page; franchisees do not run their own offers.
+- **Franchise lead form:** investment capacity, city, timeline, net-worth/ownership questions; qualified = capacity ≥ fee and timeline ≤ 6 months. On Meta, use investor proxies (business owners, job titles) not income claims.
+- **GBP group:** verify/de-duplicate profiles and link all locations in one location group before location assets or PMax store goals.
+- **NRI/foreign test:** a small (≤10%) test line is allowed once legal clearance exists; before that, defer with the figure needed.
+- **Brand bidding:** monitor with Auction Insights; franchisees' brand bids stop via agreement; report brand Search separately.
+
+### Gulf home services (extra rules)
+- **Arabic:** if Arabic inquiry share ≥ 20% and no Arabic handler, add an Arabic ad set + Arabic RSA only once WhatsApp templates and a named handler exist; funded as a small test, not just deferred.
+- **Seasonality:** AC ramp from April-May; Ramadan/Eid deep-clean ramp 3-4 weeks before; evening timing in Ramadan; off-season AMC pre-sale.
+- **AMC LTV:** LTV per customer = first job margin + AMC price × attach rate × renewal; use it for allowable cost; ask for attach rate.
+- **Assets:** location asset tied to the GBP; WhatsApp message asset; Click-to-WhatsApp campaigns with CAPI for business messaging when available.
+
+### Events (extra rules)
+- **Search:** event-intent keywords (festival name + year, "tickets", "date", "venue") plus negatives (jobs, volunteer, vendor, free, stall, exhibitor); Demand Gen option for the last 3 weeks.
+- **Cost:** paid need = target − sold − expected email/organic share; allowable cost per ticket = price × margin; show the amount and compare to history.
+
+### Launch awareness (extra rules)
+- Brand-lift study and branded-search/Trends as KPIs; creative: brand in the first 2 seconds, product visible, 9:16 cuts, partnership ads, claims checked against FSSAI/ASCI.
+- Where the real outcome is untrackable, set the decision rule on lift (e.g. matched-city sell-out vs control) and name the metric owner.
+
+### NGO (extra rules)
+- Fund Meta donor retargeting (≥3,000 pool) or monthly-giving nurture as a sequenced step with a trigger, not only under Other channels; nurture to past donors by email/WhatsApp.

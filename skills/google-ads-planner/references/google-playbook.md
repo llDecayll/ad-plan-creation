@@ -93,3 +93,8 @@ Routine: Week 1 search terms + negatives; Week 2 ad copy pruning; Weeks 3-4 bidd
 - Add location assets tied to the Google Business Profile and message/WhatsApp assets for local services.
 - Use Auction Insights to monitor brand cannibalisation (franchisee or competitor bidding); gate PMax store-visit goals on a fixed, verified GBP.
 - Ad Grants: separate ₹0 account/budget, text-only Search, ≥5% CTR, multi-word keywords.
+
+## v0.5.4 additions
+- Link all business locations in one GBP location group before adding location assets.
+- Add negatives for event and job terms (jobs, volunteer, vendor, free, stall) on event/consumer Search.
+- Message/WhatsApp assets for local services.

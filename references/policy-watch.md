@@ -101,3 +101,6 @@ For credit, lending, employment and housing advertisers in any country, always w
 - **Franchise / investment-offer ads:** no earnings guarantees; state investment amount and disclaimers; verify live under Meta financial-products and Google financial-services policies; franchisee-owned accounts follow head-office brand-bidding and claims rules.
 - **Charity/nonprofit ads:** verify nonprofit status with Google for Nonprofits and Meta charity tools; if copy turns advocacy, check Meta's social-issue authorisation; special ad category for fundraising is not required outside the listed categories, but state the decision and "verify live".
 - **Alcohol/energy drinks:** local codes (India ASCI/FSSAI, NZ ASA, UAE/KSA bans on alcohol ads); never opt-in a special category that does not apply.
+
+## v0.5.4 addition
+- **Franchise ads:** require qualification questions on the form; monitor franchisee brand bids with Auction Insights; keep head office as owner of brand terms.

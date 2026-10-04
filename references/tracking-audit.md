@@ -82,3 +82,7 @@ Tracking status feeds the "Tracking" factor in confidence-rubric.md. "Configured
 - **Awareness with lift "planned, not set up":** tracking score 5-6; with a funded lift study or matched-city design, 7.
 - **Lead routers:** pass the unit/location ID into GA4 and the CRM; import offline POS sales when possible, else a weekly manual tally.
 - **WhatsApp/Click-to-WhatsApp:** track conversations started with campaign codes in the first message (e.g. "Hi [code]"); use CAPI for business messaging when available; Arabic or local-language templates when the audience needs them.
+
+## v0.5.4 additions
+- WhatsApp click/conversation counts as a secondary conversion; first-message campaign codes; CAPI for business messaging when available.
+- Third-party ticket platforms: cross-domain check that UTMs, gclid and fbclid survive to checkout; day-0 test purchase.

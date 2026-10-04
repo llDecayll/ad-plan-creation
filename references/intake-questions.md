@@ -36,3 +36,6 @@ Ask once, in one round. Skip anything already answered. Keep wording plain.
 
 ## v0.5.3 additions
 Ask early (or assume with a label): gross margin or contribution per sale; unit definitions ("trial-to-member" attended vs signed up; "deposit" per person or per group; margin before or after ad spend); city vs whole-emirate/state scope; brand vs non-brand Search history; whether competitors bid on the brand.
+
+## v0.5.4 additions
+Also ask: AMC/recurring attach and renewal rate; email-list share of historical sales for events; Arabic/local-language handler availability.

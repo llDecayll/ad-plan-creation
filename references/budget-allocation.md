@@ -60,3 +60,12 @@ The old "3-5 × CPR" shorthand is retired; use this table. Show the arithmetic f
 - **Currency:** convert every rupee threshold to the client's currency via multiples of CPA/CPR; never display ₹ for AED/NZ$/etc.
 - **Off-platform outranks on-platform** when it is the only attributable sales channel (e.g. quick-commerce in-app ads): list it with a % recommendation under Other channels, and outside the plan budget unless the client allows.
 - **Hard catchments (38 gyms × 5 km):** group into city-level ad sets; units below the minimum are labelled learning-limited or deferred; do not spread thinner.
+
+## 7. v0.5.4 additions (these resolve earlier conflicts; this section wins)
+- **Brand Search share:** 0-2% when the brand has no search demand; 3-5% default when brand terms have demand and no one bids; 5-10% when competitors or franchisees bid on the brand. Report separately.
+- **Reserve:** 10% default, 15% maximum, only when a release date and trigger are stated.
+- **7× CPR minimum vs real budget:** if the budget is below 7× CPR but at least 3×, the single funded campaign is a labelled learning-limited test with a 14-day read; the 10-20% test cap does not apply to a plan whose only campaign is that test. Below 3× CPR, move to a nearer-funnel event or defer.
+- **Roll-up:** ₹0-budget campaigns (Ad Grants) are scored but excluded from spend-weighted overall.
+- **Peak shift:** applies to any off-peak months, not only Jan-Sep.
+- **Ad Grants vs Search default:** where Grants run, treat Grants as the Search channel for the intent-order default; paid Google Search only when the budget can meet its minimum.
+- **Ticket maths:** see vertical-playbooks.md Events (extra rules).

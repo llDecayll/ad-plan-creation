@@ -1,6 +1,6 @@
 {
   "name": "ad-creation",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Senior performance-marketing planner for Meta Ads and Google Ads. Takes a website URL and a business goal, researches the site, tracking, competitors and current platform policy, then recommends campaigns, conversion locations, budgets, lead-form questions, URL parameters and five creative prompts per campaign, each with a confidence score. Includes a results-review loop that learns from real campaign numbers.",
   "author": {
     "name": "Deepak, Iugale Services Pvt Ltd"
