@@ -36,3 +36,10 @@ For each location/audience the client named (e.g. UAE, NRIs in US, a second city
 
 ## 5. Conflicting stakeholder goals
 When two decision-makers want different things (e.g. chairman wants awareness, admissions head wants applications; franchisor vs franchisee), name the conflict, recommend which goal gets which budget and why, and give each its own campaign and success metric. Don't blend objectives in one campaign.
+
+## 6. v0.5.3 additions
+- **Off-platform outranks on-platform** when it is the only attributable sales channel (quick-commerce, marketplace ads): recommend a % of budget and list it under Other channels.
+- **Hard catchments:** treat each as a hard boundary; group into city ad sets when per-unit budgets are below minimum.
+- **NRI/foreign tests:** only after legal clearance (FCRA, financial or health rules); otherwise defer with ₹ needed.
+- **Tourism audiences:** use "living in or recently in" for visitors' home cities; "living in" for local services.
+- **Stakeholder strategy asks** (e.g. "move 80% to Search"): decline with data, offer a test, and name the sign-off.

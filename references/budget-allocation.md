@@ -49,3 +49,14 @@ The old "3-5 × CPR" shorthand is retired; use this table. Show the arithmetic f
 - **Low-volume offline outcomes (< 50/month):** still send the offline event (site visit, qualified lead) as a secondary conversion or via CAPI; optimise on the qualified-lead proxy and say so.
 - **Fixed monthly budget with a peak season:** shift 20-30% of the Jan-Sep budget into the peak months instead of only deferring the uplift; show the cost to off-peak.
 - **Test bounded in a secondary market:** a 15-25% test is allowed when the secondary market has better unit economics; otherwise defer.
+
+## 6. v0.5.3 additions
+- **History beats the intent default.** If CRM-verified cost per real outcome exists per channel, follow it even when it contradicts the 55-70% Search default (up to 85% to the cheaper channel, keeping a Search/brand test of ≥15%); state the numbers. A stakeholder's allocation ask (e.g. "80% Search") is declined as a data contradiction and offered as a holdout test.
+- **Brand Search for a new brand with no demand:** 0-2% of budget; 5-10% only when competitors bid on the brand or demand exists. Report separately.
+- **Ramp vs the 20% step rule:** for a hard-dated event or launch, staged steps are allowed (≤20% per 3 days from week 3; one larger step at day 14 is acceptable if CPA is below target) and must be shown.
+- **High budgets (launch):** apply burst/sustain phasing and a 10-15% winners reserve (vertical-playbooks.md). Check reach absorption.
+- **Reserve:** a held reserve is allowed (≤10%); name its release date and trigger.
+- **Minimum vs 50/week rule for retargeting:** if the budget cannot reach 50 events/week, optimise the nearest higher-volume event (e.g. conversation or checkout) and label it.
+- **Currency:** convert every rupee threshold to the client's currency via multiples of CPA/CPR; never display ₹ for AED/NZ$/etc.
+- **Off-platform outranks on-platform** when it is the only attributable sales channel (e.g. quick-commerce in-app ads): list it with a % recommendation under Other channels, and outside the plan budget unless the client allows.
+- **Hard catchments (38 gyms × 5 km):** group into city-level ad sets; units below the minimum are labelled learning-limited or deferred; do not spread thinner.

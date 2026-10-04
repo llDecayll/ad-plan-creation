@@ -99,3 +99,12 @@ Meta reach CPM ₹150-300; YouTube bumper/skippable CPM ₹120-250; CPV ₹0.5-2
 
 ### Funnel conversion anchors (use only when the client has none; label "assumed")
 Conversation → qualified lead 25-40%; lead → booked visit/appointment 30-50%; booked → attended 50-70%; conversation → paid order (food/D2C via WhatsApp) 10-25%; ticket page visit → purchase 2-6%.
+
+## v0.5.3 additions: more planning anchors (derived; label "derived", cost evidence ≤3, widen bands to ±50%)
+- **Gyms / fitness (India):** Meta trial-pass lead ₹150-400; Search lead ₹250-600; trial-to-member 20-30% (client reported 24%); franchise investor lead ₹2,000-6,000, qualified 20-30%.
+- **Nonprofit donations (India):** Meta cost per donation ₹800-2,000; Search ₹1,000-2,500; repeat donor rate 15-25%; check Razorpay fee ~2%.
+- **Trek/travel (India):** Meta lead ₹100-250, enquiry-to-deposit 10-15%; Search non-brand CPC ₹35-90; use CRM history when available.
+- **Events (NZ/AU):** Meta cost per ticket NZ$15-30 for warm audiences; Search brand CPC NZ$0.6-1.0; non-brand NZ$1.5-3; use last year's reported ROAS only after discounting 30% for platform over-reporting and email overlap.
+- **Energy/FMCG awareness (India):** Meta reach CPM ₹150-300; YouTube bumper CPM ₹120-250; quick-commerce in-app ads are the only attributable sales channel.
+- **UAE home services:** Search CPC AED 6-14 (aggregator-heavy), Meta click-to-WhatsApp conversation AED 15-35; lead-to-job 20-30% on Search, 8-15% on Meta.
+- **Currency:** convert INR anchors via the multiplier table; never reuse ₹ thresholds in other currencies.

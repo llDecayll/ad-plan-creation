@@ -134,3 +134,8 @@ Common mistakes: wrong objective, budget too low, over-narrow targeting, daily t
 - WhatsApp greeting, quick replies, campaign code; named person replying fast
 - URL parameters set (website campaigns)
 - Previewed on Feed, Reels, Stories
+
+## v0.5.3 additions
+- Deposit/donation/booking events under 50/week: prefer Purchase (or Donate) with CAPI feedback at the learning-limited tier over defaulting to Lead or InitiateCheckout; use the proxy only as a labelled fallback.
+- Partnership (creator) ads for awareness and franchise/branch networks; head-office page lends ads to local units.
+- Click-to-WhatsApp: first-message campaign code, away message, automation when volume exceeds capacity.

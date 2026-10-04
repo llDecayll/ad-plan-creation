@@ -148,3 +148,48 @@ Read the section(s) matching the client. Each lists the **real outcome** to opti
 - **Local awareness asks (billboard-style reach):** cap at 10-15% as a supported campaign, or decline as the goal; never the lead objective.
 - **Health vertical confidence:** apply about -5 on the tracking factor when only restricted lower-funnel events can be sent to the platform.
 - **Credit / lending / employment / housing:** always state the special-ad-category or financial-products declaration and its targeting limits, then "verify live"; "not required, do not opt in" is only for other verticals.
+
+## v0.5.3 additions (Round 2 fixes)
+
+### Regulated consumables (energy drinks, alcohol, supplements)
+- Minimum audience age 18+ everywhere; 21+ where law sets it (US; check India state rules and NZ/AU codes live). Never target minors or minor-centric creative (13+ gamers, school students). Adult gamers and 18+ students are fine.
+- Alcohol: no "unlimited", "bottomless", "drink all you can", intoxication or performance claims; responsible-drinking line on every creative; Audience Network off; expect slower ad review, so submit early.
+- Energy drinks: carry the pack disclaimer ("not recommended for children, pregnant or lactating women") on every creative; no health or performance claims; check FSSAI/ASCI (India) live.
+- Launches with sell-in only: phase **launch burst (first 2 weeks, ~50-60% of reach budget)** then **sustain**, and hold back a 10-15% **winners reserve** released at day 14 to the best-performing channel and creative.
+- Reach saturation: a single brand with a tiny follower base cannot absorb unlimited reach at stable CPM; check that daily reach ÷ addressable adult population in the cities stays under ~1.5% and say what happens if CPM climbs.
+- Awareness creative spec: 6s bumper, 15s and 30s cuts, 9:16 and 1:1, brand in the first 2 seconds, sound-off readable, partnership (creator) ads on Meta.
+- Objective changes (e.g. "make it a conversion campaign"): name who signs off (CEO/CMO) and the measurement that replaces clicks.
+
+### Franchise / multi-location networks
+- Two goals (consumer sign-ups and franchisee leads): consumer is primary, franchise capped at 15-25%; named sign-off.
+- Franchisee ad accounts: franchise agreement should bar brand-term bidding against head office; monitor with Auction Insights; shared negative keyword list; head-office sets brand terms, franchisees run only non-brand local.
+- Fix Google Business Profiles first (verify, de-duplicate, link all locations in a location group); gate PMax store-visit goals and location assets on that fix. GBP-first sequencing.
+- Provide a franchisee creative kit (approved templates, claims list, Partnership Ads from head-office page) rather than 22 separate pages.
+- Pass a unit/gym ID from the router into GA4 and the CRM; reconcile paid members from each POS weekly (manual tally until integrated).
+- Pilot cluster: 30/60/90 plan starting with 8-10 gyms (mix of best, average and worst), then scale per catchment once cost per member is known.
+- Earnings guarantees ("₹8L/month assured") are banned; use "investment ₹X, typical payback is not guaranteed" disclosures. Franchise investment ads: state the disclosure and "verify live".
+
+### Nonprofits, donations and Ad Grants (extra)
+- Foreign donors need FCRA registration or a registered partner entity; without it, plan India-only and defer diaspora; Indian-citizen NRIs still need counsel's confirmation.
+- Timing: 80G/tax-saving push Jan-Mar; giving festivals (Daan Utsav early Oct, Giving Tuesday, festival seasons); year-end.
+- Google Ad Grants: about USD 10,000/month in-kind credit, text Search only, needs ≥5% account CTR, multi-word keywords, 2+ ad groups, sitelinks, no single-word generic terms; keep it a separate ₹0 budget. After suspension, rebuild structure and appeal; never open a second account.
+- Meta optimisation for donations: if donations are < 50/week, optimise Purchase/Donate with CAPI where affordable at 3× CPR learning-limited; use InitiateCheckout only as the labelled fallback.
+- Creative: never named or identifiable children, never claims such as "starving"; consented, anonymised or composite stories with verified figures.
+
+### Travel / treks / tours
+- Seasonality: bookings lead the season by 2-3 months; bank budget for peaks only with client approval and say what off-peak loses.
+- Check the deposit unit (per booking vs per person) and whether margin is before or after ad spend.
+- Strong channel history (CRM cost per deposit) outranks intent order: follow it. Brand Search 5-10% of Search and holdout test if GA4 over-credits brand.
+- WhatsApp: automation (auto-reply, qualification, away message) and lead scoring when volume exceeds counsellor capacity.
+- Optimise the deposit event (Purchase via CAPI) when ≥50/week; else Lead plus a qualified-lead offline event.
+- New-manager hypotheses ("Search is intent, Meta is likes"): frame it as a testable hypothesis with a holdout, not as a loss.
+
+### UAE home services (Ramadan, Arabic)
+- Ramadan/Eid and end-of-tenancy peaks: ramp 3-4 weeks before; AC demand ramps April-May.
+- Arabic demand: if the team cannot answer in Arabic, plan Arabic ads only with Arabic WhatsApp templates and a named handler; otherwise defer with ₹/AED needed.
+- Modest imagery; no swimwear/body-focused creative; tie Google location assets to the GBP.
+- Scope: say whether "Abu Dhabi" means the city or the whole emirate (Al Ain); hard-exclude emirates without teams.
+
+### Events with a hard date (extra)
+- Derive paid share: tickets still needed − expected email/organic/partner tickets (use last year's share). Allowable CPA = price × margin; if margin unknown, use a labelled 50% and say so.
+- Countdown and genuine-scarcity copy only (real early-bird dates, capacity); ramp spend in the last 3 weeks in steps ≤20% per 3 days or state the exception.

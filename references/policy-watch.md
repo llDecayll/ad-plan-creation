@@ -96,3 +96,8 @@ When a client asks for something that breaks platform policy, law or basic ethic
 
 ## v0.5.2 addition
 For credit, lending, employment and housing advertisers in any country, always write the declaration/category answer and its targeting limits in the plan and mark "verify live". The phrase "not required, do not opt in" is reserved for non-credit/employment/housing verticals.
+
+## v0.5.3 addition
+- **Franchise / investment-offer ads:** no earnings guarantees; state investment amount and disclaimers; verify live under Meta financial-products and Google financial-services policies; franchisee-owned accounts follow head-office brand-bidding and claims rules.
+- **Charity/nonprofit ads:** verify nonprofit status with Google for Nonprofits and Meta charity tools; if copy turns advocacy, check Meta's social-issue authorisation; special ad category for fundraising is not required outside the listed categories, but state the decision and "verify live".
+- **Alcohol/energy drinks:** local codes (India ASCI/FSSAI, NZ ASA, UAE/KSA bans on alcohol ads); never opt-in a special category that does not apply.

@@ -75,3 +75,10 @@ Tracking status feeds the "Tracking" factor in confidence-rubric.md. "Configured
 ## v0.5.2 additions
 - Extra statuses: **Thank-you-only pixel on an external domain** (the pixel sees only the final page; upstream steps are invisible) and **Wrong trigger / duplicate primary** (counts inflate; treat as broken, fix before scaling).
 - Tracking factor definitions: click-to-WhatsApp with native conversation count = "Configured" (see v0.5 WhatsApp rule); no website + manual tally = 5-6 of 10; "event verified, CRM unlinked" = 8 of 10 for the event and the real-outcome part scored 5-7.
+
+## v0.5.3 additions
+- **Third-party ticketing/checkout (Eventfinda, BookMyShow, Razorpay pages):** a Meta pixel and GA4 ID are usually allowed; a Google Ads tag usually is not. Link GA4 to Google Ads and import the purchase event; verify that gclid/fbclid survive to the checkout; run a day-0 test purchase. Until verified, Google bids on Max clicks with a CPC cap.
+- **"Events exist, not linked" status** (e.g. GA4 purchase exists, not imported to Google Ads/no Meta pixel): tracking score ≤4 and cap that platform's confidence at 45 until linked.
+- **Awareness with lift "planned, not set up":** tracking score 5-6; with a funded lift study or matched-city design, 7.
+- **Lead routers:** pass the unit/location ID into GA4 and the CRM; import offline POS sales when possible, else a weekly manual tally.
+- **WhatsApp/Click-to-WhatsApp:** track conversations started with campaign codes in the first message (e.g. "Hi [code]"); use CAPI for business messaging when available; Arabic or local-language templates when the audience needs them.

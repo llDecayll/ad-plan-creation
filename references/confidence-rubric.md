@@ -50,3 +50,10 @@ Format: `62/100 → ~78 if: Meta Pixel confirmed firing on form success (+8); la
 - **"Real outcome not trackable" (cap 60):** applies only when there is no downstream count at all. A manual tally by campaign code (reception, order sheet, CRM export) is trackable, so this cap does NOT apply; the tracking factor is scored 5-7 instead. Never cap below 65 when events are verified and the client has history or volume.
 - **Open policy blocker (cap 55):** applies only to an unresolved item inside the plan (e.g. a claim on the client's own site that stays live). A client ask that the plan declines is not a blocker. Always headline both scores: "now" (capped) and "after the fix" (uncapped), and say the cap is per campaign.
 - **Capped score widens the forecast band by one step** (±35% → ±50%); a second cap does not widen it further.
+
+## v0.5.3 additions
+- **Competitor factor without a live scan:** if competitors come only from the scenario/intake text, score it 4-5 (not 3); raising it needs a filtered Ad Library search.
+- **Cost evidence when only a CPC is given** (no CPL/CPA): score 3.
+- **Margin unknown:** cost-evidence cap 50 stays (gate J).
+- **Tracking "events exist, not linked":** cap that campaign at 45 (see tracking-audit.md).
+- **Strong CRM-verified channel history:** cost evidence may score 8-9 and the cap does not apply.

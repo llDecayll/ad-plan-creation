@@ -33,3 +33,6 @@ Ask once, in one round. Skip anything already answered. Keep wording plain.
 | Meta Advantage+ audience | Keep on for age/interest, but location stays a hard limit | On |
 | Google location option | Presence: people in or regularly in your targeted locations | Presence or interest |
 | Google excluded locations | Add surrounding areas you cannot serve if needed | Not needed |
+
+## v0.5.3 additions
+Ask early (or assume with a label): gross margin or contribution per sale; unit definitions ("trial-to-member" attended vs signed up; "deposit" per person or per group; margin before or after ad spend); city vs whole-emirate/state scope; brand vs non-brand Search history; whether competitors bid on the brand.

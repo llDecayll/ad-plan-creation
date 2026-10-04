@@ -71,3 +71,9 @@ Assemble the plan using `${CLAUDE_PLUGIN_ROOT}/references/output-template.md`.
 ## When the user later shares results
 
 Hand off to `${CLAUDE_PLUGIN_ROOT}/skills/ad-results-review/SKILL.md`.
+
+## v0.5.3 reminders
+- Sequence GBP fixes and tracking fixes before the campaigns that depend on them.
+- Franchise or multi-site clients: propose a 30/60/90 pilot cluster of 8-10 units.
+- Declined or contradicted asks name the sign-off person and offer a test; frame a new manager's hypothesis as a test.
+- Read the v0.5.3 sections in vertical-playbooks, budget-allocation, quality-gate and tracking-audit.

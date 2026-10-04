@@ -55,3 +55,11 @@ Adapt thresholds to the client's economics and state them in ₹.
 - Five creative angles are required for the lead funded campaign in a written answer; other funded campaigns get a launch-time brief. In the HTML board, every funded campaign still carries ≥5 creatives.
 - Ask for gross margin (or contribution) at intake; if missing, show a labelled 50% assumption and cap cost evidence at 50.
 - Long cycles (45-90 days): day-14 uses the qualified proxy (qualified demo, visit booked); put a day 60-90 won-deal check in the table.
+
+## K. v0.5.3 additions
+- ★ In a written (word-capped) answer, F and J are satisfied by five creative angles for the lead campaign and a launch-time brief for others. Do not flag F as failed for this.
+- ★ Margin unknown: gate J applies (labelled 50%, cost evidence ≤50); also ask for margin at intake and say what real margin would change.
+- ★ Each declined client ask names the person who signs off (e.g. CEO, marketing manager) and the compliant alternative.
+- Units checked: "trial-to-member", "deposit", "lead", "booking" are defined (per person or per group; attended vs signed up; margin before or after ad spend).
+- Currency: no ₹ in non-INR plans.
+- Launch/hard-date plans show phasing (burst/sustain or ramp) and any reserve.
