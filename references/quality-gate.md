@@ -44,3 +44,9 @@ Adapt thresholds to the client's economics and state them in ₹.
 
 ## H. Confidence
 - Scores follow confidence-rubric.md including caps; overall is spend-weighted.
+
+## I. v0.5 additions
+- **Sanity-check client numbers** (CPL, close rate, AOV, margin) against `benchmarks.md`; if they differ by more than 2x, say so and plan with the benchmark as the downside case.
+- **Creative sets:** five prompts for every funded campaign; planned/deferred campaigns get two. Under a word cap, give one line each for the main campaign and list the rest as "to be written at launch".
+- **Stakeholder conflict:** cap the secondary goal at 15-25% of budget and name who signs off.
+- **Day-14 for long cycles:** use the leading proxy, and state the real-outcome check date.

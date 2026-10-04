@@ -29,3 +29,14 @@ The old "3-5 × CPR" shorthand is retired; use this table. Show the arithmetic f
 ## 3. Overall confidence roll-up
 - Overall = spend-weighted average of funded campaigns' scores, then apply plan-level caps from confidence-rubric.md.
 - Deferred campaigns are scored but excluded from the average.
+
+## 4. v0.5 additions
+- **Express every gate as a multiple of CPA/CPR, then convert to local currency.** Never reuse ₹ values for other markets. Client history overrides benchmark multipliers.
+- **Joint vs per-platform budget:** if the client gave one pool, split it by §2; if they gave per-platform budgets, do not move money between platforms without saying so.
+- **Cost point for the check:** use the midpoint cost for the plan, and show the high-end cost as the downside case. A campaign that passes only at the low end is a labelled test.
+- **Test cap vs minimum spend:** if the 3x CPR learning-limited minimum exceeds the test cap (10-20% of budget), the minimum wins, or the test is deferred with the ₹/$ needed. Say which.
+- **Google App campaigns:** about 10x target CPA per day and ≥10 conversions per day to exit learning; otherwise defer or run a web/WhatsApp path first.
+- **Seasonality above 40% of annual revenue:** front-load a fixed monthly budget toward the peak months and say what is taken from off-peak.
+- **Multi-month cycles (admissions, B2B, property):** use phases (nurture, peak, result-day or deadline bursts). Day-30 checks use leading proxies (qualified enquiries, visit bookings), not the final outcome.
+- **Unspent budget** when a platform is blocked (policy, tracking, account suspension): park it, do not re-route silently; list it under Deferred.
+- **Brand and impression-share campaigns:** a small brand-Search campaign is allowed when competitors bid on the brand name; budget ≈ 5-10% of Search and it is reported separately.

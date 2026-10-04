@@ -82,3 +82,9 @@ When a client asks for something that breaks platform policy, law or basic ethic
 | Identifiable children / patients in imagery without consent | Privacy, dignity, policy | Consented, non-identifying imagery |
 | Advertise a service in a country where the business isn't licensed | Legal and policy risk | Defer that market until licensed |
 | Culturally inappropriate creative for a market (e.g. swimwear in KSA) | Local norms, rejection risk | Market-appropriate creative per locale |
+
+## v0.5 additions
+- **Solar / energy** can fall under Housing in some contexts (home-improvement for owners); decide by audience country with the 4-step rule and verify live.
+- **Special-category radius minimums** (US housing/credit/employment: ≥15 miles) override a hard boundary smaller than that; say so and note the trade-off.
+- **US housing restrictions:** no age, gender or postcode targeting, ≥15-mile radius, no lookalikes. List them whenever a US audience is planned or deferred.
+- **Diaspora/NRI:** use interest-or-recent-location targeting in a separate campaign per market so a hard boundary does not exclude people abroad.

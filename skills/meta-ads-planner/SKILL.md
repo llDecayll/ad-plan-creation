@@ -24,7 +24,7 @@ Read `references/meta-playbook.md` (in this skill's folder) for how Meta's front
 5. **Budget**: campaign budget (Advantage campaign budget) by default; ad set budgets only to force spend on a must-have audience. Check each ad set against `${CLAUDE_PLUGIN_ROOT}/references/budget-allocation.md` §1 (≥ 7 × CPR per day, or a labelled learning-limited test at ≥ 3 ×). Fewer ad sets beats many starved ones.
 6. **Bid strategy**: Highest volume to start; cost per result goal once cost is known and stable; bid cap only for advanced control.
 7. **Audience**:
-   - Location per hard/soft boundary (intake-questions.md table). Hard: "People living in this location", location expansion off.
+   - Location per hard/soft boundary (intake-questions.md table). Hard: follow the intake-questions.md table ("living in" when the customer must reside there, else "living in or recently in"), location expansion off.
    - Advantage+ audience on for prospecting, with age/gender/interests as suggestions. Don't rely on narrow interests (many removed/consolidated in 2025-26).
    - Exclusions that still work: custom audiences (existing customers, people who already messaged / submitted in last 30-60 days).
    - Retargeting ad set only if the pool is large enough and budget allows; needs Advantage+ audience off.

@@ -42,6 +42,8 @@ Platform rules change monthly. The plugin checks policy and platform changes liv
 The look lives in `references/html/plan-template.html`. Edit the design tokens at the top of its `<style>` block (font, `--brand` colour, `--flow-base-h` flow height, card widths) or the layout itself. Plans keep working as long as the `/*__PLAN_DATA__*/` placeholder stays. The data format is in `references/html-output.md`.
 
 ## Changelog
+**0.5.0 (4 Oct 2026)**: from graded blind tests (regression 89.8%, fresh set A 89.8%): D2C break-even and existing-audience rules, health/lending/app/recruitment/food playbooks, consent-gated and WhatsApp tracking statuses, policy-cap scoping and forecast widening, budget cost-point and test-cap rules, hard-boundary wording unified.
+
 **0.4.0 (4 Oct 2026)**: new rulebooks (budget-allocation, scope-and-channels, vertical-playbooks, quality-gate), confidence caps, expanded India benchmarks, policy decline table, test-and-scale schedule. Blind-test round 1 only partly run; further test/fix rounds planned.
 
 **0.3.1 (4 Oct 2026)**: HTML plan uses the light theme by default, regardless of the viewer's system setting.

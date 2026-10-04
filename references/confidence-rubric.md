@@ -34,3 +34,9 @@ Range width tracks confidence: 80+ ±20% · 60-79 ±35% · below 60 ±50% or wid
 
 ## Every score states what would raise it
 Format: `62/100 → ~78 if: Meta Pixel confirmed firing on form success (+8); last 90 days' cost per lead shared (+8).`
+
+## v0.5 additions
+- A policy or tracking cap applies to the **campaign it affects**. State "per campaign" or "account-wide" explicitly.
+- For "launch with fixes", show both scores: now (capped) and after fixes (uncapped), and headline the capped one.
+- A capped score widens the forecast band by one step (±35% → ±50%). Forecast confidence never exceeds the band edge.
+- Overall score weights funded campaigns by budget; planned/deferred campaigns are listed but do not count. With one funded campaign, overall = that campaign.

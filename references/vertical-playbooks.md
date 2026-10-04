@@ -90,3 +90,32 @@ Read the section(s) matching the client. Each lists the **real outcome** to opti
 
 ## Solar / energy (incl. Australia)
 - Real outcome: qualified homeowner site assessment → install. Exclude renters with qualifying questions; "free solar" or misleading rebate claims breach consumer law (e.g. ACCC); accreditation (e.g. CEC in Australia) as trust signal.
+
+## v0.5 additions
+
+### D2C break-even (replaces ad-hoc economics)
+- Break-even CPA = AOV x gross margin. Break-even ROAS = 1 / gross margin (so 70% margin ≈ 1.4). State this first.
+- Add shipping, COD fees and RTO losses only if the client supplied them; otherwise list them as "ask" items and show the base figure plainly. Never invent costs; a labelled assumption goes in a separate line and the confidence factor "cost evidence" is capped at 50.
+- Existing audiences: when the IG/FB/site/email pool is large enough (Meta custom audience ≥1,000 matched), plan a separate retargeting/existing-customer campaign at 10-20% of budget, and use customer lists as exclusions (new-customer acquisition) and lookalike seeds. Creative refresh: 2-3 new concepts every 2-3 weeks; target ≥8 active concepts for D2C at ₹1,500+/day.
+- Shopping/Merchant Center: use custom labels by margin tier (hero, standard, clearance), supply GTIN or declare identifier_exists correctly, start with Standard Shopping when margin segmentation matters; PMax once ≥30 conversions/month.
+- Consent-gated tracking (UK/EEA): Consent Mode v2 with a working CMP is a launch blocker; until verified, tracking is capped at "Configured, firing unverified".
+
+### Health, wellness and apps
+- Meta has removed detailed targeting on health conditions; Google bans personalised-ad targeting on health. State this in the plan. Use broad / Advantage+ audiences with proxy interests (sleep, yoga, meditation, wellness) and creative that speaks to the product, not the viewer's condition.
+- Health-related lower-funnel events (sign-ups to a condition programme, appointments) may be restricted from being sent to Meta. Cap the tracking factor at 60 when only restricted events exist, and optimise on a non-sensitive event (install, trial start).
+- Apps: SKAN / AdAttributionKit for iOS, Android install referrers, per-OS campaigns; optimise on the deepest event that occurs within about 3 days and yields ≥50/week.
+
+### Lending / credit
+- Treat the financial-products declaration (India) and the Meta credit special ad category (US/CA/EU audiences) as always to state. "Not required" is valid only for audiences outside those regions, and the plan still says "verify live".
+- Disbursal lag of days: primary event = KYC-complete or application-complete (≥50/week); disbursal comes back as a value/secondary signal.
+
+### Recruitment, education, B2B
+- Search-led plans list 5-10 keyword themes per funded Search campaign plus a mandatory negatives list (recruitment: CNA/LPN/student/free/jobs-for-others; education: free/scholarship/govt exam).
+- Capacity sizing: check recruiter/counsellor/sales headcount against forecast leads per day; if leads exceed capacity, cap spend rather than burn leads.
+- Admissions: add capitation-fee and admission-law checks to policy; no seat or placement guarantee claims.
+- B2B: break-even from ACV x win rate x margin; day-14 checks include "meetings booked", not just form fills.
+
+### Food and bakery, vanity goals
+- Food/bakery: transaction usually via WhatsApp or aggregator; real outcome = paid orders; optimise for conversations then orders; local radius with "living in or recently in"; aggregators (Swiggy/Zomato) are a deferred/other channel, not a Meta destination.
+- Vanity goals (followers, likes): decline as the goal, translate to the business outcome, and offer a capped (≤10-15%) engagement campaign as a support, with the ₹ stated.
+- No website: Google Search first only if people search the intent; otherwise Meta + WhatsApp, with a Google Business Profile as the free "other channel".

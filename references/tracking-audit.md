@@ -65,3 +65,9 @@ Typical fixes to recommend:
 - A distinct thank-you URL or a success event for every form.
 
 Tracking status feeds the "Tracking" factor in confidence-rubric.md. "Configured, firing unverified" scores 5, not 0.
+
+## v0.5 additions
+- Extra statuses: **Events exist, not linked** (events fire but are not connected to the ad account/campaign goal) and **Consent-gated** (fires only after consent; unverified until the CMP is checked).
+- Score tracking twice when it is a fixable blocker: **now** and **after the fix**. Headline the post-fix score only as "if the blocker is fixed before launch".
+- WhatsApp-native with manual tally: the native conversation count is valid for optimisation (counts as "Configured"), but outcome tracking is manual; cap the tracking factor at 65 until orders are logged against campaign codes.
+- If the ATS or checkout cannot be tagged: use offline conversion import (Google) / Conversions API (Meta) from the CRM, or a cross-domain GTM fix; state which.
