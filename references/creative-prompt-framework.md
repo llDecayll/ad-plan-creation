@@ -1,6 +1,6 @@
 # Creative prompt framework
 
-At least five prompts per campaign. Each prompt is ready to paste into an AI image or video generator, plus the copy pack to run it. This framework is self-contained; do not hand off to any other creative skill.
+At least five prompts per campaign. Each prompt is ready to paste into an AI image or video generator, plus the copy pack to run it. This framework is self-contained; do not hand off to any other Iugale creative skill. Images are generated in ChatGPT, not here: write every image prompt paste-ready for ChatGPT per `${CLAUDE_PLUGIN_ROOT}/references/chatgpt-image-handoff.md`, and review what comes back with `skills/ad-creative-review`.
 
 ## 1. Pick five different angles (one per prompt)
 | Angle | Psychology | Typical hook |

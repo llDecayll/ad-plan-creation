@@ -1,6 +1,6 @@
 {
   "name": "ad-creation",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Senior performance-marketing planner for Meta (Facebook and Instagram), Google/YouTube, LinkedIn and X ads. Takes a website URL and a business goal, researches the site, tracking, competitors and policy, then plans a full-funnel set of campaigns with budgets, tight locations, flights, targets, channel roles, ad creatives and confidence scores. Then keeps watch: reads your campaign exports, alerts with change prompts and outlook scenarios, and researches trends to recommend the next campaigns and ad sets.",
   "author": {
     "name": "Deepak, Iugale Services Pvt Ltd"
@@ -15,6 +15,9 @@
     "linkedin ads",
     "x ads",
     "campaign monitoring",
-    "trend research"
+    "trend research",
+    "chatgpt image prompts",
+    "read-only browser",
+    "meta ads export"
   ]
 }

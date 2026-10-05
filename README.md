@@ -21,6 +21,8 @@ After launch, share results (exports or screenshots, aggregate only) and it comp
 | google-ads-planner | Google-only plan |
 | ad-monitor | Keeps watch: reads your campaign exports (Meta, Google, LinkedIn, X) against the plan and your own brief, alerts, gives three outlooks and ready-to-paste change prompts |
 | ad-next-moves | Market and trend research (video, audio, formats) plus your existing channels, to recommend the next campaign, ad set or creative |
+| ad-data-pull | Meta only: reads the ad account in your own browser in read-only mode (desktop), or tells you exactly which export to send |
+| ad-creative-review | Reviews images you generated in ChatGPT and writes edit prompts to send back |
 | ad-results-review | Ledger-focused predicted-vs-actual review |
 
 **How "keep an eye" works:** the plugin cannot watch an ad account (no account access, by design). You send the export on a cadence (day 3, 7, 14, 21, 30, then weekly; every 2-3 days when RED). `scripts/analyze_export.py` reads it, applies the plan's `monitor` rules plus the rules you explain in a brief (`references/monitor-brief-template.md`), and the skill adds judgement. Updates go back into the plan with `scripts/merge_plan.py`.
@@ -36,6 +38,17 @@ Example prompts:
 - No ad-account connection; performance data only from files you attach.
 - Aggregate numbers only; no individual lead data.
 
+## Claude + ChatGPT workflow
+Claude does analytics, strategy and text; ChatGPT makes the images. The plan's image prompts are written paste-ready for ChatGPT (`references/chatgpt-image-handoff.md`); you bring the generated images back and `ad-creative-review` checks them and writes edit prompts. Naming convention `<client>_<campaign>_<angle>_<version>_<ratio>` lets exports map results back to creative angles.
+
+## Desktop setup after you clone (read-only account access)
+1. Run the plugin in the Claude desktop app and connect a browser tool: Claude in Chrome (your real Chrome and sign-ins) or the built-in browser.
+2. Say in the conversation that Claude may read a named Meta ad account in read-only mode. It then follows `references/browser-readonly-meta.md` (guardrails §3): you sign in yourself; it only reads; it never publishes, edits, pauses or opens individual leads.
+3. Create the "Claude Monitor" column preset once in Ads Manager (`references/meta-export-guide.md` §3) so every read and export has the same columns.
+4. Do the one-time dry run in `browser-readonly-meta.md` §5 per client (watch the browser, compare totals) before trusting it. **This browser flow has not been tested in the cloud build; test it on first use.**
+5. No browser tool? Use the export route: `references/meta-export-guide.md` lists which exports to send and the columns needed.
+Scope today: Meta (Facebook and Instagram) only. Google, LinkedIn and X use attached exports.
+
 ## Learnings ledger
 The plugin can't remember between chats on its own. After each results review it proposes entries for `ad-learnings-ledger.md`; you approve them and keep the file. Attach it to future runs so plans start from Iugale's real results. Lessons seen across 3+ clients should be folded into `references/benchmarks.md` in the next plugin version.
 
@@ -46,7 +59,7 @@ Platform rules change monthly. The plugin checks policy and platform changes liv
 The look lives in `references/html/plan-template.html`. Edit the design tokens at the top of its `<style>` block (font, `--brand` colour, `--flow-base-h` flow height, card widths) or the layout itself. Plans keep working as long as the `/*__PLAN_DATA__*/` placeholder stays. The data format is in `references/html-output.md`.
 
 ## Continuation plan (for a cloud session)
-Status at v0.7.0 (4 Oct 2026): plugin built and rules updated after Round 4.
+Status at v0.8.0 (4 Oct 2026): plugin built and rules updated after Round 4.
 
 | Test | Version | Score |
 |---|---|---|
@@ -92,6 +105,8 @@ Estimated time in a cloud session: about 55–60 minutes.
 - Runner agents must not open files with "key" in the name or any `grade_*` file.
 
 ## Changelog
+**0.8.0 (5 Oct 2026)**: Claude + ChatGPT image workflow (paste-ready image prompts, return-leg review skill `ad-creative-review`); read-only browser mode for Meta on desktop (guardrails §3 exception, `browser-readonly-meta.md`, skill `ad-data-pull`); Meta export guide (where to export, columns, 11 exports); `analyze_export.py` now reads Delivery status (learning limited, rejected, in review), location breaches and ranks ad sets and ads (`--creatives`). Browser flow untested in the cloud build: first-use dry run required.
+
 **0.7.0 (5 Oct 2026)**: whole-funnel feasibility verdict; per-campaign flight dates (start, end, length, phases, end action), target tables and machine-readable `monitor` rules, enforced by the renderer and shown on the board; Channel-role plan (`references/omnipresence.md`) across Facebook, Instagram, Google, YouTube, LinkedIn, X and the website; LinkedIn/X playbook (derived ranges); new skills `ad-monitor` (export reader with RED/AMBER/GREEN alerts on campaign-to-date and recent windows, brief rules, edit before/after reads, three outlooks, change prompts) and `ad-next-moves` (trend and audio/video research, existing-channel read, ranked moves); `scripts/analyze_export.py` and `scripts/merge_plan.py`. Tested on a synthetic degrading Meta export and a Google-style export; the two new skills were each run once blind and their gaps fixed. Not yet scored on a fresh Set.
 
 **0.6.1 (4 Oct 2026)**: Round 4 fixes (fresh Set D 91.5%): LTV-based scale thresholds, qualified-enquiry definition and reply targets, space-operator, marketplace and fixed-inventory service rules.

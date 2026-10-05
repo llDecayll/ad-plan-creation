@@ -4,6 +4,7 @@
 Usage:
   python3 analyze_export.py export.csv --plan plan.json [--flow FLOW_ID] [--today YYYY-MM-DD] [--json]
   python3 analyze_export.py export.csv --rules rules.json [--today YYYY-MM-DD] [--json]
+  --creatives ranks ad sets and ads inside each campaign (needs ad set / ad name columns).
   Extra options: --edit 2026-10-20="creative swap" (repeatable: before/after read), and --rules together with --plan
   (your monitor-brief rules are merged over the plan's: brief wins). --today defaults to the last date in the export.
   Brief-rule keys: cprAlertDays (N days above cprAlert = fix), dailyBudgetMax, allowedLocations ["Karnataka"].
@@ -39,7 +40,7 @@ SYN = {
               "amount spent (usd)", "amount spent (aed)", "amount spent (gbp)", "amount spent (eur)", "cost (inr)"],
     "impressions": ["impressions", "impr.", "impr"],
     "clicks": ["link clicks", "clicks", "link click", "clicks (all)", "interactions", "outbound clicks"],
-    "results": ["results", "conversions", "leads", "one-click leads", "all conv.", "messaging conversations started",
+    "results": ["results", "conversions", "leads", "one-click leads", "all conv.", "messaging conversations started", "messaging conversations started (results)", "new messaging contacts",
                 "conversions (all)", "purchases", "website purchases", "website leads", "link clicks (results)"],
     "reach": ["reach"],
     "frequency": ["frequency"],
@@ -47,9 +48,11 @@ SYN = {
                        "search lost impression share (budget)"],
     "video_views": ["video plays", "thruplays", "video views", "views", "3-second video plays"],
     "qualified": ["qualified leads", "qualified", "qualified enquiries"],
+    "delivery": ["delivery", "delivery status", "ad delivery", "status"],
     "location": ["region", "state", "country", "location", "city", "dma region", "geography", "delivery location"],
     "revenue": ["purchase conversion value", "conv. value", "revenue", "conversion value"],
 }
+DELIVERY = defaultdict(set)
 FREQ_DAYS = defaultdict(dict)
 LOCS = defaultdict(lambda: defaultdict(float))
 PII = ["email", "phone", "mobile", "first name", "last name", "full name", "address"]
@@ -118,6 +121,7 @@ def agg(rows, m, keyfn):
     days = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
     FREQ_DAYS.clear()
     LOCS.clear()
+    DELIVERY.clear()
     for r in rows:
         k = keyfn(r)
         if not k or str(k).lower().startswith("total"):
@@ -130,6 +134,8 @@ def agg(rows, m, keyfn):
             out[k]["_freq_n"] += max(num(r.get(m.get("impressions", ""))), 1)
         if "lost_is_budget" in m:
             out[k]["lost_is_budget"] = max(out[k]["lost_is_budget"], num(r.get(m["lost_is_budget"])))
+        if "delivery" in m and r.get(m["delivery"], "").strip():
+            DELIVERY[k].add(r[m["delivery"]].strip())
         if "location" in m and r.get(m["location"], "").strip():
             LOCS[k][r[m["location"]].strip()] += num(r.get(m.get("spend", ""), 0)) or 1
         if "date" in m:
@@ -194,6 +200,18 @@ def alerts_for(rule, a, series, today, name=None):
     def add(sev, code, evidence, why, prompt):
         A.append({"severity": sev, "code": code, "evidence": evidence, "why": why, "change_prompt": prompt})
 
+    dv = " ".join(DELIVERY.get(name, [])).lower()
+    for flag, code, sev, why, prompt in (
+        ("learning limited", "LEARNING_LIMITED", "AMBER", "Meta says the ad set cannot exit learning at this budget/audience.",
+         "Consolidate ad sets or move to a nearer-funnel event; do not add budget blindly."),
+        ("rejected", "AD_REJECTED", "RED", "An ad was rejected or the account is restricted.",
+         "Open the rejection reason (read only), fix the creative/claim, and submit a compliant duplicate."),
+        ("in review", "IN_REVIEW", "AMBER", "Ads are still in review; no delivery yet.", "Wait up to 24h; if longer, check the account quality page."),
+        ("inactive", "NOT_DELIVERING", "AMBER", "Campaign or ad set is inactive/paused.", "Confirm the pause was intended."),
+        ("not delivering", "NOT_DELIVERING", "RED", "Not delivering: budget, schedule, payment or review problem.",
+         "Check payment method, schedule, budget and review status.")):
+        if flag in dv:
+            add(sev, code, f"Delivery status contains '{flag}'", why, prompt)
     if days_live is not None and days_live < 3:
         add("AMBER", "TOO_EARLY", f"{days_live} day(s) of data",
             "Under 3 days the platform is still learning; verdicts would be noise.",
@@ -325,9 +343,10 @@ def alerts_for(rule, a, series, today, name=None):
     if any(x["severity"] == "RED" for x in A):
         ctx = [x for x in A if x["code"] in ("CPR_ABOVE_RANGE", "TREND_WORSENING", "CPR_ON_TARGET")]
         A = [x for x in A if x not in ctx]
-        if ctx:
+        notes = [x["evidence"] for x in ctx if x["code"] != "CPR_ON_TARGET"]
+        if notes:
             first_red = next(x for x in A if x["severity"] == "RED")
-            first_red["evidence"] += " | context: " + "; ".join(x["evidence"] for x in ctx if x["code"] != "CPR_ON_TARGET")
+            first_red["evidence"] += " | context: " + "; ".join(notes)
         for x in A:
             if x["severity"] == "RED" and today:
                 x["act_by"] = (today + timedelta(days=7)).isoformat()
@@ -349,6 +368,31 @@ def edit_effect(series, edit_date, label):
                    "cpr": round(t["spend"] / t["results"]) if t["results"] else None}
     return {"edit": label, "date": edit_date.isoformat(), "before": f(b), "after": f(a_),
             "note": "an edit resets learning; read at least 3 days before judging"}
+
+
+def creative_table(rows, m, campaign_name, rule, level_key):
+    """Rank ad sets or ads inside one campaign. level_key is the SYN key ('adset' or 'ad')."""
+    if level_key not in m:
+        return None
+    sub = [r for r in rows if r.get(m["campaign"], "").strip() == campaign_name]
+    agg_, _ = agg(sub, m, lambda r: r.get(m[level_key], "").strip())
+    out = []
+    for k, a in agg_.items():
+        d = derive(a)
+        flag = ""
+        alert, high = rule.get("cprAlert"), rule.get("cprHigh")
+        if d["spend"] and not d["results"] and alert and d["spend"] >= alert:
+            flag = "LOSER (spend over one alert-level CPR, 0 results)"
+        elif d["results"] >= 5 and high and d["cpr"] <= high:
+            flag = "WINNER"
+        elif alert and d["cpr"] and d["spend"] >= alert and d["cpr"] > alert:
+            flag = "LOSER (CPR over alert)"
+        if rule.get("freqMax") and d["freq"] and d["freq"] > rule["freqMax"]:
+            flag = (flag + " " if flag else "") + "FATIGUE"
+        out.append({"name": k, "spend": round(d["spend"]), "results": round(d["results"]), "cpr": round(d["cpr"]),
+                    "ctr": round(d["ctr"], 2), "freq": round(d["freq"], 1), "flag": flag})
+    out.sort(key=lambda x: (x["cpr"] == 0, x["cpr"]))
+    return out
 
 
 def clk_ok(a):
@@ -452,6 +496,14 @@ def main():
         sc = scenarios(rule, a, series, today) if rule else None
         if sc:
             item["scenarios"] = sc
+        if "--creatives" in args and rule:
+            ct = {}
+            for lk in ("adset", "ad"):
+                t = creative_table(rows, m, name, rule, lk)
+                if t:
+                    ct[lk] = t
+            if ct:
+                item["creatives"] = ct
         if series and edits:
             item["edits"] = [edit_effect(series, d, lab) for d, lab in edits]
         report.append(item)
@@ -468,6 +520,10 @@ def main():
             print(f"- [{al['severity']}] {al['code']}: {al['evidence']}\n    why: {al['why']}\n    change prompt: {al['change_prompt']}")
             if al.get("act_by"):
                 print(f"    act by: {al['act_by']} ({al['act_by_note']})")
+        for lk, t in it.get("creatives", {}).items():
+            print(f"  {'Ad sets' if lk == 'adset' else 'Ads'} ranked by cost per result (min data caveat: ignore rows with < 1,000 impressions):")
+            for x in t[:8]:
+                print(f"    {x['name'][:42]:42} spend {x['spend']:>7,} | results {x['results']:>4} | CPR {x['cpr']:>6,} | CTR {x['ctr']}% | freq {x['freq']} {x['flag']}")
         for e in it.get("edits", []):
             if "before" in e:
                 print(f"  Edit '{e['edit']}' on {e['date']}: before CTR {e['before']['ctr']}% / CPR {e['before']['cpr']} -> after CTR {e['after']['ctr']}% / CPR {e['after']['cpr']} ({e['note']})")
