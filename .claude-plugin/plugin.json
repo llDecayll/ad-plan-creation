@@ -1,6 +1,6 @@
 {
   "name": "ad-creation",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Senior performance-marketing planner for Meta, Google/YouTube, LinkedIn and X ads. Give it a website URL and goal: it researches the site, tracking, competitors and policy, then plans full-funnel campaigns with budgets, locations, flights, targets, channel roles, creatives and confidence scores. Then it reads your campaign exports, raises alerts with change prompts and outlooks, and recommends next moves.",
   "author": {
     "name": "Deepak, Iugale Services Pvt Ltd"

@@ -31,13 +31,15 @@
   --radius: 14px;
   --shadow: 0 1px 2px rgba(16,24,40,.06), 0 4px 14px rgba(16,24,40,.06);
   --flow-base-h: 380px;      /* fixed height of a campaign flow (1-2 ad sets) */
-  --row-h: 196;              /* px per ad-set row when a flow has several ad sets */
+  --row-h: 168;              /* px per ad-set row when a flow has several ad sets */
   --flow-h: var(--flow-base-h);
   --rail-w: 232px;           /* left platform/objective rail */
   --card-campaign: 228px;
   --card-adset: 220px;
-  --card-ad: 168px;
+  --card-ad: 210px;
   --col-gap: 56px;
+  --lv-set: #6D3FD6;         /* ad set level colour */
+  --lv-ad: #0E9F8A;          /* ad level colour */
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -90,13 +92,14 @@ button{font-family:inherit}
 .flow{display:flex;background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:16px;height:var(--flow-h);overflow:hidden;scroll-margin-top:16px}
 .flow.planned{opacity:.72}
 .flow.planned .track{background-image:repeating-linear-gradient(135deg,transparent 0 10px,rgba(127,127,127,.05) 10px 20px)}
-.rail{flex:0 0 var(--rail-w);border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:10px;background:var(--surface-2)}
+.rail{flex:0 0 var(--rail-w);width:var(--rail-w);max-width:var(--rail-w);overflow:hidden;border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:10px;background:var(--surface-2)}
 .platform{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:13px;align-self:flex-start;padding:5px 12px 5px 8px;border-radius:999px;color:#fff;background:var(--pc,#0866FF)}
 .platform .dotc{width:10px;height:10px;border-radius:50%;background:#fff;opacity:.9}
 .rail .stg{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .rail .obj{font-size:20px;font-weight:700;line-height:1.2}
 .rail .goal{color:var(--muted);font-size:13px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .rail .foot{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.rail .foot .chip{white-space:normal;border-radius:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .track{flex:1;overflow-x:auto;overflow-y:hidden;position:relative}
 .canvas{position:relative;display:grid;align-items:center;column-gap:var(--col-gap);padding:22px 28px;height:100%;min-width:max-content}
 .canvas svg.links{position:absolute;inset:0;pointer-events:none;overflow:visible}
@@ -111,18 +114,29 @@ button{font-family:inherit}
 .card .sub{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .card .tag{position:absolute;top:8px;left:8px;background:rgba(255,255,255,.92);color:#101828;font-size:10px;font-weight:600;border-radius:999px;padding:2px 8px;letter-spacing:.04em}
 .card .tag.r{left:auto;right:8px}
-.card.campaign{width:var(--card-campaign);height:min(260px, calc(var(--flow-h) - 60px))}
-.card.campaign .vis{background:linear-gradient(140deg,var(--pc,#0866FF),color-mix(in srgb,var(--pc,#0866FF) 55%, #000))}
+.card .lv{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:5px 10px;font-size:10px;font-weight:700;letter-spacing:.12em;color:#fff;background:var(--lvc)}
+.card .lv span:last-child{font-weight:600;letter-spacing:.02em;opacity:.92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .glyph{line-height:1}
+.card .facts{margin-top:5px;display:flex;flex-direction:column;gap:2px}
+.card .facts div{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Level 1: CAMPAIGN - platform colour, big rounded, thick border */
+.card.campaign{--lvc:var(--pc,#0866FF);width:var(--card-campaign);height:min(280px, calc(var(--flow-h) - 60px));border:2px solid var(--pc,#0866FF);border-radius:18px}
+.card.campaign .vis{background:linear-gradient(140deg,var(--pc,#0866FF),color-mix(in srgb,var(--pc,#0866FF) 55%, #000));flex-direction:column;gap:8px;display:flex;align-items:center;justify-content:center}
+.card.campaign .glyph{font-size:34px}
 .card.campaign .big{font-size:13px;font-weight:600;text-align:center;padding:0 16px;line-height:1.35}
 .card.campaign .big small{display:block;font-weight:400;opacity:.85;margin-top:4px}
-.card.adset{width:var(--card-adset);height:calc(100% - 8px);max-height:220px}
-.card.adset .vis{background:var(--brand-soft);color:var(--brand-ink);place-items:stretch;padding:12px;display:flex;flex-direction:column;gap:6px;justify-content:center}
-.card.adset .vis .k{display:flex;gap:8px;align-items:center;font-size:12px;font-weight:500}
-.card.adset .vis .k span:first-child{width:18px;text-align:center}
-.card.ad{width:var(--card-ad);height:calc(100% - 8px);max-height:240px}
-.card.ad .vis{background:var(--grad)}
-.card.ad .glyph{font-size:30px;opacity:.95;line-height:1}
+/* Level 2: AD SET - violet, medium radius, left accent */
+.card.adset{--lvc:var(--lv-set);width:var(--card-adset);height:calc(100% - 8px);max-height:236px;border:1.5px solid var(--lv-set);border-radius:12px}
+.card.adset .vis{background:linear-gradient(135deg,#6D3FD6,#9B6CF2);flex-direction:column;gap:2px;display:flex;align-items:center;justify-content:center;min-height:44px}
+.card.adset .glyph{font-size:26px}
+.card.adset .angle{font-size:11px;font-weight:600;opacity:.95}
+/* Level 3: AD - teal, squarer, creative gradient */
+.card.ad{--lvc:var(--lv-ad);width:var(--card-ad);height:calc(100% - 10px);max-height:156px;border:1.5px solid var(--lv-ad);border-radius:8px}
+.card.ad .vis{background:var(--grad);min-height:50px}
+.card.ad .glyph{font-size:30px;opacity:.95}
 .card.ad .angle{position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.colhead{display:flex;align-items:center;gap:6px;color:var(--lvc)}
+.colhead::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--lvc)}
 .pill{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600}
 .b-ok{background:var(--ok-soft);color:var(--ok)} .b-mid{background:var(--brand-soft);color:var(--brand-ink)}
 .b-warn{background:var(--warn-soft);color:var(--warn)} .b-bad{background:var(--bad-soft);color:var(--bad)}
@@ -233,13 +247,12 @@ app.appendChild(strip);
 app.appendChild(el('div',{class:'legend'},[el('span',{},[el('i'),'Campaign → ad set → ads']),el('span',{text:'Click any card for full settings, prompts and copy'}),el('span',{text:'Scroll sideways inside a flow'})]));
 
 /* Flows */
-const linkJobs=[];
+const linkJobs=[],colHeads=[];
 const var_row=()=>parseInt(getComputedStyle(document.documentElement).getPropertyValue('--row-h'))||196;
 flows.forEach(f=>{
-  const p=plat(f.platform); const adsets=f.adsets||[]; const n=Math.max(adsets.length,1);
-  const maxAds=Math.max(1,...adsets.map(a=>(a.ads||[]).length));
-  /* fixed height per flow: base height, grows only when a flow has 3+ ad sets so cards never clip */
-const flow=el('article',{class:'flow'+(f.status&&f.status!=='launch'?' planned':''),id:'flow-'+f.id,style:`--pc:${p.c};--flow-h:max(var(--flow-base-h), ${n*var_row()+48}px)`});
+  const p=plat(f.platform); const adsets=f.adsets||[]; const spans=adsets.map(a=>Math.max(1,(a.ads||[]).length)); const n=Math.max(1,spans.reduce((t,x)=>t+x,0));
+    /* fixed height per flow: base height, grows only when a flow has 3+ ad sets so cards never clip */
+const flow=el('article',{class:'flow'+(f.status&&f.status!=='launch'?' planned':''),id:'flow-'+f.id,style:`--pc:${p.c};--flow-h:max(var(--flow-base-h), ${n*var_row()+56}px)`});
   const foot=el('div',{class:'foot'},[
     f.budget?el('span',{class:'chip',text:f.budget}):null,
     f.flight?el('span',{class:'chip',text:flightText(f.flight)}):null,
@@ -252,46 +265,53 @@ const flow=el('article',{class:'flow'+(f.status&&f.status!=='launch'?' planned':
     el('div',{class:'goal',text:f.goal||''}),
     foot]));
   const track=el('div',{class:'track'}); const cv=el('div',{class:'canvas'});
-  cv.style.gridTemplateColumns=`var(--card-campaign) var(--card-adset) repeat(${maxAds}, var(--card-ad))`;
+  cv.style.gridTemplateColumns=`var(--card-campaign) var(--card-adset) var(--card-ad)`;
   cv.style.gridTemplateRows=`repeat(${n}, 1fr)`;
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'); svg.setAttribute('class','links'); cv.appendChild(svg);
   // Campaign card
   const c=f.campaign||{};
   const camp=el('button',{class:'card campaign',style:`grid-column:1;grid-row:1 / span ${n};align-self:center`,onclick:()=>openDrawer(c.name||'Campaign',campaignDetail(f))},[
-    el('div',{class:'vis'},[el('span',{class:'tag',text:'CAMPAIGN'}),f.budget?el('span',{class:'tag r',text:f.budget}):null,el('div',{class:'big'},[c.headline||f.objective||'',el('small',{text:c.optimise||''})])]),
-    el('div',{class:'txt'},[el('div',{class:'ttl',text:c.name||''}),el('div',{class:'sub',text:c.sub||''})])]);
+    el('div',{class:'lv'},[el('span',{text:'CAMPAIGN'}),el('span',{text:f.budget||''})]),
+    el('div',{class:'vis'},[el('span',{class:'glyph',text:'\u{1F4E3}'}),el('div',{class:'big'},[c.headline||f.objective||'',el('small',{text:c.optimise||''})])]),
+    el('div',{class:'txt'},[el('div',{class:'ttl',text:c.name||''}),el('div',{class:'sub',text:c.sub||(adsets.length+' ad set'+(adsets.length===1?'':'s')+' \u00b7 '+adsets.reduce((t,a)=>t+(a.ads||[]).length,0)+' ads')})])]);
   cv.appendChild(camp);
+  const firstAdset=[],firstAd=[];
+  let row=1;
   adsets.forEach((a,i)=>{
-    const facts=(a.facts||[]).slice(0,3);
-    const as=el('button',{class:'card adset',style:`grid-column:2;grid-row:${i+1}`,onclick:()=>openDrawer(a.name||'Ad set',adsetDetail(a))},[
-      el('div',{class:'vis'},facts.map(([ic,t])=>el('div',{class:'k'},[el('span',{text:ic}),el('span',{text:t})]))),
-      el('div',{class:'txt'},[el('div',{class:'ttl',text:a.name||''}),el('div',{class:'sub'},[confPill(a.confidence,'')])])]);
-    cv.appendChild(as); linkJobs.push([cv,svg,camp,as]);
-    let prev=as;
+    const sp=spans[i], r0=row; row+=sp;
+    const facts=(a.facts||[]).slice(0,3); const nAds=(a.ads||[]).length;
+    const as=el('button',{class:'card adset',style:`grid-column:2;grid-row:${r0} / span ${sp};align-self:center`,onclick:()=>openDrawer(a.name||'Ad set',adsetDetail(a))},[
+      el('div',{class:'lv'},[el('span',{text:'AD SET '+(adsets.length>1?(i+1)+'/'+adsets.length:'')}),el('span',{text:nAds+' ad'+(nAds===1?'':'s')})]),
+      el('div',{class:'vis'},[el('span',{class:'glyph',text:'\u{1F465}'}),a.audienceLabel?el('span',{class:'angle',text:a.audienceLabel}):null]),
+      el('div',{class:'txt'},[el('div',{class:'ttl',text:a.name||''}),el('div',{class:'facts'},facts.map(([ic,t])=>el('div',{text:ic+' '+t}))),el('div',{class:'sub',style:'margin-top:4px'},[confPill(a.confidence,'')])])]);
+    cv.appendChild(as); linkJobs.push([cv,svg,camp,as,'var(--lv-set)']); if(!i)firstAdset.push(as);
     (a.ads||[]).forEach((ad,j)=>{
       const fmt=(ad.format||'image').toLowerCase();
-      const card=el('button',{class:'card ad',style:`grid-column:${3+j};grid-row:${i+1};--grad:${ad.color||GRADS[j%GRADS.length]}`,onclick:()=>openDrawer(ad.name||'Ad',adDetail(ad))},[
-        el('div',{class:'vis'},[el('span',{class:'tag',text:(ad.ratio||'').toUpperCase()}),el('span',{class:'glyph',text:FORMAT_GLYPH[fmt]||'▣'}),el('span',{class:'angle',text:ad.angle||''})]),
+      const card=el('button',{class:'card ad',style:`grid-column:3;grid-row:${r0+j};--grad:${ad.color||GRADS[j%GRADS.length]}`,onclick:()=>openDrawer(ad.name||'Ad',adDetail(ad))},[
+        el('div',{class:'lv'},[el('span',{text:'AD '+(j+1)}),el('span',{text:(ad.ratio||'').toUpperCase()})]),
+        el('div',{class:'vis'},[el('span',{class:'glyph',text:FORMAT_GLYPH[fmt]||'\u25A3'}),el('span',{class:'angle',text:ad.angle||''})]),
         el('div',{class:'txt'},[el('div',{class:'ttl',text:ad.name||''}),el('div',{class:'sub',text:ad.format?ad.format[0].toUpperCase()+ad.format.slice(1):''})])]);
-      cv.appendChild(card); linkJobs.push([cv,svg,prev,card]); prev=card;
+      cv.appendChild(card); linkJobs.push([cv,svg,as,card,'var(--lv-ad)']); if(!i&&!j)firstAd.push(card);
     });
   });
+  [[camp,'CAMPAIGN','var(--pc)'],[firstAdset[0],'AD SETS','var(--lv-set)'],[firstAd[0],'ADS','var(--lv-ad)']].forEach(([card,t,col])=>{if(card)colHeads.push([cv,card,el('div',{class:'colhead',style:`--lvc:${col}`,text:t})])});
   if(!adsets.length){cv.appendChild(el('div',{class:'sub',style:'grid-column:2;color:var(--muted)',text:'Ad sets will be added when this campaign is funded.'}))}
   track.appendChild(cv); flow.appendChild(track); app.appendChild(flow);
 });
 
-function drawLinks(){
+function placeHeads(){colHeads.forEach(([cv,card,h])=>{if(!h.parentNode)cv.appendChild(h);h.style.left=card.offsetLeft+'px';h.style.top='6px'})}
+function drawLinks(){placeHeads();
   const byCv=new Map(); linkJobs.forEach(j=>{if(!byCv.has(j[0]))byCv.set(j[0],[]);byCv.get(j[0]).push(j)});
   byCv.forEach((jobs,cv)=>{const svg=jobs[0][1]; svg.innerHTML=''; const o=cv.getBoundingClientRect();
     svg.setAttribute('width',cv.scrollWidth); svg.setAttribute('height',cv.offsetHeight);
-    jobs.forEach(([, ,a,b])=>{const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();
+    jobs.forEach(([, ,a,b,col])=>{const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();
       const x1=A.right-o.left,y1=A.top+A.height/2-o.top,x2=B.left-o.left,y2=B.top+B.height/2-o.top,mx=(x1+x2)/2;
       const path=document.createElementNS('http://www.w3.org/2000/svg','path');
       path.setAttribute('d',`M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`);
-      path.setAttribute('fill','none');path.setAttribute('stroke','var(--dot)');path.setAttribute('stroke-width','2.5');
+      path.setAttribute('fill','none');path.setAttribute('stroke',col||'var(--dot)');path.setAttribute('stroke-width','2.5');
       path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-dasharray','0.1 7');
       svg.appendChild(path);
-      const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');dot.setAttribute('cx',x2-1);dot.setAttribute('cy',y2);dot.setAttribute('r','3.5');dot.setAttribute('fill','var(--brand)');svg.appendChild(dot);
+      const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');dot.setAttribute('cx',x2-1);dot.setAttribute('cy',y2);dot.setAttribute('r','3.5');dot.setAttribute('fill',col||'var(--brand)');svg.appendChild(dot);
     });});
 }
 window.addEventListener('resize',()=>requestAnimationFrame(drawLinks));
