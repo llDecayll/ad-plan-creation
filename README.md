@@ -105,6 +105,8 @@ Estimated time in a cloud session: about 55–60 minutes.
 - Runner agents must not open files with "key" in the name or any `grade_*` file.
 
 ## Changelog
+**0.8.1 (5 Oct 2026)**: plugin description shortened to 408 characters (the installer rejects more than 500).
+
 **0.8.0 (5 Oct 2026)**: Claude + ChatGPT image workflow (paste-ready image prompts, return-leg review skill `ad-creative-review`); read-only browser mode for Meta on desktop (guardrails §3 exception, `browser-readonly-meta.md`, skill `ad-data-pull`); Meta export guide (where to export, columns, 11 exports); `analyze_export.py` now reads Delivery status (learning limited, rejected, in review), location breaches and ranks ad sets and ads (`--creatives`). Browser flow untested in the cloud build: first-use dry run required.
 
 **0.7.0 (5 Oct 2026)**: whole-funnel feasibility verdict; per-campaign flight dates (start, end, length, phases, end action), target tables and machine-readable `monitor` rules, enforced by the renderer and shown on the board; Channel-role plan (`references/omnipresence.md`) across Facebook, Instagram, Google, YouTube, LinkedIn, X and the website; LinkedIn/X playbook (derived ranges); new skills `ad-monitor` (export reader with RED/AMBER/GREEN alerts on campaign-to-date and recent windows, brief rules, edit before/after reads, three outlooks, change prompts) and `ad-next-moves` (trend and audio/video research, existing-channel read, ranked moves); `scripts/analyze_export.py` and `scripts/merge_plan.py`. Tested on a synthetic degrading Meta export and a Google-style export; the two new skills were each run once blind and their gaps fixed. Not yet scored on a fresh Set.
