@@ -100,8 +100,14 @@ button{font-family:inherit}
 .rail .goal{color:var(--muted);font-size:13px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .rail .foot{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
 .rail .foot .chip{white-space:normal;border-radius:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.track{flex:1;overflow-x:auto;overflow-y:hidden;position:relative}
-.canvas{position:relative;display:grid;align-items:center;column-gap:var(--col-gap);padding:22px 28px;height:100%;min-width:max-content}
+.track{flex:1;overflow:hidden;position:relative;cursor:grab;touch-action:none;background-image:radial-gradient(circle,var(--line) 1px,transparent 1.2px);background-size:22px 22px}
+.track.panning{cursor:grabbing}
+.track.panning .card{pointer-events:none}
+.zoom{position:absolute;right:12px;bottom:12px;z-index:5;display:flex;align-items:center;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:3px}
+.zoom button{border:0;background:transparent;color:var(--ink);width:30px;height:28px;border-radius:7px;cursor:pointer;font-size:16px;line-height:1}
+.zoom button:hover{background:var(--surface-2)}
+.zoom .pct{min-width:46px;text-align:center;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.canvas{position:absolute;left:0;top:0;display:grid;align-items:center;column-gap:var(--col-gap);padding:34px 28px 22px;height:100%;width:max-content;transform-origin:0 0;will-change:transform}
 .canvas svg.links{position:absolute;inset:0;pointer-events:none;overflow:visible}
 .colhead{position:absolute;top:6px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
 
@@ -244,10 +250,10 @@ stages.forEach((s,i)=>{const fs=flows.filter(f=>(f.stage||'').toLowerCase()===s.
   strip.appendChild(el('button',{class:'stage'+(fs.length?' has':''),onclick:()=>{if(fs[0])document.getElementById('flow-'+fs[0].id).scrollIntoView({behavior:'smooth',block:'start'})}},[
     el('div',{class:'n',text:'Stage '+(i+1)}),el('div',{class:'t',text:s}),el('div',{class:'count',text:fs.length?fs.length+' campaign'+(fs.length>1?'s':''):'—'})]))});
 app.appendChild(strip);
-app.appendChild(el('div',{class:'legend'},[el('span',{},[el('i'),'Campaign → ad set → ads']),el('span',{text:'Click any card for full settings, prompts and copy'}),el('span',{text:'Scroll sideways inside a flow'})]));
+app.appendChild(el('div',{class:'legend'},[el('span',{},[el('i'),'Campaign → ad set → ads']),el('span',{text:'Click any card for full settings, prompts and copy'}),el('span',{text:'Drag to pan \u00b7 Ctrl/\u2318 + scroll or pinch to zoom \u00b7 use the \u2212 + \u2922 buttons'})]));
 
 /* Flows */
-const linkJobs=[],colHeads=[];
+const linkJobs=[],colHeads=[],zoomers=[];
 const var_row=()=>parseInt(getComputedStyle(document.documentElement).getPropertyValue('--row-h'))||196;
 flows.forEach(f=>{
   const p=plat(f.platform); const adsets=f.adsets||[]; const spans=adsets.map(a=>Math.max(1,(a.ads||[]).length)); const n=Math.max(1,spans.reduce((t,x)=>t+x,0));
@@ -296,16 +302,16 @@ const flow=el('article',{class:'flow'+(f.status&&f.status!=='launch'?' planned':
   });
   [[camp,'CAMPAIGN','var(--pc)'],[firstAdset[0],'AD SETS','var(--lv-set)'],[firstAd[0],'ADS','var(--lv-ad)']].forEach(([card,t,col])=>{if(card)colHeads.push([cv,card,el('div',{class:'colhead',style:`--lvc:${col}`,text:t})])});
   if(!adsets.length){cv.appendChild(el('div',{class:'sub',style:'grid-column:2;color:var(--muted)',text:'Ad sets will be added when this campaign is funded.'}))}
-  track.appendChild(cv); flow.appendChild(track); app.appendChild(flow);
+  track.appendChild(cv); flow.appendChild(track); app.appendChild(flow); setupZoom(track,cv);
 });
 
 function placeHeads(){colHeads.forEach(([cv,card,h])=>{if(!h.parentNode)cv.appendChild(h);h.style.left=card.offsetLeft+'px';h.style.top='6px'})}
 function drawLinks(){placeHeads();
   const byCv=new Map(); linkJobs.forEach(j=>{if(!byCv.has(j[0]))byCv.set(j[0],[]);byCv.get(j[0]).push(j)});
-  byCv.forEach((jobs,cv)=>{const svg=jobs[0][1]; svg.innerHTML=''; const o=cv.getBoundingClientRect();
-    svg.setAttribute('width',cv.scrollWidth); svg.setAttribute('height',cv.offsetHeight);
-    jobs.forEach(([, ,a,b,col])=>{const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();
-      const x1=A.right-o.left,y1=A.top+A.height/2-o.top,x2=B.left-o.left,y2=B.top+B.height/2-o.top,mx=(x1+x2)/2;
+  byCv.forEach((jobs,cv)=>{const svg=jobs[0][1]; svg.innerHTML='';
+    svg.setAttribute('width',cv.offsetWidth); svg.setAttribute('height',cv.offsetHeight);
+    jobs.forEach(([, ,a,b,col])=>{
+      const x1=a.offsetLeft+a.offsetWidth,y1=a.offsetTop+a.offsetHeight/2,x2=b.offsetLeft,y2=b.offsetTop+b.offsetHeight/2,mx=(x1+x2)/2;
       const path=document.createElementNS('http://www.w3.org/2000/svg','path');
       path.setAttribute('d',`M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`);
       path.setAttribute('fill','none');path.setAttribute('stroke',col||'var(--dot)');path.setAttribute('stroke-width','2.5');
@@ -314,7 +320,37 @@ function drawLinks(){placeHeads();
       const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');dot.setAttribute('cx',x2-1);dot.setAttribute('cy',y2);dot.setAttribute('r','3.5');dot.setAttribute('fill',col||'var(--brand)');svg.appendChild(dot);
     });});
 }
+/* n8n-style pan and zoom per flow */
+function setupZoom(track,cv){
+  const st={k:1,x:0,y:0}; const MIN=.25,MAX=2.5;
+  const pct=el('span',{class:'pct',text:'100%'});
+  const apply=()=>{cv.style.transform=`translate(${st.x}px,${st.y}px) scale(${st.k})`;pct.textContent=Math.round(st.k*100)+'%'};
+  const zoomAt=(px,py,k2)=>{k2=Math.min(MAX,Math.max(MIN,k2));st.x=px-(px-st.x)*k2/st.k;st.y=py-(py-st.y)*k2/st.k;st.k=k2;apply()};
+  const fit=()=>{const w=track.clientWidth,h=track.clientHeight,cw=cv.offsetWidth,ch=cv.offsetHeight;if(!w||!cw)return;
+    const k=Math.min(1,w/cw,h/ch);st.k=k;st.x=Math.max(0,(w-cw*k)/2);st.y=Math.max(0,(h-ch*k)/2);apply()};
+  const mid=()=>[track.clientWidth/2,track.clientHeight/2];
+  track.appendChild(el('div',{class:'zoom'},[
+    el('button',{title:'Zoom out','aria-label':'Zoom out',text:'\u2212',onclick:e=>{e.stopPropagation();zoomAt(...mid(),st.k/1.25)}}),pct,
+    el('button',{title:'Zoom in','aria-label':'Zoom in',text:'+',onclick:e=>{e.stopPropagation();zoomAt(...mid(),st.k*1.25)}}),
+    el('button',{title:'Fit to view','aria-label':'Fit to view',text:'\u2922',onclick:e=>{e.stopPropagation();fit()}})]));
+  track.addEventListener('wheel',e=>{
+    const r=track.getBoundingClientRect();
+    if(e.ctrlKey||e.metaKey){e.preventDefault();zoomAt(e.clientX-r.left,e.clientY-r.top,st.k*Math.exp(-e.deltaY*(e.deltaMode?0.05:0.0025)))}
+    else if(e.shiftKey||Math.abs(e.deltaX)>Math.abs(e.deltaY)){e.preventDefault();st.x-=e.deltaX||e.deltaY;apply()}
+  },{passive:false});
+  let drag=null,moved=false;
+  track.addEventListener('pointerdown',e=>{if(e.button!==0||e.target.closest('.zoom'))return;drag={x:e.clientX,y:e.clientY,ox:st.x,oy:st.y,id:e.pointerId};moved=false});
+  track.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
+    if(!moved&&Math.hypot(dx,dy)>5){moved=true;track.classList.add('panning');try{track.setPointerCapture(drag.id)}catch(_){}}
+    if(moved){st.x=drag.ox+dx;st.y=drag.oy+dy;apply()}});
+  const end=()=>{drag=null;track.classList.remove('panning')};
+  track.addEventListener('pointerup',end);track.addEventListener('pointercancel',end);
+  track.addEventListener('click',e=>{if(moved){e.stopPropagation();e.preventDefault();moved=false}},true);
+  track.addEventListener('dblclick',e=>{if(!e.target.closest('.card'))fit()});
+  zoomers.push(fit);apply();
+}
 window.addEventListener('resize',()=>requestAnimationFrame(drawLinks));
+window.addEventListener('load',()=>setTimeout(()=>zoomers.forEach(f=>f()),50));
 (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>requestAnimationFrame(drawLinks));
 setTimeout(drawLinks,300);
 
