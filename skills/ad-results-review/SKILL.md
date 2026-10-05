@@ -5,6 +5,8 @@ description: Reviews real Meta Ads or Google Ads results against the plan's pred
 
 # Ad Results Review (learning loop)
 
+For ongoing monitoring with alerts, outlook scenarios and change prompts use `${CLAUDE_PLUGIN_ROOT}/skills/ad-monitor/SKILL.md`; this skill is for the ledger-focused predicted-vs-actual review.
+
 **First read `${CLAUDE_PLUGIN_ROOT}/references/guardrails.md` and follow it.** No Iugale Workspace (read-only only if the user explicitly asks to read a named item there; never write), no other Iugale skills, no ad-account access, no individual lead data.
 
 ## Inputs

@@ -42,6 +42,9 @@ Read `${CLAUDE_PLUGIN_ROOT}/references/vertical-playbooks.md` (Universal truths 
 9. **Operating constraints.** Apply hours, capacity, time zones and response times: ad schedules or away messages, day-part offers, callback scheduling (vertical-playbooks.md local services).
 10. **Funnel layering by budget.** Lower funnel first; retargeting only with a real pool; upper funnel when lower funnel is funded or when awareness is genuinely the goal.
 11. **Multiple goals** get separate campaigns, never one campaign with mixed objectives.
+12. **Feasibility verdict.** For the stated goal, say plainly how achievable it is (probability band and the main dependency), using the real-outcome economics, the forecast ranges and the funnel (stranger → lead → qualified → customer → repeat). Show which campaign carries which funnel stage.
+13. **Channel-role plan** per `${CLAUDE_PLUGIN_ROOT}/references/omnipresence.md`: give every channel (Facebook/Instagram, Google Search, YouTube, LinkedIn, X, website, owned) a job, a share of budget or a Deferred trigger, and say how the channels support each other and how the combined effect will be measured. LinkedIn and X follow `${CLAUDE_PLUGIN_ROOT}/references/linkedin-x-playbook.md`.
+14. **Flight and targets per campaign.** Every launch campaign gets a start date, end date, length, phases and an end action (renew, scale, review or stop), and a target table (metric, range, alert rule). Planned campaigns get a trigger and an intended length. Every launch campaign also gets a machine-readable `monitor` block (see html-output.md) so `ad-monitor` can judge exports against it.
 
 ## Phase D: Platform plans
 
@@ -70,7 +73,7 @@ Assemble the plan using `${CLAUDE_PLUGIN_ROOT}/references/output-template.md`.
 
 ## When the user later shares results
 
-Hand off to `${CLAUDE_PLUGIN_ROOT}/skills/ad-results-review/SKILL.md`.
+Hand off to `${CLAUDE_PLUGIN_ROOT}/skills/ad-monitor/SKILL.md` (reads exports, alerts, change prompts, outlooks). For new campaigns, ad sets, formats and trend research hand off to `${CLAUDE_PLUGIN_ROOT}/skills/ad-next-moves/SKILL.md`. For ledger-only reviews use `${CLAUDE_PLUGIN_ROOT}/skills/ad-results-review/SKILL.md`. In the plan, state the monitoring cadence (day 3/7/14/21/30, then weekly) and the exact data to send each time.
 
 ## v0.5.3 reminders
 - Sequence GBP fixes and tracking fixes before the campaigns that depend on them.

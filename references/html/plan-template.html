@@ -242,6 +242,7 @@ flows.forEach(f=>{
 const flow=el('article',{class:'flow'+(f.status&&f.status!=='launch'?' planned':''),id:'flow-'+f.id,style:`--pc:${p.c};--flow-h:max(var(--flow-base-h), ${n*var_row()+48}px)`});
   const foot=el('div',{class:'foot'},[
     f.budget?el('span',{class:'chip',text:f.budget}):null,
+    f.flight?el('span',{class:'chip',text:flightText(f.flight)}):null,
     confPill(f.confidence,''),
     f.status&&f.status!=='launch'?el('span',{class:'pill status',text:f.statusLabel||f.status}):null]);
   flow.appendChild(el('aside',{class:'rail'},[
@@ -306,9 +307,13 @@ const H4=t=>el('h4',{text:t});
 function kvTable(rows){if(!rows||!rows.length)return null;const t=el('table',{class:'kv'});rows.forEach(r=>{const[k,v,why,conf]=r;t.appendChild(el('tr',{},[el('td',{text:k}),el('td',{},[v||'',why?el('span',{class:'why',text:why}):null,conf!=null&&conf!==''?el('span',{style:'margin-left:6px'},[confPill(conf,'')]):null])]))});return t}
 function copyBlock(text){if(!text)return null;const btn=el('button',{class:'copy',text:'Copy'});const d=el('div',{class:'block'},[text,btn]);btn.onclick=e=>{e.stopPropagation();navigator.clipboard&&navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy',1200)})};return d}
 function list(items){if(!items||!items.length)return null;return el('ul',{},items.map(x=>el('li',{text:x})))}
+function flightText(fl){return [fl.start&&fl.end?fl.start+' \u2192 '+fl.end:(fl.trigger||''),fl.days?fl.days+'d':''].filter(Boolean).join(' \u00b7 ')}
+function flightRows(fl){if(!fl)return null;return [['Runs',flightText(fl)],fl.phases?['Phases',fl.phases]:null,fl.endAction?['At the end',fl.endAction]:null,fl.trigger&&fl.start?['Starts when',fl.trigger]:null].filter(Boolean)}
 function campaignDetail(f){const c=f.campaign||{};return[
   el('div',{style:'display:flex;gap:6px;flex-wrap:wrap'},[el('span',{class:'chip',text:plat(f.platform).label}),el('span',{class:'chip',text:f.stage||''}),f.budget?el('span',{class:'chip',text:f.budget}):null,confPill(f.confidence,'Confidence ')]),
   f.goal?el('p',{text:f.goal,style:'margin:12px 0 0'}):null,
+  f.flight?H4('Flight'):null,kvTable(flightRows(f.flight)),
+  f.targets?H4('Targets and alert rules'):null,kvTable(f.targets),
   c.settings?H4('Settings'):null,kvTable(c.settings),
   f.forecast?H4('Forecast'):null,kvTable(f.forecast),
   c.raise?H4('What would raise confidence'):null,list(c.raise),

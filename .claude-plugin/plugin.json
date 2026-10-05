@@ -1,9 +1,20 @@
 {
   "name": "ad-creation",
-  "version": "0.6.1",
-  "description": "Senior performance-marketing planner for Meta Ads and Google Ads. Takes a website URL and a business goal, researches the site, tracking, competitors and current platform policy, then recommends campaigns, conversion locations, budgets, lead-form questions, URL parameters and five creative prompts per campaign, each with a confidence score. Includes a results-review loop that learns from real campaign numbers.",
+  "version": "0.7.0",
+  "description": "Senior performance-marketing planner for Meta (Facebook and Instagram), Google/YouTube, LinkedIn and X ads. Takes a website URL and a business goal, researches the site, tracking, competitors and policy, then plans a full-funnel set of campaigns with budgets, tight locations, flights, targets, channel roles, ad creatives and confidence scores. Then keeps watch: reads your campaign exports, alerts with change prompts and outlook scenarios, and researches trends to recommend the next campaigns and ad sets.",
   "author": {
     "name": "Deepak, Iugale Services Pvt Ltd"
   },
-  "keywords": ["meta ads", "google ads", "performance marketing", "campaign planning", "lead generation", "creative prompts"]
+  "keywords": [
+    "meta ads",
+    "google ads",
+    "performance marketing",
+    "campaign planning",
+    "lead generation",
+    "creative prompts",
+    "linkedin ads",
+    "x ads",
+    "campaign monitoring",
+    "trend research"
+  ]
 }

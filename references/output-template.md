@@ -46,9 +46,12 @@ Fixes needed, exact URL parameter strings, CRM fields to capture.
 ## 10. Policy & risks
 From policy-watch.md, with dates checked.
 
+## 10b. Feasibility, channel roles and flights
+Goal feasibility verdict and funnel map · Channel-role plan table (omnipresence.md) · Flight table per campaign (start, end, length, phases, end action) · Targets and alert rules per campaign.
+
 ## 11. Launch & optimisation timeline
 Day 0 checklist · Days 1-3 (don't touch) · Days 4-7 (first read) · Week 2 (creative refresh) · Weeks 3-4 (one test at a time) · Monthly lead-quality review.
-Include the "send me these numbers on day 7" list for the results review.
+Include the "send me these numbers on day 7" list for the results review, and the monitoring cadence (day 3/7/14/21/30, then weekly) for `ad-monitor`.
 
 ## 12. Appendix
 Confidence factor breakdowns, benchmark sources, full competitor notes.

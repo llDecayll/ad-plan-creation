@@ -66,3 +66,9 @@ Adapt thresholds to the client's economics and state them in ₹.
 
 ## L. v0.5.5 clarification
 - Money amounts in plans use the client's currency; the "₹ needed" phrases in rulebooks mean "amount needed in the client's currency".
+
+## M. v0.7.0 additions
+- ★ Every launch campaign has a `flight` (start, end, days, endAction), a `targets` table and a `monitor` block (the renderer enforces this); planned campaigns have a trigger and an intended length.
+- ★ A feasibility verdict for the stated goal (probability band, main dependency) and the funnel map: which campaign carries which stage.
+- ★ A Channel-role plan (omnipresence.md): every relevant channel (Facebook/Instagram, Google, YouTube, LinkedIn, X, website, owned) has a role, a budget share or a Deferred trigger, a frequency/overlap note and a measurement note. LinkedIn/X lines are labelled "derived, not benchmarked".
+- A monitoring cadence and the exact data to send at each check (monitoring-playbook.md §1-2).

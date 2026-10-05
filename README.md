@@ -16,10 +16,14 @@ After launch, share results (exports or screenshots, aggregate only) and it comp
 ## Skills
 | Skill | Use it for |
 |---|---|
-| ad-strategy | Full plan across Meta and Google (start here) |
+| ad-strategy | Full plan across Facebook/Instagram, Google/YouTube, LinkedIn and X, with feasibility verdict, channel roles, flights and targets per campaign (start here) |
 | meta-ads-planner | Meta-only plan |
 | google-ads-planner | Google-only plan |
-| ad-results-review | Reviewing real results and updating the learnings ledger |
+| ad-monitor | Keeps watch: reads your campaign exports (Meta, Google, LinkedIn, X) against the plan and your own brief, alerts, gives three outlooks and ready-to-paste change prompts |
+| ad-next-moves | Market and trend research (video, audio, formats) plus your existing channels, to recommend the next campaign, ad set or creative |
+| ad-results-review | Ledger-focused predicted-vs-actual review |
+
+**How "keep an eye" works:** the plugin cannot watch an ad account (no account access, by design). You send the export on a cadence (day 3, 7, 14, 21, 30, then weekly; every 2-3 days when RED). `scripts/analyze_export.py` reads it, applies the plan's `monitor` rules plus the rules you explain in a brief (`references/monitor-brief-template.md`), and the skill adds judgement. Updates go back into the plan with `scripts/merge_plan.py`.
 
 Example prompts:
 - "Plan ads for paintkraft.in — we want WhatsApp enquiries in Bangalore, ₹1,000/day."
@@ -42,7 +46,7 @@ Platform rules change monthly. The plugin checks policy and platform changes liv
 The look lives in `references/html/plan-template.html`. Edit the design tokens at the top of its `<style>` block (font, `--brand` colour, `--flow-base-h` flow height, card widths) or the layout itself. Plans keep working as long as the `/*__PLAN_DATA__*/` placeholder stays. The data format is in `references/html-output.md`.
 
 ## Continuation plan (for a cloud session)
-Status at v0.6.1 (4 Oct 2026): plugin built and rules updated after Round 4.
+Status at v0.7.0 (4 Oct 2026): plugin built and rules updated after Round 4.
 
 | Test | Version | Score |
 |---|---|---|
@@ -58,7 +62,7 @@ Status at v0.6.1 (4 Oct 2026): plugin built and rules updated after Round 4.
 | Fresh Set C (Round 3) | v0.5.5 | 47.5/59 = 80.5% |
 | Fresh Set D (Round 4) | v0.6.0 | 54.0/59 = 91.5% (all traps passed) |
 
-**Round 1 is complete and graded** (`dev/evals/grade_r1_S.md`, `grade_r1_A.md`; runs in `dev/evals/runs/r1_*.md`). v0.5.2 applies its fixes. **Round 2 (Set B on v0.5.2) is complete and graded at 82.1%** (`dev/evals/grade_r2_B.md`; runs in `dev/evals/runs/r2_*.md`). v0.5.3 applies its fixes. Re-runs of Set B scored 85.7% (v0.5.3) and 88.4% (v0.5.4). **Round 3 (fresh Set C on v0.5.5) scored 80.5%** (`dev/evals/grade_r3_C.md`); v0.6.0 applies its fixes. **Round 4 (fresh Set D on v0.6.0) scored 91.5%** (`dev/evals/grade_r4_D.md`), 0.3 points under the 92% target; v0.6.1 applies its small fixes (untested). **Next: a fresh Set E to test v0.6.1 (earlier note: a fresh Set D to test v0.6.0 (Set B is now tuned-to; run-to-run noise is about ±1.5 points). The 92% target has not yet been met on a fresh set since v0.5.1 Set A.**
+**Round 1 is complete and graded** (`dev/evals/grade_r1_S.md`, `grade_r1_A.md`; runs in `dev/evals/runs/r1_*.md`). v0.5.2 applies its fixes. **Round 2 (Set B on v0.5.2) is complete and graded at 82.1%** (`dev/evals/grade_r2_B.md`; runs in `dev/evals/runs/r2_*.md`). v0.5.3 applies its fixes. Re-runs of Set B scored 85.7% (v0.5.3) and 88.4% (v0.5.4). **Round 3 (fresh Set C on v0.5.5) scored 80.5%** (`dev/evals/grade_r3_C.md`); v0.6.0 applies its fixes. **Round 4 (fresh Set D on v0.6.0) scored 91.5%** (`dev/evals/grade_r4_D.md`), 0.3 points under the 92% target; v0.6.1 applies its small fixes (untested). **Next: a fresh Set E to test v0.7.0 (planning) and a monitoring test set of 5-6 real-shaped exports (monitoring and next-moves are only smoke-tested) (earlier note: a fresh Set D to test v0.6.0 (Set B is now tuned-to; run-to-run noise is about ±1.5 points). The 92% target has not yet been met on a fresh set since v0.5.1 Set A.**
 
 **Hard rules (do not change):** never add or push anything to the Iugale Workspace unless Deepak says so; plugin stays independent of other Iugale skills; no ad-account connections (aggregate numbers only, no lead PII); push only to this repo's `main` when asked.
 
@@ -88,6 +92,8 @@ Estimated time in a cloud session: about 55–60 minutes.
 - Runner agents must not open files with "key" in the name or any `grade_*` file.
 
 ## Changelog
+**0.7.0 (5 Oct 2026)**: whole-funnel feasibility verdict; per-campaign flight dates (start, end, length, phases, end action), target tables and machine-readable `monitor` rules, enforced by the renderer and shown on the board; Channel-role plan (`references/omnipresence.md`) across Facebook, Instagram, Google, YouTube, LinkedIn, X and the website; LinkedIn/X playbook (derived ranges); new skills `ad-monitor` (export reader with RED/AMBER/GREEN alerts on campaign-to-date and recent windows, brief rules, edit before/after reads, three outlooks, change prompts) and `ad-next-moves` (trend and audio/video research, existing-channel read, ranked moves); `scripts/analyze_export.py` and `scripts/merge_plan.py`. Tested on a synthetic degrading Meta export and a Google-style export; the two new skills were each run once blind and their gaps fixed. Not yet scored on a fresh Set.
+
 **0.6.1 (4 Oct 2026)**: Round 4 fixes (fresh Set D 91.5%): LTV-based scale thresholds, qualified-enquiry definition and reply targets, space-operator, marketplace and fixed-inventory service rules.
 
 **0.6.0 (4 Oct 2026)**: Round 3 fixes (fresh Set C 80.5%): playbooks for hotels, multi-outlet restaurants, financial advisory, healthcare/fertility, B2B export and SaaS; new `references/claims-and-compliance.md`; staged-start, 3:1 LTV:CAC verdict, capacity weighting and a final minimum-budget ladder; booking-widget and offline-sales tracking; more derived benchmarks and intake questions. Not yet re-tested on a fresh set.

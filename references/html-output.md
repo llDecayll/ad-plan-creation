@@ -44,6 +44,18 @@ Do not hand-write a different layout. The design lives in the template; if the u
       "status": "launch",                    // launch | planned
       "statusLabel": "Phase 2",              // shown when status is planned
       "forecast": [["Metric", "Range", "Source/why", 50]],
+      "flight": {                            // required for launch flows (validated)
+        "start": "2026-10-12", "end": "2026-11-10", "days": 30,   // ISO dates; days must match
+        "phases": "Days 1-14 learn, 15-30 scale or fix",
+        "endAction": "renew | scale | review | stop and why"
+        // planned flows: "trigger": "what must be true first", "days": 21 (no dates needed)
+      },
+      "targets": [["Cost per lead", "₹80-160", "Alert if > ₹240 for 3 days"]],   // required for launch flows; shown in the drawer
+      "monitor": {                           // required for launch flows; read by scripts/analyze_export.py
+        "match": "AGV | Meta | Leads",       // text that appears in the campaign name in the export
+        "cprLow": 80, "cprHigh": 160, "cprAlert": 240,   // cost per result: forecast range and kill/fix line
+        "ctrMin": 0.8, "freqMax": 3.5, "cvrMin": 3, "dailyBudget": 500, "resultsPerDayMin": 2
+      },
       "campaign": {
         "name": "AGV | Meta | Leads | WhatsApp | KA",
         "headline": "Leads → WhatsApp",      // big text on the card visual
@@ -100,9 +112,12 @@ Do not hand-write a different layout. The design lives in the template; if the u
 | Lead forms, WhatsApp scripts | Ad-set drawer (`script`, `form`) |
 | Forecasts | Campaign drawer (`forecast`) |
 | Deferred campaigns (₹ needed, client decision), Other channels to consider, Client asks declined + alternatives | `sections` → Summary tab (lists/tables) |
-| Test-and-scale table (day 3/7/14/30) | `sections` → Launch tab (table) |
+| Channel-role plan (channel, role, budget share, flight, trigger) | `sections` → Summary tab (table) |
+| Test-and-scale table (day 3/7/14/30) and monitoring cadence | `sections` → Launch tab (table) |
 | Confidence summary, research, tracking & URLs, policy, launch timeline | `sections` tabs: Summary · Confidence · Research · Tracking & URLs · Policy · Launch |
 
-Planned or later campaigns are still shown as flows (status `planned`) so the whole customer journey is visible, with their trigger in the campaign settings. A planned flow may have no ad sets yet.
+Planned or later campaigns are still shown as flows (status `planned`) so the whole customer journey is visible. A planned flow may have no ad sets yet but must carry `budget`, `flight.trigger` (and an intended `days`) and `targets` with a success target and kill rule. Confidence values must be numbers.
+
+To add campaigns or ad sets later, or to add the Results tab after a monitor read, write a delta and run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/merge_plan.py plan.json delta.json plan.json` (see the script's header for the delta keys); it validates before writing.
 
 A worked example is in `${CLAUDE_PLUGIN_ROOT}/examples/agrovest-plan.json`.

@@ -8,6 +8,7 @@ The template defaults to ../references/html/plan-template.html relative to this 
 """
 import json
 import sys
+from datetime import date
 from pathlib import Path
 
 PLATFORMS = {"meta", "google", "youtube", "tiktok", "linkedin", "x", "snapchat",
@@ -35,6 +36,41 @@ def validate(plan):
             errs.append(f"{where}.platform '{f.get('platform')}' not one of {sorted(PLATFORMS)}")
         if str(f.get("stage", "")).lower() not in stages:
             errs.append(f"{where}.stage '{f.get('stage')}' not in stages {stages}")
+        fl = f.get("flight")
+        launch = str(f.get("status", "launch")).lower() == "launch"
+        if launch and not fl:
+            errs.append(f"{where}.flight is required for launch flows (start, end, days, endAction)")
+        if fl:
+            try:
+                if fl.get("start") and fl.get("end"):
+                    d0, d1 = date.fromisoformat(fl["start"]), date.fromisoformat(fl["end"])
+                    if d1 < d0:
+                        errs.append(f"{where}.flight.end is before start")
+                    elif fl.get("days") and (d1 - d0).days + 1 != int(fl["days"]):
+                        errs.append(f"{where}.flight.days ({fl['days']}) does not match start/end ({(d1 - d0).days + 1})")
+                elif launch:
+                    errs.append(f"{where}.flight needs ISO start and end dates (YYYY-MM-DD)")
+                elif not fl.get("trigger"):
+                    errs.append(f"{where}.flight for a planned flow needs a trigger")
+            except ValueError:
+                errs.append(f"{where}.flight dates must be ISO YYYY-MM-DD")
+            if launch and not fl.get("endAction"):
+                errs.append(f"{where}.flight.endAction missing (renew, scale, stop, or review)")
+        if not launch:
+            if not f.get("budget"):
+                errs.append(f"{where}.budget is required for planned flows (amount needed)")
+            if not f.get("targets"):
+                errs.append(f"{where}.targets is required for planned flows (success target and kill rule)")
+        for j, a in enumerate(f.get("adsets", [])):
+            for k, ad in enumerate(a.get("ads", [])):
+                if ad.get("confidence") is not None and not isinstance(ad["confidence"], (int, float)):
+                    errs.append(f"{where}.adsets[{j}].ads[{k}].confidence must be a number")
+            if a.get("confidence") is not None and not isinstance(a["confidence"], (int, float)):
+                errs.append(f"{where}.adsets[{j}].confidence must be a number")
+        if launch and not (f.get("monitor") or {}).get("match"):
+            errs.append(f"{where}.monitor.match is required for launch flows (campaign-name text the export will contain)")
+        if launch and not f.get("targets"):
+            errs.append(f"{where}.targets is required for launch flows (metric, range, alert rule)")
         for j, a in enumerate(f.get("adsets", [])):
             if len(a.get("facts", [])) > 3:
                 errs.append(f"{where}.adsets[{j}].facts has more than 3 items (80/20 rule)")
