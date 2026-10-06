@@ -64,7 +64,7 @@ Platform rules change monthly. The plugin checks policy and platform changes liv
 The look lives in `references/html/plan-template.html`. Edit the design tokens at the top of its `<style>` block (font, `--brand` colour, `--flow-base-h` flow height, card widths) or the layout itself. Plans keep working as long as the `/*__PLAN_DATA__*/` placeholder stays. The data format is in `references/html-output.md`.
 
 ## Continuation plan (for a cloud session)
-Status at v0.9.0 (4 Oct 2026): plugin built and rules updated after Round 4.
+Status at v0.9.0 (6 Oct 2026): plugin built and rules updated after Round 4.
 
 | Test | Version | Score |
 |---|---|---|
@@ -111,6 +111,13 @@ Estimated time in a cloud session: about 55–60 minutes.
 
 ## Changelog
 **0.9.0 (6 Oct 2026)**: ideas adapted from meta-ads-kit (MIT, credited in `NOTICE.md`): `--briefing` mode (the five daily questions), fatigue alerts on the daily series (CTR decay, CPC inflation, delivery decline), bleeder flag in `--creatives`, and a read-only pixel + Conversions API checklist (`references/pixel-capi-checklist.md`) wired into monitoring and the browser read. README lists related projects.
+**0.8.4 (5 Oct 2026)**: campaign info moves from the left rail to a header band above each flow.
+
+**0.8.3 (5 Oct 2026)**: n8n-style pan/zoom on flow boards.
+
+**0.8.2 (5 Oct 2026)**: board cards split into distinct campaign / ad set / ad levels with image sections and a branching tree layout.
+
+**0.8.1 (5 Oct 2026)**: plugin description shortened to 408 characters (the installer rejects more than 500).
 
 **0.8.0 (5 Oct 2026)**: Claude + ChatGPT image workflow (paste-ready image prompts, return-leg review skill `ad-creative-review`); read-only browser mode for Meta on desktop (guardrails §3 exception, `browser-readonly-meta.md`, skill `ad-data-pull`); Meta export guide (where to export, columns, 11 exports); `analyze_export.py` now reads Delivery status (learning limited, rejected, in review), location breaches and ranks ad sets and ads (`--creatives`). Browser flow untested in the cloud build: first-use dry run required.
 
