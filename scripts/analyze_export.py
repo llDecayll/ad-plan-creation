@@ -4,6 +4,7 @@
 Usage:
   python3 analyze_export.py export.csv --plan plan.json [--flow FLOW_ID] [--today YYYY-MM-DD] [--json]
   python3 analyze_export.py export.csv --rules rules.json [--today YYYY-MM-DD] [--json]
+  --briefing prints the five daily questions in short form (on track, what is running, performance, winners/losers, fatigue).
   --creatives ranks ad sets and ads inside each campaign (needs ad set / ad name columns).
   Extra options: --edit 2026-10-20="creative swap" (repeatable: before/after read), and --rules together with --plan
   (your monitor-brief rules are merged over the plan's: brief wins). --today defaults to the last date in the export.
@@ -335,6 +336,31 @@ def alerts_for(rule, a, series, today, name=None):
             if p_ctr and c_ctr < p_ctr * 0.75:
                 add("AMBER", "CTR_FALLING", f"CTR {c_ctr:.2f}% vs {p_ctr:.2f}% in the previous 3 days",
                     "Attention is falling.", "Queue a fresh creative now, before cost per result moves.")
+    # Fatigue signals (idea adapted from meta-ads-kit, MIT): CTR decay, CPC inflation, delivery decline
+    if series and len(series) >= 5:
+        ds = sorted(series)
+        ctrs = [series[d]["clicks"] / series[d]["impressions"] * 100 if series[d]["impressions"] else 0 for d in ds]
+        cpcs = [series[d]["spend"] / series[d]["clicks"] if series[d]["clicks"] else 0 for d in ds]
+        imps = [series[d]["impressions"] for d in ds]
+        def declining(v, n=3):
+            return all(v[-i - 1] < v[-i - 2] for i in range(n)) if len(v) > n else False
+        def rising(v, n=3):
+            return all(v[-i - 1] > v[-i - 2] for i in range(n)) if len(v) > n else False
+        peak = max(ctrs)
+        if declining(ctrs) and peak and ctrs[-1] < peak * 0.8:
+            sev = "RED" if (any(x["code"].startswith("FREQUENCY_HIGH") for x in A) or (rule.get("freqMax") and freq > rule["freqMax"])) else "AMBER"
+            add(sev, "FATIGUE_CTR_DECAY", f"CTR fell 3+ days in a row and is {100 - ctrs[-1] / peak * 100:.0f}% below its peak ({peak:.2f}% -> {ctrs[-1]:.2f}%)",
+                "Classic creative fatigue: attention decays before cost per result moves.",
+                "Queue a new creative angle now (duplicate ad set, do not edit the winner); rotate out the weakest ad.")
+        base = [c for c in cpcs[:3] if c]
+        if base and rising(cpcs) and cpcs[-1] > sum(base) / len(base) * 1.15:
+            add("AMBER", "CPC_INFLATION", f"cost per click rose 3+ days in a row, {cpcs[-1] / (sum(base) / len(base)) * 100 - 100:.0f}% above the first-3-day baseline",
+                "Auction pressure or fatigue is making clicks more expensive.",
+                "Compare CPM and frequency; if frequency is high refresh creative, if CPM spiked hold through the event/festival.")
+        if declining(imps) and imps[0] and imps[-1] < imps[0] * 0.8:
+            add("AMBER", "DELIVERY_DECLINE", f"impressions fell 3+ days in a row ({imps[0]:,.0f} -> {imps[-1]:,.0f})",
+                "The campaign is losing delivery: audience saturation, budget/bid limits, or review issues.",
+                "Check delivery status, audience size and bid caps; widen the audience inside the hard boundary.")
     if any(x["code"] == "BRIEF_RULE_CPR_DAYS" for x in A):
         dup = [x for x in A if x["code"] in ("RECENT_CPR_OVER_ALERT", "CPR_OVER_ALERT")]
         A = [x for x in A if x not in dup]
@@ -387,6 +413,9 @@ def creative_table(rows, m, campaign_name, rule, level_key):
             flag = "WINNER"
         elif alert and d["cpr"] and d["spend"] >= alert and d["cpr"] > alert:
             flag = "LOSER (CPR over alert)"
+        total_sp = sum(v.get("spend", 0) for v in agg_.values()) or 1
+        if rule.get("ctrMin") and d["ctr"] and d["ctr"] < rule["ctrMin"] and d["impressions"] >= 1000 and d["spend"] >= total_sp * 0.10:
+            flag = (flag + " " if flag else "") + "BLEEDER (>=10% of spend, CTR under minimum)"
         if rule.get("freqMax") and d["freq"] and d["freq"] > rule["freqMax"]:
             flag = (flag + " " if flag else "") + "FATIGUE"
         out.append({"name": k, "spend": round(d["spend"]), "results": round(d["results"]), "cpr": round(d["cpr"]),
@@ -507,6 +536,24 @@ def main():
         if series and edits:
             item["edits"] = [edit_effect(series, d, lab) for d, lab in edits]
         report.append(item)
+    if "--briefing" in args:
+        order_ = {"RED": 0, "AMBER": 1, "GREEN": 2}
+        planned = sum((r.get("dailyBudget") or 0) for r in rules)
+        spend_total = sum(it["metrics"].get("spend", 0) for it in report)
+        last_day = max((d for c in camp_days.values() for d in c), default=None)
+        last_spend = sum(c[last_day]["spend"] for c in camp_days.values() if last_day in c) if last_day else 0
+        print("# Briefing: the five questions")
+        print(f"1. On track? Latest day spend {last_spend:,.0f} vs planned {planned:,.0f}/day; total in export {spend_total:,.0f}.")
+        print(f"2. What is running? {len(report)} campaign(s): " + ", ".join(f"{it['campaign']} ({it['rule'] or 'no rule'})" for it in report))
+        for it in report:
+            mt = it["metrics"]
+            print(f"3. Performance: {it['campaign']}: CPR {mt.get('cpr', 0):,.0f}, CTR {mt.get('ctr', 0):.2f}%, freq {mt.get('freq', 0):.1f}, results {mt.get('results', 0):,.0f}")
+        print("4. Winners/losers: run with --creatives for the ranked ad sets and ads.")
+        fat = [(it["campaign"], a) for it in report for a in it["alerts"] if a["code"].startswith(("FATIGUE", "CPC_INFL", "DELIVERY", "FREQUENCY"))]
+        print("5. Fatigue: " + ("; ".join(f"{c}: {a['code']}" for c, a in fat) if fat else "none flagged"))
+        worst = sorted((a["severity"] for it in report for a in it["alerts"]), key=lambda x: order_[x])
+        print(f"Overall: {'RED' if 'RED' in worst else 'AMBER' if 'AMBER' in worst else 'GREEN'}")
+        return
     if "--json" in args:
         print(json.dumps(report, indent=2, ensure_ascii=False))
         return

@@ -20,6 +20,7 @@ If no export is attached, use `${CLAUDE_PLUGIN_ROOT}/skills/ad-data-pull/SKILL.m
 ## Steps
 Follow `${CLAUDE_PLUGIN_ROOT}/references/monitoring-playbook.md`:
 1. Turn the user's brief into rules (the brief outranks plan defaults) and run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/analyze_export.py <export.csv> --plan <plan.json> [--rules brief.json] [--edit DATE="what changed"]` (convert XLSX to CSV first; add `--creatives` when ad-set/ad data exists; add every edit date the user mentions or the Activity history shows). Fix any "no rule" or "refused" message first. If the export lacks a daily column, ad-set level or a location column the brief needs, ask for it.
+1b. For a quick read run `--briefing` (the five daily questions); use `${CLAUDE_PLUGIN_ROOT}/references/pixel-capi-checklist.md` to read tracking health from Events Manager (read only).
 2. Add judgement the script cannot: seasonality, recent edits, tracking, stock/capacity, creative uploads, competitors.
 3. Diagnose by funnel stage (delivery → attention → action → quality → close).
 4. For each campaign give **three outlooks** (if nothing changes, if the fix works, if it worsens) with assumptions and the date a kill rule would trigger.

@@ -33,6 +33,11 @@ No individual lead data. Refuse files with name/email/phone columns.
 ## 4. Alert rules (what the script flags)
 RECENT variants (CTR_LOW_RECENT, FREQUENCY_HIGH_RECENT) · BRIEF_RULE_CPR_DAYS · BRIEF_RULE_BUDGET_CAP · LOCATION_BREACH / LOCATION_UNVERIFIED · EDIT effect lines. Base alerts: TOO_EARLY / LOW_DATA (no verdict) · NO_RESULTS · CPR_OVER_ALERT · RECENT_CPR_OVER_ALERT (recent days collapse while the average looks fine) · CPR_ABOVE_RANGE · CPR_TOO_GOOD (check quality and double-counting) · CPR_ON_TARGET · CTR_LOW · CTR_FALLING · FREQUENCY_HIGH · CVR_LOW · UNDERSPEND · OVERSPEND · RESULTS_PACE (learning-limited) · IS_LOST_BUDGET (Google) · TREND_WORSENING.
 
+## 4b. The five daily questions (briefing) and fatigue signals
+Run `analyze_export.py ... --briefing` for a short daily read (idea adapted from meta-ads-kit, MIT; see NOTICE.md): 1) On track (latest-day spend vs planned)? 2) What is running? 3) How is performance? 4) Who is winning or losing (`--creatives`)? 5) Any fatigue?
+Fatigue signals the script checks on the daily series: CTR falling 3+ days in a row and ≥20% below its peak (FATIGUE_CTR_DECAY; RED when frequency is also over the limit), CPC rising 3+ days in a row and ≥15% above the first-3-day baseline (CPC_INFLATION), impressions falling 3+ days in a row and ≥20% (DELIVERY_DECLINE), and recent frequency over the limit. `--creatives` marks BLEEDERS: an ad using ≥10% of the campaign's spend with CTR under the minimum.
+For tracking health use `references/pixel-capi-checklist.md` (read-only).
+
 ## 5. Escalation ladder (how hard to act)
 GREEN: hold or scale ≤20% per 3-4 days. AMBER: one change at a time in a duplicate, 3-4 day read. RED: stop scaling, diagnose tracking/delivery/creative in that order, cut budget 30-50% after 7 more days if unresolved (the script prints the date). Never respond to one bad day. **Cadence:** RED = re-check every 2-3 days until it clears; AMBER = every 3-4 days; GREEN = weekly. A RED overrides the day-14/weekly schedule. The user's brief rules override this ladder where they differ.
 
