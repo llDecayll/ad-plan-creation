@@ -508,6 +508,11 @@ def main():
         raise SystemExit("No campaign-name column found. Send a campaign-level export.")
     key_campaign = lambda r: r.get(m["campaign"], "").strip()
     camp, camp_days = agg(rows, m, key_campaign)
+    # Drop days with no delivery (pre-launch / paused rows): they are not live days and distort pacing and trends.
+    for k in list(camp_days):
+        camp_days[k] = {d: v for d, v in camp_days[k].items() if v["spend"] > 0 or v["impressions"] > 0}
+    idle = [k for k, a in camp.items() if a.get("spend", 0) == 0 and a.get("impressions", 0) == 0]
+    camp = {k: a for k, a in camp.items() if k not in idle}
     if today is None:
         all_days = [d for c in camp_days.values() for d in c]
         today = max(all_days) if all_days else None
@@ -536,6 +541,8 @@ def main():
         if series and edits:
             item["edits"] = [edit_effect(series, d, lab) for d, lab in edits]
         report.append(item)
+    if idle and "--json" not in args and "--briefing" not in args:
+        print("No delivery in this date range (ignored): " + "; ".join(idle))
     if "--briefing" in args:
         order_ = {"RED": 0, "AMBER": 1, "GREEN": 2}
         planned = sum((r.get("dailyBudget") or 0) for r in rules)
